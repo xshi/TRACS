@@ -1,0 +1,542 @@
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 0 simulating ramo current - drifting 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+=============================================
+Initial parameters: 
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||                 119 ||          60
+   1   ||        p1 ||  fixed  ||                  40 ||
+   2   ||        p2 ||  fixed  ||                 300 ||
+   3   ||        p3 ||  free   ||               4e-12 ||          60
+
+
+
+=============================================
+=============================================
+tolerance= 10
+chiFinal= 0.001
+=============================================
+=============================================
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35434
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=0 chi2=6746.05	p[0]=119	p[1]=40	p[2]=300	p[3]=4e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35045
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=1 chi2=7157.13	p[0]=121.406	p[1]=40	p[2]=300	p[3]=4e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 34997
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=2 chi2=6387.49	p[0]=116.594	p[1]=40	p[2]=300	p[3]=4e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 34781
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=3 chi2=6784.79	p[0]=119.241	p[1]=40	p[2]=300	p[3]=4e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35531
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=4 chi2=6707.83	p[0]=118.759	p[1]=40	p[2]=300	p[3]=4e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35054
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=5 chi2=51948.9	p[0]=119	p[1]=40	p[2]=300	p[3]=2.40632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 34705
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=6 chi2=51948.9	p[0]=119	p[1]=40	p[2]=300	p[3]=-2.40632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35340
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=7 chi2=51948.9	p[0]=119	p[1]=40	p[2]=300	p[3]=0.240632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35437
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=8 chi2=51948.9	p[0]=119	p[1]=40	p[2]=300	p[3]=-0.240632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35585
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=9 chi2=23649.1	p[0]=101.372	p[1]=40	p[2]=300	p[3]=9.77146e-11	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35463
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=10 chi2=7032.52	p[0]=117.74	p[1]=40	p[2]=300	p[3]=1.06977e-11	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35625
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=11 chi2=6661.39	p[0]=118.74	p[1]=40	p[2]=300	p[3]=5.38275e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35682
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=12 chi2=6653.63	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.25586e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35635
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=13 chi2=6657.17	p[0]=118.6	p[1]=40	p[2]=300	p[3]=6.25586e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35407
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=14 chi2=6650.09	p[0]=118.552	p[1]=40	p[2]=300	p[3]=6.25586e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35614
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=15 chi2=51948.9	p[0]=118.576	p[1]=40	p[2]=300	p[3]=0.0240632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 36310
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=16 chi2=51948.9	p[0]=118.576	p[1]=40	p[2]=300	p[3]=-0.0240632	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35910
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=17 chi2=51878.8	p[0]=113.713	p[1]=40	p[2]=300	p[3]=1.15295e-07	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35865
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=18 chi2=50527.4	p[0]=118.333	p[1]=40	p[2]=300	p[3]=5.77072e-09	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35873
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=19 chi2=33922.4	p[0]=118.564	p[1]=40	p[2]=300	p[3]=2.94479e-10	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35909
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=20 chi2=9501.17	p[0]=118.575	p[1]=40	p[2]=300	p[3]=2.0667e-11	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 36359
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=21 chi2=6690.45	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.97641e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35807
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=22 chi2=6655	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.29188e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35985
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=23 chi2=6653.7	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.25766e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 34861
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=24 chi2=6653.63	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.25595e-12	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 35634
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=25 chi2=6653.63	p[0]=118.576	p[1]=40	p[2]=300	p[3]=6.25586e-12	
+-------------------------------------------------------------------------------------> 
+Fit failed
+Total time: 923
+MINIMIZATION OUTCOME: 
+WARNING: Minuit did not converge.
+
+# of function calls: 17
+minimum function Value: 6653.628946161
+minimum edm: 1192.330059373
+minimum internal state vector: LAVector parameters:
+      118.5756661103
+  6.255855540341e-12
+
+minimum internal covariance matrix: LASymMatrix parameters:
+    0.066115173  -1.440704e-09
+  -1.440704e-09  1.2809796e-06
+
+
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||      118.5756661103 ||0.2571287091829
+   1   ||        p1 ||  fixed  ||                  40 ||
+   2   ||        p2 ||  fixed  ||                 300 ||
+   3   ||        p3 ||  free   ||  6.255855540341e-12 ||0.001131803681223
+
+
+
+WARNING: FunctionMinimum is invalid: 
+	 Edm is above max
+
+
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   1  1
+Thread with tid 0 is OUTSIDE the critical section 
+fp depleted: -0.000888889
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Height 0 of 0 || Y Position 0 of 0 || Voltage 100 of 100
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.

@@ -1,0 +1,1732 @@
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 0 simulating ramo current - drifting 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 simulating ramo current - drifting 
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 2 simulating ramo current - drifting 
+    Solving linear variational problem.
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+Thread with tid 3 simulating ramo current - drifting 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TFile::Append>: Replacing existing TH1: (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: BL (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: PBL (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: V(t)-bl (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+=============================================
+p0=-25
+p1=0
+p2=0
+p3=10
+p4=0
+p5=120
+p6=220
+p7=300
+=============================================
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TFile::Append>: Replacing existing TH1: (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: BL (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: PBL (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+Warning in <TFile::Append>: Replacing existing TH1: V(t)-bl (0.000000,0.000000,0.000000),Vb=300.000000 (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=0 chi2=1402.69	p[0]=-25	p[1]=0	p[2]=0	p[3]=10	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=1 chi2=1402.69	p[0]=-25	p[1]=0	p[2]=0	p[3]=10	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=2 chi2=1402.69	p[0]=-25	p[1]=0	p[2]=0	p[3]=10	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+    Solving linear variational problem.
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=3 chi2=1402.69	p[0]=-25	p[1]=0	p[2]=0	p[3]=10	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=4 chi2=1402.68	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99995	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=5 chi2=1421.05	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.86628	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=6 chi2=1404.89	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.98155	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=7 chi2=1401.67	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99719	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=8 chi2=1383.34	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99271	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=9 chi2=1408.01	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.98247	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=10 chi2=1409.55	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.98759	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=11 chi2=1382.44	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99015	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=12 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.9911	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=13 chi2=1383.51	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99158	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=14 chi2=1382.39	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99062	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=15 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99115	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=16 chi2=1382.4	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99105	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=17 chi2=1383.51	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99158	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=18 chi2=1382.39	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99062	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Info in <Minuit2>: DavidonErrorUpdator: delgam < 0 : first derivatives increasing along search line
+Info in <Minuit2>: VariableMetricBuilder: matrix not pos.def, gdel > 0
+Info in <Minuit2>: gdel = 10.9614
+Info in <Minuit2>: gdel = -1.3853e+06
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=19 chi2=153119	p[0]=-25	p[1]=0	p[2]=0	p[3]=-1167	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=20 chi2=126251	p[0]=-25	p[1]=0	p[2]=0	p[3]=-520.406	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=21 chi2=98353.2	p[0]=-25	p[1]=0	p[2]=0	p[3]=-211.004	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=22 chi2=59454.6	p[0]=-25	p[1]=0	p[2]=0	p[3]=-70.4988	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+  Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=23 chi2=13106.5	p[0]=-25	p[1]=0	p[2]=0	p[3]=-14.9594	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TH1::TH1>: nbins is <=0 - set to nbins = 1
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=24 chi2=4296.89	p[0]=-25	p[1]=0	p[2]=0	p[3]=1.07532	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=25 chi2=2238.71	p[0]=-25	p[1]=0	p[2]=0	p[3]=6.5022	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=26 chi2=1652.03	p[0]=-25	p[1]=0	p[2]=0	p[3]=8.54765	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=27 chi2=1508.22	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.36823	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+    Solving linear variational problem.
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=28 chi2=1453.02	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.72528	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=29 chi2=1437.01	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.88267	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Info in <Minuit2>: VariableMetricBuilder: no improvement in line search
+Info in <Minuit2>: VariableMetricBuilder: iterations finish without convergence.
+Info in <Minuit2>: VariableMetricBuilder : edm = 864349
+Info in <Minuit2>:             requested : edmval = 0.0002
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=30 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.9911	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=31 chi2=1383.51	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99158	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=32 chi2=1382.39	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99062	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=33 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99111	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=34 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.99109	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=35 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.9911	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+    Solving linear variational problem.
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=36 chi2=1382.41	p[0]=-25	p[1]=0	p[2]=0	p[3]=9.9911	p[4]=0	p[5]=120	p[6]=220	p[7]=300	
+-------------------------------------------------------------------------------------> 
+Info in <Minuit2>: VariableMetricBuilder: Edm has been re-computed after Hesse
+Info in <Minuit2>: new value is now smaller than the required tolerance, : edm = 0.00015722
+Fit success
+MINIMIZATION OUTCOME: 
+Minuit did successfully converge.
+# of function calls: 37
+minimum function Value: 1382.406385474
+minimum edm: 0.0001572202295469
+minimum internal state vector: LAVector parameters:
+      9.991101041584
+
+minimum internal covariance matrix: LASymMatrix parameters:
+   4.187018e-07
+
+
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  fixed  ||                 -25 ||
+   1   ||        p1 ||  fixed  ||                   0 ||
+   2   ||        p2 ||  fixed  ||                   0 ||
+   3   ||        p3 ||  free   ||      9.991101041584 ||0.0006470717152861
+   4   ||        p4 ||  fixed  ||                   0 ||
+   5   ||        p5 ||  fixed  ||                 120 ||
+   6   ||        p6 ||  fixed  ||                 220 ||
+   7   ||        p7 ||  fixed  ||                 300 ||
+
+
+
+
+
+Thread with tid 0 is INSIDE the critical section 
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+i_ramo_array[xlen][ylen]   4  1
+Thread with tid 0 is OUTSIDE the critical section 
+Thread with tid 1 is INSIDE the critical section 
+Solving linear variational problem.
+Thread with tid 1 is OUTSIDE the critical section 
+Thread with tid 2 is INSIDE the critical section 
+  Solving linear variational problem.
+  Solving linear variational problem.
+Thread with tid 2 is OUTSIDE the critical section 
+    Solving linear variational problem.
+Thread with tid 3 is INSIDE the critical section 
+    Solving linear variational problem.
+    Solving linear variational problem.
+Thread with tid 3 is OUTSIDE the critical section 
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+      Solving linear variational problem.
+Height 80 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+      Building point search tree to accelerate distance queries.
+      Computed bounding box tree with 89999 nodes for 45000 points.
+    Solving linear variational problem.
+Height 140 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+    Building point search tree to accelerate distance queries.
+    Computed bounding box tree with 89999 nodes for 45000 points.
+Height 200 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Height 260 of 260 || Y Position 10 of 10 || Voltage 300 of 300
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
