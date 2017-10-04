@@ -67,7 +67,13 @@ void call_from_thread_FitNorm(int tid,std::string& carrier_name_FileThr, const s
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
 	//mtx.unlock();
 	TRACSsim[tid]->set_tcount(tid);
-	if(tid==0) TRACSsim[tid]->write_header(tid);
+	if(tid==0) {
+		TRACSsim[tid]->write_header(tid);
+		for (int i = 0 ; i < vItotals.size() ; i++){
+			for (int j = 0 ; j < vItotals[i].size() ; j++)
+				vItotals[i][j] = 0;
+		}
+	}
 
 	TRACSsim[tid]->set_Fit_Norm(par);
 	TRACSsim[tid]->loop_on(tid);
