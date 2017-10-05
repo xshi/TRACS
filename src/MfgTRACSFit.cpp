@@ -397,6 +397,11 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	static int icalls ;
 	boost::posix_time::ptime start = boost::posix_time::second_clock::local_time();
 
+	for (int i = 0 ; i < vItotals.size() ; i++){
+			for (int j = 0 ; j < vItotals[i].size() ; j++)
+				vItotals[i][j] = 0;
+		}
+
 	for (int i = 0; i < num_threads; ++i) {
 		if (irradiated) t[i] = std::thread(call_from_thread_FitPar, i, std::ref(carrierThread_fileNames[i]), vector_zValues, vector_yValues, vector_voltValues ,par);
 		else t[i] = std::thread(call_from_thread_FitNorm, i, std::ref(carrierThread_fileNames[i]), vector_zValues, vector_yValues, vector_voltValues ,par);
@@ -424,6 +429,11 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	}
 
 	return chi2 ;
+
+	for (int i = 0 ; i < vItotals.size() ; i++){
+		for (int j = 0 ; j < vItotals[i].size() ; j++)
+			vItotals[i][j] = 0;
+	}
 
 
 }

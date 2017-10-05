@@ -510,9 +510,9 @@ void TRACSInterface::loop_on(int tid)
 	int index_total = 0;
 	int i,j;
 	i = 0; j = 0;
-    //mtx2.lock();
+    mtx2.lock();
 	detector->solve_w_u();
-	//mtx2.unlock();
+	mtx2.unlock();
 
 	if (scanType == "edge"){
 		//Voltage scan
@@ -522,9 +522,9 @@ void TRACSInterface::loop_on(int tid)
 			//mtx2.lock();
 			//calculate_fields();
 			//mtx2.unlock();
-			//mtx2.lock();
+			mtx2.lock();
 			detector->solve_d_u();
-			//mtx2.unlock();
+			mtx2.unlock();
 			detector->solve_w_f_grad();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
@@ -560,9 +560,9 @@ void TRACSInterface::loop_on(int tid)
 		for (int index_volt = 0; index_volt < voltVector.size() ; index_volt++){
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
-			//mtx2.lock();
+			mtx2.lock();
 			detector->solve_d_u();
-			//mtx2.unlock();
+			mtx2.unlock();
 			detector->solve_w_f_grad();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();

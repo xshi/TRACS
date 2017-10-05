@@ -12,11 +12,9 @@
  */
 
 /************************************threading************************************
- *
  * Next functions are used to create modularity in TRACS. Call_from_thread functions can be called from any external program, it launches a whole process of
  * TRACS with all the functionalities in there. Used for the fitting purposes where TRACS needs to be executed several time, called by Migrand. The unique difference between
  * both functions showed below, is the inclusion or not of the setting of the Neff parameters, depending on which part of de code we will need to calculate it or just set it.
- *
  *
  */
 #include "../include/Threading.h"
@@ -30,13 +28,11 @@ extern std::vector<TRACSInterface*> TRACSsim;
  */
 void call_from_thread(int tid, std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector, const std::vector<double>& voltVector) {
 	// every thread instantiates a new TRACSInterface object
-
-	//mtx.lock();
+	mtx.lock();
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	//mtx.unlock();
+	mtx.unlock();
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0)TRACSsim[tid]->write_header(tid);
-
 	TRACSsim[tid]->loop_on(tid);
 }
 /**
@@ -47,13 +43,11 @@ void call_from_thread(int tid, std::string& carrier_name_FileThr, const std::vec
 void call_from_thread_FitPar(int tid, std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector,
 		const std::vector<double>& voltVector, const std::vector<Double_t>& par) {
 	// every thread instantiates a new TRACSInterface object
-
-	//mtx.lock();
+	mtx.lock();
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	//mtx.unlock();
+	mtx.unlock();
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0) TRACSsim[tid]->write_header(tid);
-
 	TRACSsim[tid]->set_FitParam(par);
 	TRACSsim[tid]->loop_on(tid);
 
@@ -62,19 +56,11 @@ void call_from_thread_FitPar(int tid, std::string& carrier_name_FileThr, const s
 void call_from_thread_FitNorm(int tid,std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector,
 		const std::vector<double>& voltVector, const std::vector<Double_t>& par) {
 	// every thread instantiates a new TRACSInterface object
-
-	//mtx.lock();
+	mtx.lock();
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	//mtx.unlock();
+	mtx.unlock();
 	TRACSsim[tid]->set_tcount(tid);
-	if(tid==0) {
-		TRACSsim[tid]->write_header(tid);
-		for (int i = 0 ; i < vItotals.size() ; i++){
-			for (int j = 0 ; j < vItotals[i].size() ; j++)
-				vItotals[i][j] = 0;
-		}
-	}
-
+	if(tid==0) TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->set_Fit_Norm(par);
 	TRACSsim[tid]->loop_on(tid);
 
