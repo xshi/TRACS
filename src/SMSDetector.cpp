@@ -195,9 +195,9 @@ void SMSDetector::solve_w_u()
 		bcs.push_back(&central_strip_BC);
 		bcs.push_back(&neighbour_strip_BC);
 		bcs.push_back(&backplane_BC);
-		mtxD.lock();
+	//	mtxD.lock();
 		solve(_a_p == _L_p , _w_u, bcs);
-		mtxD.unlock();
+	//	mtxD.unlock();
 	//}
 
 
@@ -272,9 +272,9 @@ void SMSDetector::solve_d_u()
 		bcs.push_back(&central_strip_BC);
 		bcs.push_back(&neighbour_strip_BC);
 		bcs.push_back(&backplane_BC);
-		mtxD.lock();
+	//	mtxD.lock();
 		solve(_a_p == _L_p , _d_u, bcs);
-		mtxD.unlock();
+	//	mtxD.unlock();
 	//}
 }
 

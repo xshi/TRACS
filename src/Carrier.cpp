@@ -183,10 +183,10 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 			{
 
 
-				safeRead.lock();
+			//	safeRead.lock();
 				_detector->get_d_f_grad()->eval(wrap_e_field, wrap_x);
 				_detector->get_w_f_grad()->eval(wrap_w_field, wrap_x);
-				safeRead.unlock();
+			//	safeRead.unlock();
 
 				_e_field_mod = sqrt(_e_field[0]*_e_field[0] + _e_field[1]*_e_field[1]);
 

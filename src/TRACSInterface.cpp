@@ -75,9 +75,10 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	//Dolfin instruction por mesh boundary extrapolation
 	parameters["allow_extrapolation"] = true;
 
-	mtx2.lock(); //Thread-safe for dolfin data type
+//	mtx2.lock(); //Thread-safe for dolfin data type
+	std::unique_lock<std::mutex> guard(mtx2);
 	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
-	mtx2.unlock();
+	guard.unlock();
 
 	carrierCollection = new CarrierCollection(detector);
 	//QString carrierFileName = QString::fromUtf8(carrFile.c_str());
@@ -428,7 +429,9 @@ void TRACSInterface::set_FitParam(std::vector<double> newFitParam)
 	fitNorm = newFitParam[8];
 	depth = newFitParam[9];
 	delete detector;
+	std::unique_lock<std::mutex> guard(mtx2);
 	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
+	guard.unlock();
 	//detector->setFitParameters(newFitParam);
 
 }
@@ -441,8 +444,9 @@ void TRACSInterface::set_Fit_Norm(std::vector<double> vector_fitTri)
 	depth = vector_fitTri[2];
 	C = vector_fitTri[3];
 	delete detector;
+	std::unique_lock<std::mutex> guard(mtx2);
 	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
-
+	guard.unlock();
 }
 
 
@@ -510,9 +514,9 @@ void TRACSInterface::loop_on(int tid)
 	int index_total = 0;
 	int i,j;
 	i = 0; j = 0;
-    mtx2.lock();
+	std::unique_lock<std::mutex> guard(mtx2);
 	detector->solve_w_u();
-	mtx2.unlock();
+	guard.unlock();
 
 	if (scanType == "edge"){
 		//Voltage scan
@@ -522,9 +526,11 @@ void TRACSInterface::loop_on(int tid)
 			//mtx2.lock();
 			//calculate_fields();
 			//mtx2.unlock();
-			mtx2.lock();
+			
+			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-			mtx2.unlock();
+			guard.unlock();
+
 			detector->solve_w_f_grad();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
@@ -537,10 +543,11 @@ void TRACSInterface::loop_on(int tid)
 				i_total = i_elec + i_hole;
 
 				GetItRc();
-				mtx2.lock();
 				i_temp = vItotals[index_total];
+				
+				std::unique_lock<std::mutex> guard(mtx2);
 				vItotals[index_total] = i_shaped + i_temp;
-				mtx2.unlock();
+				guard.unlock();
 
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
@@ -560,9 +567,11 @@ void TRACSInterface::loop_on(int tid)
 		for (int index_volt = 0; index_volt < voltVector.size() ; index_volt++){
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
-			mtx2.lock();
+			
+			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-			mtx2.unlock();
+			guard.unlock();
+
 			detector->solve_w_f_grad();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
@@ -574,10 +583,12 @@ void TRACSInterface::loop_on(int tid)
 				i_total = i_elec + i_hole;
 
 				GetItRc();
-				mtx2.lock();
+				
 				i_temp = vItotals[index_total];
+
+				std::unique_lock<std::mutex> guard(mtx2);
 				vItotals[index_total] = i_shaped + i_temp;
-				mtx2.unlock();
+				guard.unlock();
 
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;

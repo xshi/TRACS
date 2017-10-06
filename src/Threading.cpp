@@ -28,9 +28,9 @@ extern std::vector<TRACSInterface*> TRACSsim;
  */
 void call_from_thread(int tid, std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector, const std::vector<double>& voltVector) {
 	// every thread instantiates a new TRACSInterface object
-	mtx.lock();
+	//std::lock_guard<std::mutex> lock(mtx);
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	mtx.unlock();
+	//std::lock_guard<std::mutex> unlock(mtx);	
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0)TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->loop_on(tid);
@@ -43,9 +43,9 @@ void call_from_thread(int tid, std::string& carrier_name_FileThr, const std::vec
 void call_from_thread_FitPar(int tid, std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector,
 		const std::vector<double>& voltVector, const std::vector<Double_t>& par) {
 	// every thread instantiates a new TRACSInterface object
-	mtx.lock();
+	//std::lock_guard<std::mutex> lock(mtx);
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	mtx.unlock();
+	//std::lock_guard<std::mutex> unlock(mtx);
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0) TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->set_FitParam(par);
@@ -56,9 +56,9 @@ void call_from_thread_FitPar(int tid, std::string& carrier_name_FileThr, const s
 void call_from_thread_FitNorm(int tid,std::string& carrier_name_FileThr, const std::vector<double>& zVector, const std::vector<double>& yVector,
 		const std::vector<double>& voltVector, const std::vector<Double_t>& par) {
 	// every thread instantiates a new TRACSInterface object
-	mtx.lock();
+	//std::lock_guard<std::mutex> lock(mtx);
 	TRACSsim[tid] = new TRACSInterface(fnm, carrier_name_FileThr, zVector, yVector, voltVector);
-	mtx.unlock();
+	//std::lock_guard<std::mutex> unlock(mtx);
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0) TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->set_Fit_Norm(par);
