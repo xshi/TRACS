@@ -139,20 +139,30 @@ int main( int argc, char *argv[]) {
 
 	spread_into_threads();
 	double timeSteps = (int) std::floor(max_time / dTime);
+	int total_sizeZ = vector_voltValues.size() * vector_zValues.size();
+	int total_sizeY = vector_voltValues.size() * vector_yValues.size();
 
 	if (scanType == "edge"){
-		i_rc_array.resize(vector_voltValues.size());
-		vItotals.resize(vector_voltValues.size()* vector_zValues.size());
-		for (int i = 0; i < vector_voltValues.size() ; i++)
+		if (vector_yValues.size() > 1){
+			std::cout << "This execution is wrongly configured with edge-TCT; Check parameters." << std::endl;
+			std::quick_exit(1);
+		}
+		i_rc_array.resize(total_sizeZ);
+		vItotals.resize(total_sizeZ);
+		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
 		//i_rc_array[i].resize(vector_zValues.size());
 	}
 
 
 	if (scanType == "top" || scanType == "bottom"){
-		i_rc_array.resize(vector_voltValues.size());
-		vItotals.resize(vector_voltValues.size()* vector_yValues.size());
-		for (int i = 0; i < vector_voltValues.size() ; i++)
+		if (vector_zValues.size() > 1){
+			std::cout << "This execution is wrongly configured with top/bottom-TCT; Check parameters." << std::endl;
+			std::quick_exit(1);
+		}
+		i_rc_array.resize(total_sizeY);
+		vItotals.resize(total_sizeY);
+		for (int i = 0; i < total_sizeY ; i++)
 			//i_rc_array[i].resize(vector_yValues.size());
 			vItotals[i].resize(timeSteps);
 
@@ -398,9 +408,9 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	boost::posix_time::ptime start = boost::posix_time::second_clock::local_time();
 
 	for (int i = 0 ; i < vItotals.size() ; i++){
-			for (int j = 0 ; j < vItotals[i].size() ; j++)
-				vItotals[i][j] = 0;
-		}
+		for (int j = 0 ; j < vItotals[i].size() ; j++)
+			vItotals[i][j] = 0;
+	}
 
 	for (int i = 0; i < num_threads; ++i) {
 		if (irradiated) t[i] = std::thread(call_from_thread_FitPar, i, std::ref(carrierThread_fileNames[i]), vector_zValues, vector_yValues, vector_voltValues ,par);

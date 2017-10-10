@@ -106,20 +106,33 @@ int main( int argc, char *argv[]) {
 
 	spread_into_threads();
 	double timeSteps = (int) std::floor(max_time / dTime);
+	int total_sizeZ = vector_voltValues.size() * vector_zValues.size();
+	int total_sizeY = vector_voltValues.size() * vector_yValues.size();
+
 
 	if (scanType == "edge"){
-		i_rc_array.resize(vector_voltValues.size());
-		vItotals.resize(vector_voltValues.size()* vector_zValues.size());
-		for (int i = 0; i < vector_voltValues.size() ; i++)
+		if (vector_yValues.size() > 1){
+					std::cout << "This execution is wrongly configured with edge-TCT; Check parameters." << std::endl;
+					std::quick_exit(1);
+				}
+		//i_rc_array.resize(vector_voltValues.size());
+		i_rc_array.resize(total_sizeZ);
+		vItotals.resize(total_sizeZ);
+		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
 			//i_rc_array[i].resize(vector_zValues.size());
 	}
 
 
 	if (scanType == "top" || scanType == "bottom"){
-		i_rc_array.resize(vector_voltValues.size());
-		vItotals.resize(vector_voltValues.size()* vector_yValues.size());
-		for (int i = 0; i < vector_voltValues.size() ; i++)
+		if (vector_zValues.size() > 1){
+					std::cout << "This execution is wrongly configured with top/bottom-TCT; Check parameters." << std::endl;
+					std::quick_exit(1);
+				}
+		//i_rc_array.resize(vector_voltValues.size());
+		i_rc_array.resize(total_sizeY);
+		vItotals.resize(total_sizeY);
+		for (int i = 0; i < total_sizeY ; i++)
 			//i_rc_array[i].resize(vector_yValues.size());
 			vItotals[i].resize(timeSteps);
 
@@ -129,6 +142,11 @@ int main( int argc, char *argv[]) {
 		for (int j = 0 ; j < vItotals[i].size() ; j++)
 			vItotals[i][j] = 0;
 	}
+
+	/*for (int i = 0 ; i < vItotals.size() ; i++){
+						for (int j = 0 ; j < vItotals[i].size() ; j++)
+							std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
+					}*/
 
 
 	TRACSsim.resize(num_threads);
@@ -143,9 +161,9 @@ int main( int argc, char *argv[]) {
 
 	//Current to rc array of TH1D -> root file
 	if (scanType == "edge"){
-		for (int i = 0 ; i < vector_voltValues.size(); i++ ){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
 
-			for (int j = 0 ; j <= vector_zValues.size(); j++ ){
+			//for (int j = 0 ; j <= vector_zValues.size(); j++ ){
 				TString htit, hname;
 				htit.Form("ramo_rc%d%d", 0, count2);
 				hname.Form("Ramo_current_%d_%d", 0, count2);
@@ -158,7 +176,7 @@ int main( int argc, char *argv[]) {
 				i_rc_array[i] = i_rc;
 				i_rc = nullptr;
 				count2++;
-			}
+			//}
 
 		}
 
@@ -167,9 +185,9 @@ int main( int argc, char *argv[]) {
 
 	//Current to rc array of TH1D -> root file
 	if (scanType == "top" || scanType == "bottom"){
-		for (int i = 0 ; i < vector_voltValues.size(); i++ ){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
 
-			for (int j = 0 ; j <= vector_yValues.size(); j++ ){
+			//for (int j = 0 ; j <= vector_yValues.size(); j++ ){
 				TString htit, hname;
 				htit.Form("ramo_rc%d%d", 0, count2);
 				hname.Form("Ramo_current_%d_%d", 0, count2);
@@ -181,15 +199,15 @@ int main( int argc, char *argv[]) {
 				i_rc_array[i] = i_rc;
 				i_rc = nullptr;
 				count2++;
-			}
+			//}
 
 		}
 
 	}
-	//for (int i = 0 ; i < vItotals.size() ; i++){
-	//		for (int j = 0 ; j < vItotals[i].size() ; j++)
-	//			std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-	//	}
+	/*for (int i = 0 ; i < vItotals.size() ; i++){
+			for (int j = 0 ; j < vItotals[i].size() ; j++)
+				std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
+		}*/
 
 
 
@@ -295,126 +313,4 @@ void spread_into_threads(){
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

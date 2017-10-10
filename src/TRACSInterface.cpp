@@ -557,6 +557,10 @@ void TRACSInterface::loop_on(int tid)
 
 			if (tid == 0) fields_hist_to_file(tid, index_volt);
 		}
+		//for (int i = 0 ; i < vItotals.size() ; i++){
+		//			for (int j = 0 ; j < vItotals[i].size() ; j++)
+		//				std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
+		//		}
 
 
 	}
@@ -653,12 +657,14 @@ void TRACSInterface::resize_array()
 void TRACSInterface::write_to_file(int tid)
 {
 
-
+	int index_rc = 0;
 	if (scanType == "edge"){
 
 		for (int i = 0 ; i < voltVector.size() ;  i++){
-			for (int j = 0 ; j < zVector.size() ; j++)
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[i], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
+			for (int j = 0 ; j < zVector.size() ; j++){
+				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_rc], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
+				index_rc++;
+			}
 
 		}
 
@@ -669,10 +675,11 @@ void TRACSInterface::write_to_file(int tid)
 	if (scanType == "top" || scanType == "bottom"){
 
 		for (int i = 0 ; i < voltVector.size() ;  i++){
-			for (int j = 0 ; j < yVector.size() ; j++)//{
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[i], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
+			for (int j = 0 ; j < yVector.size() ; j++){
+				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_rc], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
+				index_rc++;
 			//std::cout << i_rc_array[i][j] << std::endl;
-			//}
+			}
 
 		}
 
