@@ -108,7 +108,23 @@ int main( int argc, char *argv[]) {
 
 	utilities::parse_config_file(fnm, carrierFile);
 
-	std::ifstream infile(carrierFile);
+	std::ifstream in(carrierFile);
+
+		while (in){
+
+			for (int i = 0 ; i < num_threads ; i++){
+				std::ofstream outfile;
+				const char * c = carrierThread_fileNames[i].c_str();
+				outfile.open(c, std::ofstream::out | std::ofstream::app);
+				if (in) std::getline(in, line);
+				outfile << line << std::endl;
+				outfile.close();
+			}
+
+		}
+		in.close();
+
+	/*std::ifstream infile(carrierFile);
 	while (std::getline(infile, line))
 	{
 		++number_of_lines;
@@ -133,7 +149,7 @@ int main( int argc, char *argv[]) {
 
 		}
 	}
-	in.close();
+	in.close();*/
 
 
 
@@ -182,6 +198,15 @@ int main( int argc, char *argv[]) {
 	for (int i = 0; i < num_threads; ++i) {
 		t[i].join();
 	}
+
+	for (int i = 0 ; i < vItotals.size(); i++){
+			for (int j = 0; j < num_threads; j++) {
+		//		//
+				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+
+
+			}
+		}
 
 
 	fit = new TRACSFit( FileMeas, FileConf , how ) ;
@@ -369,6 +394,15 @@ int main( int argc, char *argv[]) {
 		t[i].join();
 	}
 
+	for (int i = 0 ; i < vItotals.size(); i++){
+			for (int j = 0; j < num_threads; j++) {
+		//		//
+				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+
+
+			}
+		}
+
 	//Dump tree to disk
 	TFile fout("output.root","RECREATE") ;
 	TTree *tout = new TTree("edge","Fitting results");
@@ -392,6 +426,11 @@ int main( int argc, char *argv[]) {
 	delete emo ;
 
 	//Clean
+	TRACSsim[0]->write_to_file(0);
+		for (int i = 0 ; i < num_threads ; i++){
+				const char * c = carrierThread_fileNames[i].c_str();
+				remove(c);
+			}
 	for (uint i = 0; i < TRACSsim.size(); i++)	{
 		delete TRACSsim[i];
 	}
@@ -420,6 +459,15 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	for (int i = 0; i < num_threads; ++i) {
 		t[i].join();
 	}
+
+	for (int i = 0 ; i < vItotals.size(); i++){
+			for (int j = 0; j < num_threads; j++) {
+		//		//
+				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+
+
+			}
+		}
 
 	Double_t chi2 = fit->LeastSquares( ) ;
 	boost::posix_time::ptime end = boost::posix_time::microsec_clock::local_time();

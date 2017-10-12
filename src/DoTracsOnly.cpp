@@ -37,7 +37,10 @@ void spread_into_threads();
 int main( int argc, char *argv[]) {
 
 	std::string carrierFile;
+	//std::string outf;
 	std::vector<std::string> carrierThread_fileNames;
+	//std::vector<std::string> outfiles;
+	//std::vector<std::ofstream> outfs;
 	std::valarray<std::valarray<double>> i_total;
 	TH1D *i_rc;
 
@@ -74,14 +77,30 @@ int main( int argc, char *argv[]) {
 	}
 
 	utilities::parse_config_file(fnm, carrierFile);
+	std::ifstream in(carrierFile);
 
-	std::ifstream infile(carrierFile);
+	while (in){
+
+		for (int i = 0 ; i < num_threads ; i++){
+			std::ofstream outfile;
+			const char * c = carrierThread_fileNames[i].c_str();
+			outfile.open(c, std::ofstream::out | std::ofstream::app);
+			if (in) std::getline(in, line);
+			outfile << line << std::endl;
+			outfile.close();
+		}
+
+	}
+	in.close();
+	/*std::ifstream infile(carrierFile);
 	while (std::getline(infile, line))
 	{
 		++number_of_lines;
 	}
 	int resto_carriers = number_of_lines % num_threads;
 	int carriers_per_thr = number_of_lines / num_threads;
+	std::cout << "Number of total lines: " << number_of_lines << std::endl;
+	std::cout << "Number of lines per th: " << carriers_per_thr << std::endl;
 	infile.close();
 
 	counted_numLines = counted_numLines - resto_carriers;
@@ -100,7 +119,7 @@ int main( int argc, char *argv[]) {
 
 		}
 	}
-	in.close();
+	in.close();*/
 
 
 
@@ -115,12 +134,12 @@ int main( int argc, char *argv[]) {
 					std::cout << "This execution is wrongly configured with edge-TCT; Check parameters." << std::endl;
 					std::quick_exit(1);
 				}
-		//i_rc_array.resize(vector_voltValues.size());
+
 		i_rc_array.resize(total_sizeZ);
 		vItotals.resize(total_sizeZ);
 		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
-			//i_rc_array[i].resize(vector_zValues.size());
+
 	}
 
 
@@ -129,11 +148,11 @@ int main( int argc, char *argv[]) {
 					std::cout << "This execution is wrongly configured with top/bottom-TCT; Check parameters." << std::endl;
 					std::quick_exit(1);
 				}
-		//i_rc_array.resize(vector_voltValues.size());
+
 		i_rc_array.resize(total_sizeY);
 		vItotals.resize(total_sizeY);
 		for (int i = 0; i < total_sizeY ; i++)
-			//i_rc_array[i].resize(vector_yValues.size());
+
 			vItotals[i].resize(timeSteps);
 
 	}
@@ -148,6 +167,11 @@ int main( int argc, char *argv[]) {
 							std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
 					}*/
 
+	/*std::valarray<double> temp_s;
+	temp_s.resize((size_t) timeSteps);
+	for (int i = 0 ; i < temp_s.size() ; i++){
+		temp_s[i]=0;
+	}*/
 
 	TRACSsim.resize(num_threads);
 	t.resize(num_threads);
@@ -156,6 +180,20 @@ int main( int argc, char *argv[]) {
 	}
 	for (int i = 0; i < num_threads; ++i) {
 		t[i].join();
+	}
+	//for (int i = 0 ; i < TRACSsim[0]->vSemiItotals.size() ; i++){
+	//								for (int j = 0 ; j < TRACSsim[0]->vSemiItotals[i].size() ; j++)
+	//									std::cout << "i " << i << "; j " << j << "    " <<  TRACSsim[0]->vSemiItotals[i][j] << std::endl;
+	//							}
+
+
+	for (int i = 0 ; i < vItotals.size(); i++){
+		for (int j = 0; j < num_threads; j++) {
+	//		//
+			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+
+
+		}
 	}
 
 
@@ -213,6 +251,12 @@ int main( int argc, char *argv[]) {
 
 	//write output to single file!
 	TRACSsim[0]->write_to_file(0);
+	TRACSsim[0]->write_to_file(0);
+		for (int i = 0 ; i < num_threads ; i++){
+				const char * c = carrierThread_fileNames[i].c_str();
+				remove(c);
+			}
+	//std::quick_exit(1);
 
 	for (uint i = 0; i < TRACSsim.size(); i++)	{
 		delete TRACSsim[i];

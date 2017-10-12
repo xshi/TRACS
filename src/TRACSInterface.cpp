@@ -24,6 +24,7 @@
 
 std::mutex mtx2;
 
+//std::valarray<std::valarray <double> > TRACSInterface::vSemiItotals;
 /*
  * The constructor mainly initializes all the values that will be used during the execution. Firstly it read most of them from the steering file by means of a parsing method inside utilities class.
  * Another important task carrying out here is the definition of the vectors and coordinates. Vectors to store currents and coordinates to define the scanning, positions, steps...
@@ -40,6 +41,7 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 {
 	neff_param = std::vector<double>(8,0);
 	total_crosses = 0;
+
 
 	utilities::parse_config_file(filename, depth, width,  pitch, nns, temp, trapping, fluence, nThreads, n_cells_x, n_cells_y, bulk_type,
 			implant_type, waveLength, scanType, C, dt, max_time, vInit, deltaV, vMax, vDepletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, neff_param, neffType,
@@ -97,6 +99,22 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	}
 
 
+	vSemiItotals.resize(yVector.size() * voltVector.size());
+
+			for (int i = 0; i < (yVector.size() * voltVector.size()) ; i++){
+				//i_rc_array[i].resize(vector_yValues.size());
+				vSemiItotals[i].resize(n_tSteps);
+
+		}
+
+		for (int i = 0 ; i < vSemiItotals.size() ; i++){
+			for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
+				vSemiItotals[i][j] = 0;
+		}
+		//for (int i = 0 ; i < vSemiItotals.size() ; i++){
+		//						for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
+		//							std::cout << "i " << i << "; j " << j << "    " <<  vSemiItotals[i][j] << std::endl;
+		//					}
 
 
 	vBias = vInit;
@@ -529,9 +547,10 @@ void TRACSInterface::loop_on(int tid)
 			
 			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-			guard.unlock();
+
 
 			detector->solve_w_f_grad();
+			guard.unlock();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
 
@@ -543,11 +562,8 @@ void TRACSInterface::loop_on(int tid)
 				i_total = i_elec + i_hole;
 
 				GetItRc();
-				i_temp = vItotals[index_total];
 				
-				std::unique_lock<std::mutex> guard(mtx2);
-				vItotals[index_total] = i_shaped + i_temp;
-				guard.unlock();
+				vSemiItotals[index_total] = i_shaped;
 
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
@@ -574,9 +590,10 @@ void TRACSInterface::loop_on(int tid)
 			
 			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-			guard.unlock();
+			//guard.unlock();
 
 			detector->solve_w_f_grad();
+			guard.unlock();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
 
@@ -588,11 +605,12 @@ void TRACSInterface::loop_on(int tid)
 
 				GetItRc();
 				
-				i_temp = vItotals[index_total];
-
-				std::unique_lock<std::mutex> guard(mtx2);
-				vItotals[index_total] = i_shaped + i_temp;
-				guard.unlock();
+				//std::unique_lock<std::mutex> guard(mtx2);
+				//i_temp = TRACSInterface::vSemiItotals[index_total];
+				vSemiItotals[index_total] = i_shaped; //+ i_temp;
+				//i_temp = vItotals[index_total];
+				//vItotals[index_total] = i_shaped + i_temp;
+				//guard.unlock();
 
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
@@ -602,7 +620,10 @@ void TRACSInterface::loop_on(int tid)
 			if (tid == 0) fields_hist_to_file(tid, index_volt);
 		}
 
-
+		//for (int i = 0 ; i < TRACSInterface::vSemiItotals.size() ; i++){
+		//					for (int j = 0 ; j < TRACSInterface::vSemiItotals[i].size() ; j++)
+		//						std::cout << "i " << i << "; j " << j << "    " <<  TRACSInterface::vSemiItotals[i][j] << std::endl;
+		//				}
 
 
 	}
