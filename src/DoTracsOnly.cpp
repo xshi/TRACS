@@ -37,11 +37,8 @@ void spread_into_threads();
 int main( int argc, char *argv[]) {
 
 	std::string carrierFile;
-	//std::string outf;
 	std::vector<std::string> carrierThread_fileNames;
-	//std::vector<std::string> outfiles;
-	//std::vector<std::ofstream> outfs;
-	std::valarray<std::valarray<double>> i_total;
+	//std::valarray<std::valarray<double>> i_total;
 	TH1D *i_rc;
 
 
@@ -92,36 +89,6 @@ int main( int argc, char *argv[]) {
 
 	}
 	in.close();
-	/*std::ifstream infile(carrierFile);
-	while (std::getline(infile, line))
-	{
-		++number_of_lines;
-	}
-	int resto_carriers = number_of_lines % num_threads;
-	int carriers_per_thr = number_of_lines / num_threads;
-	std::cout << "Number of total lines: " << number_of_lines << std::endl;
-	std::cout << "Number of lines per th: " << carriers_per_thr << std::endl;
-	infile.close();
-
-	counted_numLines = counted_numLines - resto_carriers;
-	std::ifstream in(carrierFile);
-	for (int i = 0; i < num_threads; ++i) {
-		std::ofstream out(carrierThread_fileNames[i]);
-		while (in){
-			counted_numLines++;
-			std::getline(in, line);
-			out << line << std::endl;
-			if (counted_numLines == carriers_per_thr){
-				out.close();
-				counted_numLines = 0;
-				break;
-			}
-
-		}
-	}
-	in.close();*/
-
-
 
 	spread_into_threads();
 	double timeSteps = (int) std::floor(max_time / dTime);
@@ -131,9 +98,9 @@ int main( int argc, char *argv[]) {
 
 	if (scanType == "edge"){
 		if (vector_yValues.size() > 1){
-					std::cout << "This execution is wrongly configured with edge-TCT; Check parameters." << std::endl;
-					std::quick_exit(1);
-				}
+			std::cout << "This execution is wrongly configured with edge-TCT; Check parameters." << std::endl;
+			std::quick_exit(1);
+		}
 
 		i_rc_array.resize(total_sizeZ);
 		vItotals.resize(total_sizeZ);
@@ -145,9 +112,9 @@ int main( int argc, char *argv[]) {
 
 	if (scanType == "top" || scanType == "bottom"){
 		if (vector_zValues.size() > 1){
-					std::cout << "This execution is wrongly configured with top/bottom-TCT; Check parameters." << std::endl;
-					std::quick_exit(1);
-				}
+			std::cout << "This execution is wrongly configured with top/bottom-TCT; Check parameters." << std::endl;
+			std::quick_exit(1);
+		}
 
 		i_rc_array.resize(total_sizeY);
 		vItotals.resize(total_sizeY);
@@ -162,16 +129,6 @@ int main( int argc, char *argv[]) {
 			vItotals[i][j] = 0;
 	}
 
-	/*for (int i = 0 ; i < vItotals.size() ; i++){
-						for (int j = 0 ; j < vItotals[i].size() ; j++)
-							std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-					}*/
-
-	/*std::valarray<double> temp_s;
-	temp_s.resize((size_t) timeSteps);
-	for (int i = 0 ; i < temp_s.size() ; i++){
-		temp_s[i]=0;
-	}*/
 
 	TRACSsim.resize(num_threads);
 	t.resize(num_threads);
@@ -189,7 +146,7 @@ int main( int argc, char *argv[]) {
 
 	for (int i = 0 ; i < vItotals.size(); i++){
 		for (int j = 0; j < num_threads; j++) {
-	//		//
+
 			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
 
 
@@ -201,20 +158,20 @@ int main( int argc, char *argv[]) {
 	if (scanType == "edge"){
 		for (int i = 0 ; i < i_rc_array.size(); i++ ){
 
-			//for (int j = 0 ; j <= vector_zValues.size(); j++ ){
-				TString htit, hname;
-				htit.Form("ramo_rc%d%d", 0, count2);
-				hname.Form("Ramo_current_%d_%d", 0, count2);
-				i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
-				for (int k = 1 ; k < timeSteps; k++ ){
 
-					i_rc->SetBinContent(k+1, vItotals[i][k]);
+			TString htit, hname;
+			htit.Form("ramo_rc%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			for (int k = 1 ; k < timeSteps; k++ ){
 
-				}
-				i_rc_array[i] = i_rc;
-				i_rc = nullptr;
-				count2++;
-			//}
+				i_rc->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+			i_rc_array[i] = i_rc;
+			i_rc = nullptr;
+			count2++;
+
 
 		}
 
@@ -225,38 +182,33 @@ int main( int argc, char *argv[]) {
 	if (scanType == "top" || scanType == "bottom"){
 		for (int i = 0 ; i < i_rc_array.size(); i++ ){
 
-			//for (int j = 0 ; j <= vector_yValues.size(); j++ ){
-				TString htit, hname;
-				htit.Form("ramo_rc%d%d", 0, count2);
-				hname.Form("Ramo_current_%d_%d", 0, count2);
-				i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
-				for (int k = 1 ; k < timeSteps; k++ ){
 
-					i_rc->SetBinContent(k+1, vItotals[i][k]);
-				}
-				i_rc_array[i] = i_rc;
-				i_rc = nullptr;
-				count2++;
-			//}
+			TString htit, hname;
+			htit.Form("ramo_rc%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			for (int k = 1 ; k < timeSteps; k++ ){
+
+				i_rc->SetBinContent(k+1, vItotals[i][k]);
+			}
+			i_rc_array[i] = i_rc;
+			i_rc = nullptr;
+			count2++;
+
 
 		}
 
 	}
-	/*for (int i = 0 ; i < vItotals.size() ; i++){
-			for (int j = 0 ; j < vItotals[i].size() ; j++)
-				std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-		}*/
-
 
 
 	//write output to single file!
 	TRACSsim[0]->write_to_file(0);
-	TRACSsim[0]->write_to_file(0);
-		for (int i = 0 ; i < num_threads ; i++){
-				const char * c = carrierThread_fileNames[i].c_str();
-				remove(c);
-			}
-	//std::quick_exit(1);
+
+	for (int i = 0 ; i < num_threads ; i++){
+		const char * c = carrierThread_fileNames[i].c_str();
+		remove(c);
+	}
+
 
 	for (uint i = 0; i < TRACSsim.size(); i++)	{
 		delete TRACSsim[i];

@@ -180,6 +180,7 @@ private:
 	UShort_t year, month, day, hour, min, sec;
 
 public:
+	std::valarray<std::valarray <double> > vSemiItotals;
 
 	// Constructor
 	TRACSInterface(std::string filename, const std::string& cFile, const std::vector<double>& z, const std::vector<double>& y, const std::vector<double>& v); // Reads values, initializes detector

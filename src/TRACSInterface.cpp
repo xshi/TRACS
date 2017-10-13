@@ -24,7 +24,6 @@
 
 std::mutex mtx2;
 
-//std::valarray<std::valarray <double> > TRACSInterface::vSemiItotals;
 /*
  * The constructor mainly initializes all the values that will be used during the execution. Firstly it read most of them from the steering file by means of a parsing method inside utilities class.
  * Another important task carrying out here is the definition of the vectors and coordinates. Vectors to store currents and coordinates to define the scanning, positions, steps...
@@ -77,7 +76,7 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	//Dolfin instruction por mesh boundary extrapolation
 	parameters["allow_extrapolation"] = true;
 
-//	mtx2.lock(); //Thread-safe for dolfin data type
+	//	mtx2.lock(); //Thread-safe for dolfin data type
 	std::unique_lock<std::mutex> guard(mtx2);
 	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
 	guard.unlock();
@@ -99,22 +98,34 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	}
 
 
-	vSemiItotals.resize(yVector.size() * voltVector.size());
+	if (scanType == "edge"){
+		vSemiItotals.resize(zVector.size() * voltVector.size());
 
-			for (int i = 0; i < (yVector.size() * voltVector.size()) ; i++){
-				//i_rc_array[i].resize(vector_yValues.size());
-				vSemiItotals[i].resize(n_tSteps);
+		for (int i = 0; i < (zVector.size() * voltVector.size()) ; i++){
+			//i_rc_array[i].resize(vector_yValues.size());
+			vSemiItotals[i].resize(n_tSteps);
 
 		}
+	}
+	if (scanType == "top" || scanType == "bottom"){
+		vSemiItotals.resize(yVector.size() * voltVector.size());
 
-		for (int i = 0 ; i < vSemiItotals.size() ; i++){
-			for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
-				vSemiItotals[i][j] = 0;
+		for (int i = 0; i < (yVector.size() * voltVector.size()) ; i++){
+			//i_rc_array[i].resize(vector_yValues.size());
+			vSemiItotals[i].resize(n_tSteps);
+
 		}
-		//for (int i = 0 ; i < vSemiItotals.size() ; i++){
-		//						for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
-		//							std::cout << "i " << i << "; j " << j << "    " <<  vSemiItotals[i][j] << std::endl;
-		//					}
+	}
+
+
+	for (int i = 0 ; i < vSemiItotals.size() ; i++){
+		for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
+			vSemiItotals[i][j] = 0;
+	}
+	//for (int i = 0 ; i < vSemiItotals.size() ; i++){
+	//						for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
+	//							std::cout << "i " << i << "; j " << j << "    " <<  vSemiItotals[i][j] << std::endl;
+	//					}
 
 
 	vBias = vInit;
@@ -541,62 +552,41 @@ void TRACSInterface::loop_on(int tid)
 		for (int index_volt = 0; index_volt < voltVector.size() ; index_volt++){
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
-			//mtx2.lock();
-			//calculate_fields();
-			//mtx2.unlock();
-			
 			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-
-
 			detector->solve_w_f_grad();
 			guard.unlock();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
-
 
 			for (int index_zscan = 0; index_zscan < zVector.size(); index_zscan++){
 
 				//simulate_ramo_current();
 				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses);
 				i_total = i_elec + i_hole;
-
 				GetItRc();
-				
 				vSemiItotals[index_total] = i_shaped;
-
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
-
-
 			}
 
 			if (tid == 0) fields_hist_to_file(tid, index_volt);
 		}
-		//for (int i = 0 ; i < vItotals.size() ; i++){
-		//			for (int j = 0 ; j < vItotals[i].size() ; j++)
-		//				std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-		//		}
 
 
 	}
-
 
 	if (scanType == "top" || scanType == "bottom"){
 		//Voltage scan
 		for (int index_volt = 0; index_volt < voltVector.size() ; index_volt++){
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
-			
 			std::unique_lock<std::mutex> guard(mtx2);
 			detector->solve_d_u();
-			//guard.unlock();
-
 			detector->solve_w_f_grad();
 			guard.unlock();
 			detector->solve_d_f_grad();
 			detector->get_mesh()->bounding_box_tree();
-
 
 			for (int index_yscan = 0; index_yscan < yVector.size(); index_yscan++){
 
@@ -604,14 +594,7 @@ void TRACSInterface::loop_on(int tid)
 				i_total = i_elec + i_hole;
 
 				GetItRc();
-				
-				//std::unique_lock<std::mutex> guard(mtx2);
-				//i_temp = TRACSInterface::vSemiItotals[index_total];
-				vSemiItotals[index_total] = i_shaped; //+ i_temp;
-				//i_temp = vItotals[index_total];
-				//vItotals[index_total] = i_shaped + i_temp;
-				//guard.unlock();
-
+				vSemiItotals[index_total] = i_shaped;
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 
@@ -619,12 +602,6 @@ void TRACSInterface::loop_on(int tid)
 
 			if (tid == 0) fields_hist_to_file(tid, index_volt);
 		}
-
-		//for (int i = 0 ; i < TRACSInterface::vSemiItotals.size() ; i++){
-		//					for (int j = 0 ; j < TRACSInterface::vSemiItotals[i].size() ; j++)
-		//						std::cout << "i " << i << "; j " << j << "    " <<  TRACSInterface::vSemiItotals[i][j] << std::endl;
-		//				}
-
 
 	}
 
@@ -699,7 +676,7 @@ void TRACSInterface::write_to_file(int tid)
 			for (int j = 0 ; j < yVector.size() ; j++){
 				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_rc], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
 				index_rc++;
-			//std::cout << i_rc_array[i][j] << std::endl;
+				//std::cout << i_rc_array[i][j] << std::endl;
 			}
 
 		}

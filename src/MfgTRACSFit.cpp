@@ -110,48 +110,19 @@ int main( int argc, char *argv[]) {
 
 	std::ifstream in(carrierFile);
 
-		while (in){
+	while (in){
 
-			for (int i = 0 ; i < num_threads ; i++){
-				std::ofstream outfile;
-				const char * c = carrierThread_fileNames[i].c_str();
-				outfile.open(c, std::ofstream::out | std::ofstream::app);
-				if (in) std::getline(in, line);
-				outfile << line << std::endl;
-				outfile.close();
-			}
-
+		for (int i = 0 ; i < num_threads ; i++){
+			std::ofstream outfile;
+			const char * c = carrierThread_fileNames[i].c_str();
+			outfile.open(c, std::ofstream::out | std::ofstream::app);
+			if (in) std::getline(in, line);
+			outfile << line << std::endl;
+			outfile.close();
 		}
-		in.close();
 
-	/*std::ifstream infile(carrierFile);
-	while (std::getline(infile, line))
-	{
-		++number_of_lines;
 	}
-	int resto_carriers = number_of_lines % num_threads;
-	int carriers_per_thr = number_of_lines / num_threads;
-	infile.close();
-
-	counted_numLines = counted_numLines - resto_carriers;
-	std::ifstream in(carrierFile);
-	for (int i = 0; i < num_threads; ++i) {
-		std::ofstream out(carrierThread_fileNames[i]);
-		while (in){
-			counted_numLines++;
-			std::getline(in, line);
-			out << line << std::endl;
-			if (counted_numLines == carriers_per_thr){
-				out.close();
-				counted_numLines = 0;
-				break;
-			}
-
-		}
-	}
-	in.close();*/
-
-
+	in.close();
 
 	spread_into_threads();
 	double timeSteps = (int) std::floor(max_time / dTime);
@@ -167,7 +138,7 @@ int main( int argc, char *argv[]) {
 		vItotals.resize(total_sizeZ);
 		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
-		//i_rc_array[i].resize(vector_zValues.size());
+
 	}
 
 
@@ -179,7 +150,6 @@ int main( int argc, char *argv[]) {
 		i_rc_array.resize(total_sizeY);
 		vItotals.resize(total_sizeY);
 		for (int i = 0; i < total_sizeY ; i++)
-			//i_rc_array[i].resize(vector_yValues.size());
 			vItotals[i].resize(timeSteps);
 
 	}
@@ -200,13 +170,13 @@ int main( int argc, char *argv[]) {
 	}
 
 	for (int i = 0 ; i < vItotals.size(); i++){
-			for (int j = 0; j < num_threads; j++) {
-		//		//
-				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+		for (int j = 0; j < num_threads; j++) {
+
+			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
 
 
-			}
 		}
+	}
 
 
 	fit = new TRACSFit( FileMeas, FileConf , how ) ;
@@ -395,13 +365,13 @@ int main( int argc, char *argv[]) {
 	}
 
 	for (int i = 0 ; i < vItotals.size(); i++){
-			for (int j = 0; j < num_threads; j++) {
-		//		//
-				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+		for (int j = 0; j < num_threads; j++) {
+			//		//
+			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
 
 
-			}
 		}
+	}
 
 	//Dump tree to disk
 	TFile fout("output.root","RECREATE") ;
@@ -426,11 +396,11 @@ int main( int argc, char *argv[]) {
 	delete emo ;
 
 	//Clean
-	TRACSsim[0]->write_to_file(0);
-		for (int i = 0 ; i < num_threads ; i++){
-				const char * c = carrierThread_fileNames[i].c_str();
-				remove(c);
-			}
+	//TRACSsim[0]->write_to_file(0);
+	for (int i = 0 ; i < num_threads ; i++){
+		const char * c = carrierThread_fileNames[i].c_str();
+		remove(c);
+	}
 	for (uint i = 0; i < TRACSsim.size(); i++)	{
 		delete TRACSsim[i];
 	}
@@ -461,13 +431,13 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	}
 
 	for (int i = 0 ; i < vItotals.size(); i++){
-			for (int j = 0; j < num_threads; j++) {
-		//		//
-				vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+		for (int j = 0; j < num_threads; j++) {
+			//		//
+			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
 
 
-			}
 		}
+	}
 
 	Double_t chi2 = fit->LeastSquares( ) ;
 	boost::posix_time::ptime end = boost::posix_time::microsec_clock::local_time();
