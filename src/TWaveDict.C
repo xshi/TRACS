@@ -38,7 +38,7 @@
 namespace std {} using namespace std;
 
 // Header files passed as explicit arguments
-#include "/home/jcalvopi/TestThreads/include/TWaveform.h"
+#include "/home/jcalvopi/TRACS_Concurrency/include/TWaveform.h"
 
 // Header files passed via #pragma extra_include
 
@@ -196,9 +196,9 @@ namespace {
 0
     };
     static const char* includePaths[] = {
-"~/TestThreads/include/",
+"~/TRACS_Concurrency/include/",
 "/usr/local/root/include",
-"/home/jcalvopi/TestThreads/",
+"/home/jcalvopi/TRACS_Concurrency/",
 0
     };
     static const char* fwdDeclCode = R"DICTFWDDCLS(

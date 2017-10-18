@@ -142,7 +142,7 @@ ScanType = bottom   # edge/top/bottom
 # it has the same format. Here you should provide the path to the file 
 # to be used in the simulation. Relative path is set to the folder from 
 # which TRACS is executed.
-CarrierFile = tct_redbottom_280_10umPenetration_genTime10.carriers #shifted for 1ns
+CarrierFile = tct_redbottom_280_10umPen_BUCKET_300eh.carriers #tct_redbottom_280_10umPenetration_genTime10.carriers #shifted for 1ns
 
 #------------------------ ELECTRONICS SHAPING ----------------------------#
 
