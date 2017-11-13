@@ -219,15 +219,34 @@ BackPlaneBoundaryWP::BackPlaneBoundaryWP(double x_min, double x_max, double depl
   _depletion_width = depletion;
 }
 
+
 bool BackPlaneBoundaryWP::inside(const Array<double>& x, bool on_boundary) const
 {
   bool is_inside = false;
   if (x[1] > ((_depletion_width) - DOLFIN_EPS* (_depletion_width)) )
   {
       is_inside = true;
+ }
+ return is_inside;
+}
+
+
+/*
+
+bool BackPlaneBoundaryWP::inside(const Array<double>& x, bool on_boundary) const
+{
+  bool is_inside = false;
+  if ((x[1] > (_depletion_width - DOLFIN_EPS*_depletion_width) ) && on_boundary) // y = depth condition
+  {
+    if ((x[0] > _x_min - DOLFIN_EPS) && (x[0] < _x_max + DOLFIN_EPS )) // within boundaries
+    {
+      is_inside = true;
+    }
   }
   return is_inside;
 }
+*/
+
 
 
 

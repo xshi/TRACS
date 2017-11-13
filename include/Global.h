@@ -22,11 +22,12 @@
 #include <TH1D.h> // 1 Dimensional ROOT histogram
 
 
-extern std::vector<std::vector <TH1D*> >  i_ramo_array, i_conv_array;//, i_rc_array;
-extern std::vector<TH1D*> i_rc_array;
+//extern std::vector<std::vector <TH1D*> >  i_ramo_array, i_conv_array;//, i_rc_array;
+extern std::vector<TH1D*> i_rc_array, i_ramo_vector, i_conv_vector;
 extern int num_threads;
 extern std::mutex mtx;
 extern std::string fnm;
+extern std::string global_TF;
 extern std::valarray<std::valarray <double> > vItotals;
 //extern std::valarray<std::valarray <double> > i_temp;
 extern std::ofstream fileDiffDrift;

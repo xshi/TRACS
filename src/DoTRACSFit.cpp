@@ -52,6 +52,9 @@ std::vector<std::string> carrierThread_fileNames;
 std::string scanType;
 double dTime;
 double max_time;
+double capacitance;
+TString transferFun;
+std::string TF;
 
 void spread_into_threads();
 
@@ -311,7 +314,7 @@ void spread_into_threads(){
 	uint index = 1;
 
 	//Reading file to get values that will determine scan vectors
-	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, dTime, max_time);
+	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, dTime, max_time, capacitance, TF);
 
 	//Reserve to 300 since is a common measurement for a detector Z dimension.
 	//Reserve does not implies anything, better for performance.

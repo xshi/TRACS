@@ -54,7 +54,8 @@ public:
 	double beamy = 0. , beamz = 0.; //Mean position of the injected carriers in detector plane (y,z)
 
 	void add_carriers_from_file(const std::string& filename,const std::string& scanType, double depth);
-	void simulate_drift( double dt, double max_time, double shift_x, double shift_y,  std::valarray<double> &curr_elec, std::valarray<double> &curr_hole, int &totalCrosses);
+	void simulate_drift( double dt, double max_time, double shift_x, double shift_y,  std::valarray<double> &curr_elec,
+			std::valarray<double> &curr_hole, int &totalCrosses, const std::string &scantype);
 
 	TH2D get_e_dist_histogram(int n_bins_x, int n_bins_y, TString hist_name = "e_dist", TString hist_title ="e_dist");
 	TH2D get_e_dist_histogram(int n_bins_x, int n_bins_y, double shift_x, double shift_y, TString hist_name = "e_dist", TString hist_title ="e_dist");

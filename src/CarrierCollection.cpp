@@ -111,7 +111,7 @@ void CarrierCollection::add_carriers_from_file(const std::string& filename, cons
  * @param totalCrosses
  */
 void CarrierCollection::simulate_drift( double dt, double max_time, double shift_x /*yPos*/, double shift_y /*zPos*/,
-		std::valarray<double>&curr_elec, std::valarray<double> &curr_hole, int &totalCrosses)
+		std::valarray<double>&curr_elec, std::valarray<double> &curr_hole, int &totalCrosses, const std::string &scanType)
 {
 
 	double x_init, y_init;
@@ -137,7 +137,7 @@ void CarrierCollection::simulate_drift( double dt, double max_time, double shift
 			//x[1] represents the Y position read from the carriers file. Y is seen as Z.
 			//shift_y represents the Z (y) position read from the steering file. Since the program (usually) does edge-TCT, Z can be defined in one or more steps.
 
-			curr_elec += carrier.simulate_drift( dt , max_time, x_init, y_init);
+			curr_elec += carrier.simulate_drift( dt , max_time, x_init, y_init, scanType);
 		}
 
 		else if (carrier_type =='h')
@@ -147,7 +147,7 @@ void CarrierCollection::simulate_drift( double dt, double max_time, double shift
 			double x_init = x[0] + shift_x;
 			double y_init = x[1] + shift_y ;
 
-			curr_hole += carrier.simulate_drift( dt , max_time, x_init, y_init);
+			curr_hole += carrier.simulate_drift( dt , max_time, x_init, y_init, scanType);
 		}
 		//Let's see how many carriers from the carrier list for this step in Z have crossed to the depleted region.
 		//A flag is switched to true on carrier.simulate_drift when a carrier filfull the requirements. See carrier.simulate_drift

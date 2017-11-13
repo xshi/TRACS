@@ -590,7 +590,7 @@ void utilities::parse_config_file(std::string fileName, double &depth, double &w
 		tempString = std::string("");
 
 
-		tempString = std::string("z1");
+		tempString = std::string("z0");
 		converter << valuesMap[tempString];
 		converter >> neff_param[4];
 		converter.clear();
@@ -670,7 +670,7 @@ void utilities::parse_config_file(std::string fileName, double &depth, double &w
 
 
 void utilities::parse_config_file(std::string fileName, std::string &scanType, double &v_init, double &deltaV, double &v_max, double &v_depletion,
-		double &zInit, double &zMax, double &deltaZ, double &yInit, double &yMax, double &deltaY, double &dt, double &max_time)
+		double &zInit, double &zMax, double &deltaZ, double &yInit, double &yMax, double &deltaY, double &dt, double &max_time, double &capacitance, std::string &transferFun)
 {
 	// Creat map to hold all values as strings
 	std::map< std::string, std::string> valuesMap;
@@ -776,8 +776,6 @@ void utilities::parse_config_file(std::string fileName, std::string &scanType, d
 		converter.str("");
 		tempString = std::string("");
 
-
-
 		tempString = std::string("ScanType");
 		scanType = valuesMap[tempString];
 		tempString = std::string("");
@@ -794,6 +792,17 @@ void utilities::parse_config_file(std::string fileName, std::string &scanType, d
 		converter >> max_time;
 		converter.clear();
 		converter.str("");
+		tempString = std::string("");
+
+		tempString = std::string("Capacitance");
+		converter << valuesMap[tempString];
+		converter >> capacitance;
+		converter.clear();
+		converter.str("");
+		tempString = std::string("");
+
+	    tempString = std::string("TransferFunction");
+		transferFun = valuesMap[tempString];
 		tempString = std::string("");
 
 

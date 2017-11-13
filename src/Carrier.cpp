@@ -40,21 +40,21 @@ std::mutex mtn;
  */
 Carrier::Carrier( char carrier_type, double q,  double x_init, double y_init , SMSDetector * detector, double gen_time = 1.e-9):
 
-								_carrier_type(carrier_type), // Charge carrier(CC)  type. Typically  electron/positron
-								_q(q), //Charge in electron units. Always positive.
-								_dy(0.),
-								_dx(0.),
-								_gen_time(gen_time), // Instant of CC generation
-								_e_field_mod(0.),
-								_detector(detector), // Detector type and characteristics
-								//	_electricField(_detector->get_d_f_grad(),
-								//	_weightingField(_detector->get_w_f_grad(),
-								_myTemp(_detector->get_temperature()), // Temperature of the diode
-								_drift(_carrier_type, detector->get_d_f_grad(), _myTemp, _detector->diffusionON(), _detector->get_dt()), // Carrier Transport object
-								_mu(_carrier_type, _myTemp),// Mobility of the CC
-								_trapping_time(_detector->get_trapping_time()),
-								diffDistance(0.),
-								_crossed(false)
+		_carrier_type(carrier_type), // Charge carrier(CC)  type. Typically  electron/positron
+		_q(q), //Charge in electron units. Always positive.
+		_dy(0.),
+		_dx(0.),
+		_gen_time(gen_time), // Instant of CC generation
+		_e_field_mod(0.),
+		_detector(detector), // Detector type and characteristics
+		//	_electricField(_detector->get_d_f_grad(),
+		//	_weightingField(_detector->get_w_f_grad(),
+		_myTemp(_detector->get_temperature()), // Temperature of the diode
+		_drift(_carrier_type, detector->get_d_f_grad(), _myTemp, _detector->diffusionON(), _detector->get_dt()), // Carrier Transport object
+		_mu(_carrier_type, _myTemp),// Mobility of the CC
+		_trapping_time(_detector->get_trapping_time()),
+		diffDistance(0.),
+		_crossed(false)
 
 {
 
@@ -117,7 +117,8 @@ void Carrier::calculateDiffusionStep(double dt){
  * @param y_init
  * @return
  */
-std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double x_init/*y_pos*/, double y_init /*z_pos*/ )
+std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double x_init/*y_pos*/, double y_init /*z_pos*/, const std::string &scanType )
+//First Approach
 {
 	_x[0] = x_init;
 	_x[1] = y_init;
@@ -137,15 +138,21 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 	Array<double> wrap_w_field(2, _w_field.data());
 
 
-	/*Carrier is in NO depleted area*/
-	if ( (_x[1] > _detector->get_depletionWidth()) && (_x[1] < _detector->get_y_max()) && (_x[0] > _detector->get_x_min()) && (_x[0] < _detector->get_x_max()) && (_detector->diffusionON()) ){
+	//Carrier is in NO depleted area
+	if ( (_x[1] > _detector->get_depletionWidth()) && (_x[1] <= _detector->get_y_max()) && (_x[0] >= _detector->get_x_min()) && (_x[0] <= _detector->get_x_max())
+			&& (_detector->diffusionON()) && (_x[1] >= _detector->get_y_min())){
 		regularCarrier = false;
 		//Four times the trapping time represent almost 100% of the signal.
 		while( (tDiff < (4 * _trapping_time)) &&  (tDiff<(max_time))  ){
 			_e_field_mod = 0;
 			calculateDiffusionStep(dt); //Carrier movement due to diffusion
 			tDiff += dt;
-			if ((_x[1] < _detector->get_depletionWidth()) && (_x[1] < _detector->get_y_max()) && (_x[0] > _detector->get_x_min()) && (_x[0] < _detector->get_x_max())){
+			if (_x[1] > _detector->get_y_max()) _x[1] = _detector->get_y_max();
+			if (_x[1] < _detector->get_y_min()) _x[1] = _detector->get_y_min();
+			if (_x[0] > _detector->get_x_max()) _x[0] = _detector->get_x_max();
+			if (_x[0] < _detector->get_x_min()) _x[0] = _detector->get_x_min();
+
+			if ((_x[1] < _detector->get_depletionWidth())){ //&& (_x[1] < _detector->get_y_max()) && (_x[0] > _detector->get_x_min()) && (_x[0] < _detector->get_x_max()) && (_x[1] > _detector->get_y_min())){
 				regularCarrier = true;
 				//To count carriers passing to the depleted region
 				_crossed = true;
@@ -156,58 +163,59 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 		}
 
 	}
-	/*End NO depleted area*/
-	if ((regularCarrier) && (_x[1] <= _detector->get_depletionWidth())){
+	//End NO depleted area
+	if ((regularCarrier)  && (_x[1] <= _detector->get_depletionWidth())){
 
 		int it0 = ( _detector->diffusionON() ) ? TMath::Nint( (_gen_time + tDiff)/dt ) : TMath::Nint( _gen_time/dt ) ;
-		//bool saleOut = false;
 
-		//fileDiffDrift << "New carrier at: "<< "x= " <<_x[0] << "; z= " << _x[1] << std::endl;
 		for ( int i = it0 ; i < max_steps; i++)
 		{
 
-			if (_detector->is_out(_x)) // If CC outside detector
-			{
-				i_n[i] = 0;
 
-				//Take into account if it is not depleted area.
-				//Check if is inside depletion in less than n*trapping time.
-				//If yes, that particles starts to feel diffusion and electric field.
-				break; // Finish (CC gone out)
-			}
-			else
-			{
-
-
-				//safeRead.lock();
+			if (_x[1] <= _detector->get_depletionWidth()){
+				//	safeRead.lock();
 				_detector->get_d_f_grad()->eval(wrap_e_field, wrap_x);
 				_detector->get_w_f_grad()->eval(wrap_w_field, wrap_x);
-				//safeRead.unlock();
-
+				//	safeRead.unlock();
 				_e_field_mod = sqrt(_e_field[0]*_e_field[0] + _e_field[1]*_e_field[1]);
-
+				stepper.do_step(_drift, _x, tDep, dt); //Carrier movement due to drift
 				i_n[i] = _q *_sign* _mu.obtain_mobility(_e_field_mod) * (_e_field[0]*_w_field[0] + _e_field[1]*_w_field[1]);
 
-				stepper.do_step(_drift, _x, tDep, dt); //Carrier movement due to drift
-
-
-				if  (_detector->diffusionON()){
-					calculateDiffusionStep(dt); //Carrier movement due to diffusion
-
-				}
-
-
-				// Trapping effects due to radiation-induced defects (traps) implemented in CarrierColleciton.cpp
 			}
-			tDep+=dt;
-		}
+			if  (_detector->diffusionON()){
+				calculateDiffusionStep(dt); //Carrier movement due to diffusion
 
+
+				if (_x[1] > _detector->get_depletionWidth() && !(_carrier_type == 'h' && scanType == "top")){
+					_crossed = false;							//Holes are not followed anymore in top scan when reach no depleted area
+					_e_field_mod = 0;
+					//Come back to depleted area
+					if (_x[1] > _detector->get_y_max()) _x[1] = _detector->get_y_max();
+					if (_x[1] < _detector->get_y_min()) _x[1] = _detector->get_y_min();
+					if (_x[0] > _detector->get_x_max()) _x[0] = _detector->get_x_max();
+					if (_x[0] < _detector->get_x_min()) _x[0] = _detector->get_x_min();
+					//i_n[i] = 0;//valarray intensity is 0 by default
+				}
+			}
+
+			if (_detector->is_out_dep(_x)) // If CC outside detector
+			{
+				//i_n[i] = 0;
+				break; // Finish (CC gone out)
+			}
+
+			tDep+=dt;//Could be inside first IF. TODO
+		}
 
 		return i_n;
 	}
 	return i_n=0.;
 
 }
+
+
+
+
 
 /************************************************************************
  *************************************************************************
@@ -273,16 +281,17 @@ Carrier::~Carrier()
 /*
  * Copy constructor
  */
+
 Carrier::Carrier(const Carrier& other)
 {
 	_carrier_type = other._carrier_type;
 	_q = other._q;
 	_gen_time = other._gen_time;
-	_x = other._x; 
-	_e_field = other._e_field; 
+	_x = other._x;
+	_e_field = other._e_field;
 	_w_field = other._w_field;
 	_e_field_mod = other._e_field_mod;
-	_sign = other._sign; 
+	_sign = other._sign;
 	_detector = other._detector;
 	_myTemp = other._myTemp;
 	_drift = other._drift;
@@ -295,10 +304,10 @@ Carrier::Carrier(const Carrier& other)
 	std::lock_guard<std::mutex> lock(other.safeRead);
 }
 
-/*
- * Copy assignment
- */
-Carrier& Carrier::operator = (const Carrier& other) 
+
+// Copy assignment
+
+Carrier& Carrier::operator = (const Carrier& other)
 {
 	std::lock(safeRead, other.safeRead);
 	std::lock_guard<std::mutex> self_lock(safeRead, std::adopt_lock);
@@ -306,11 +315,11 @@ Carrier& Carrier::operator = (const Carrier& other)
 	_carrier_type = other._carrier_type;
 	_q = other._q;
 	_gen_time = other._gen_time;
-	_x = other._x; 
-	_e_field = other._e_field; 
+	_x = other._x;
+	_e_field = other._e_field;
 	_w_field = other._w_field;
 	_e_field_mod = other._e_field_mod;
-	_sign = other._sign; 
+	_sign = other._sign;
 	_detector = other._detector;
 	_myTemp = other._myTemp;
 	_drift = other._drift;
@@ -323,19 +332,19 @@ Carrier& Carrier::operator = (const Carrier& other)
 }
 
 
-/*
- * Move constructor
- */
+
+// Move constructor
+
 Carrier::Carrier(Carrier&& other)
 {
 	_carrier_type = std::move(other._carrier_type);
 	_q = std::move(other._q);
 	_gen_time = std::move(other._gen_time);
-	_x = std::move(other._x); 
-	_e_field = std::move(other._e_field); 
+	_x = std::move(other._x);
+	_e_field = std::move(other._e_field);
 	_w_field = std::move(other._w_field);
 	_e_field_mod = std::move(other._e_field_mod);
-	_sign = std::move(other._sign); 
+	_sign = std::move(other._sign);
 	_detector = std::move(other._detector);
 	_myTemp = std::move(other._myTemp);
 	_drift = std::move(other._drift);
@@ -348,10 +357,10 @@ Carrier::Carrier(Carrier&& other)
 	std::lock_guard<std::mutex> lock(other.safeRead);
 }
 
-/*
- * Move assignment
- */
-Carrier& Carrier::operator = ( Carrier&& other) 
+
+// Move assignment
+
+Carrier& Carrier::operator = ( Carrier&& other)
 {
 	std::lock(safeRead, other.safeRead);
 	std::lock_guard<std::mutex> self_lock(safeRead, std::adopt_lock);
@@ -362,15 +371,15 @@ Carrier& Carrier::operator = ( Carrier&& other)
 	other._q = 0;
 	_gen_time = std::move(other._gen_time);
 	other._gen_time = 0;
-	_x = std::move(other._x); 
+	_x = std::move(other._x);
 	other._x = {0,0};
-	_e_field = std::move(other._e_field); 
+	_e_field = std::move(other._e_field);
 	other._e_field = {0,0};
 	_w_field = std::move(other._w_field);
 	other._w_field = {0,0};
 	_e_field_mod = std::move(other._e_field_mod);
 	other._e_field_mod = 0;
-	_sign = std::move(other._sign); 
+	_sign = std::move(other._sign);
 	other._sign = 0;
 	_detector = std::move(other._detector);
 	other._detector = NULL;
@@ -390,3 +399,4 @@ Carrier& Carrier::operator = ( Carrier&& other)
 	other._crossed = false;
 	return *this;
 }
+

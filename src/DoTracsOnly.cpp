@@ -25,12 +25,16 @@
 #include "../include/Threading.h"
 #include <Utilities.h>
 
+//extern TH1D *H1DConvolution( TH1D *htct, Double_t Cend=0. , int tid=0) ;
+
 std::vector<TRACSInterface*> TRACSsim;
 std::vector<std::thread> t;
 std::vector<double> vector_zValues, vector_voltValues, vector_yValues;
 std::string scanType;
 double dTime;
 double max_time;
+double capacitance;
+
 
 void spread_into_threads();
 
@@ -39,12 +43,15 @@ int main( int argc, char *argv[]) {
 	std::string carrierFile;
 	std::vector<std::string> carrierThread_fileNames;
 	//std::valarray<std::valarray<double>> i_total;
+	TString transferFun;
 	TH1D *i_rc;
+	TH1D *i_conv;
+	TH1D *i_ramo;
 
 
 	int counted_numLines = 0;
 	int number_of_lines = 0;
-	int nns, count2;
+	int nns, count2, count;
 	std::string line;
 	std::string temp;
 
@@ -103,6 +110,8 @@ int main( int argc, char *argv[]) {
 		}
 
 		i_rc_array.resize(total_sizeZ);
+		i_ramo_vector.resize(total_sizeZ);
+		i_conv_vector.resize(total_sizeZ);
 		vItotals.resize(total_sizeZ);
 		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
@@ -117,6 +126,8 @@ int main( int argc, char *argv[]) {
 		}
 
 		i_rc_array.resize(total_sizeY);
+		i_ramo_vector.resize(total_sizeY);
+		i_conv_vector.resize(total_sizeY);
 		vItotals.resize(total_sizeY);
 		for (int i = 0; i < total_sizeY ; i++)
 
@@ -139,9 +150,9 @@ int main( int argc, char *argv[]) {
 		t[i].join();
 	}
 	//for (int i = 0 ; i < TRACSsim[0]->vSemiItotals.size() ; i++){
-	//								for (int j = 0 ; j < TRACSsim[0]->vSemiItotals[i].size() ; j++)
-	//									std::cout << "i " << i << "; j " << j << "    " <<  TRACSsim[0]->vSemiItotals[i][j] << std::endl;
-	//							}
+		//							for (int j = 0 ; j < TRACSsim[0]->vSemiItotals[i].size() ; j++)
+		//								std::cout << "i " << i << "; j " << j << "    " <<  TRACSsim[0]->vSemiItotals[i][j] << std::endl;
+		//						}
 
 
 	for (int i = 0 ; i < vItotals.size(); i++){
@@ -155,23 +166,58 @@ int main( int argc, char *argv[]) {
 
 
 	//Current to rc array of TH1D -> root file
-	if (scanType == "edge"){
-		for (int i = 0 ; i < i_rc_array.size(); i++ ){
-
-
+	if (/*scanType == "edge" && */global_TF != "NO_TF") {
+		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
+		//for (int i = 0 ; i < i_rc_array.size(); i++ ){
+			transferFun = global_TF;
 			TString htit, hname;
-			htit.Form("ramo_rc%d%d", 0, count2);
+			TString htit2, hname2;
+
+			htit.Form("ramo_%d%d", 0, count2);
 			hname.Form("Ramo_current_%d_%d", 0, count2);
-			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			htit2.Form("ramo_conv%d%d", 0, count2);
+			hname2.Form("Ramo_current_%d_%d", 0, count2);
+			//i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
 			for (int k = 1 ; k < timeSteps; k++ ){
 
-				i_rc->SetBinContent(k+1, vItotals[i][k]);
+				i_ramo->SetBinContent(k+1, vItotals[i][k]);
 
 			}
-			i_rc_array[i] = i_rc;
-			i_rc = nullptr;
+			//i_ramo_vector[i] = i_ramo;
+			//i_rc_array[i] = i_rc;
+			TH1D *i_conv = H1DConvolution(i_ramo , capacitance*1.e12, count, transferFun);
+			i_conv_vector[i] = i_conv;
+			i_ramo = nullptr;
+			i_conv = nullptr;
 			count2++;
+			count++;
 
+
+		}
+		//i_conv = H1DConvolution( i_ramo , capacitance*1.e12, count);
+		//count++;
+
+
+	}
+	if (/*scanType == "edge" && */global_TF == "NO_TF"){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
+			//for (int j = 0 ; j <= vector_zValues.size(); j++ ){
+				TString htit, hname;
+				htit.Form("ramo_rc%d%d", 0, count2);
+				hname.Form("Ramo_current_%d_%d", 0, count2);
+				i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+				for (int k = 1 ; k < timeSteps; k++ ){
+
+					i_rc->SetBinContent(k+1, vItotals[i][k]);
+
+				}
+				i_rc_array[i] = i_rc;
+				i_rc = nullptr;
+				count2++;
+			//}
 
 		}
 
@@ -179,30 +225,72 @@ int main( int argc, char *argv[]) {
 
 
 	//Current to rc array of TH1D -> root file
-	if (scanType == "top" || scanType == "bottom"){
-		for (int i = 0 ; i < i_rc_array.size(); i++ ){
-
-
+/*	if ((scanType == "top" || scanType == "bottom") && global_TF != "NO_TF"){
+		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
+			transferFun = global_TF;
 			TString htit, hname;
-			htit.Form("ramo_rc%d%d", 0, count2);
+			TString htit2, hname2;
+
+			htit.Form("ramo_%d%d", 0, count2);
 			hname.Form("Ramo_current_%d_%d", 0, count2);
-			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			htit2.Form("ramo_conv%d%d", 0, count2);
+			hname2.Form("Ramo_current_%d_%d", 0, count2);
+			//TH1D *i_conv;// = new TH1D(htit2,hname2, timeSteps, 0.0, max_time);
 			for (int k = 1 ; k < timeSteps; k++ ){
 
-				i_rc->SetBinContent(k+1, vItotals[i][k]);
+				i_ramo->SetBinContent(k+1, vItotals[i][k]);
 			}
-			i_rc_array[i] = i_rc;
-			i_rc = nullptr;
+			//i_ramo_vector[i] = i_ramo;
+			//i_rc_array[i] = i_rc;
+			TH1D *i_conv = H1DConvolution(i_ramo , capacitance*1.e12, count, transferFun);
+			std::cout<<i_conv->GetNbinsX()<<std::endl;
+			i_conv_vector[i] = i_conv;
+			i_ramo = nullptr;
+			i_conv = nullptr;
 			count2++;
+			count++;
 
 
 		}
 
 	}
+	if ((scanType == "top" || scanType == "bottom") && global_TF == "NO_TF"){
+			for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
+				//for (int j = 0 ; j <= vector_yValues.size(); j++ ){
+					TString htit, hname;
+					htit.Form("ramo_rc%d%d", 0, count2);
+					hname.Form("Ramo_current_%d_%d", 0, count2);
+					i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+					for (int k = 1 ; k < timeSteps; k++ ){
+
+						i_rc->SetBinContent(k+1, vItotals[i][k]);
+						//std::cout << vItotals[i][k] << std::endl;
+					}
+					i_rc_array[i] = i_rc;
+					i_rc = nullptr;
+					count2++;
+				//}
+
+			}
+
+		}*/
 
 
 	//write output to single file!
 	TRACSsim[0]->write_to_file(0);
+
+	//int crosses = 0;
+	//	for (int i = 0; i < num_threads; i++){
+	//		crosses+=TRACSsim[i]->GettotalCrosses();
+	//		std::cout << "Crossed per thread: " << TRACSsim[i]->GettotalCrosses() << std::endl;
+	//		std::cout << "Total crosses so far: " << crosses << std::endl;
+
+	//	}
+	//	std::cout << "Total particles crossed to Depleted Region: " << crosses << std::endl;
+		//End results due to diffusion
 
 	for (int i = 0 ; i < num_threads ; i++){
 		const char * c = carrierThread_fileNames[i].c_str();
@@ -239,7 +327,8 @@ void spread_into_threads(){
 	uint index = 1;
 
 	//Reading file to get values that will determine scan vectors
-	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, dTime, max_time);
+	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit,
+			yMax, deltaY, dTime, max_time, capacitance, global_TF);
 
 	//Reserve to 300 since is a common measurement for a detector Z dimension.
 	//Reserve does not implies anything, better for performance.

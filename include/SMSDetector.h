@@ -160,6 +160,7 @@ public:
 
 	// some other methods
 	bool is_out(const std::array< double,2> &x);
+	bool is_out_dep(const std::array< double,2> &x);
 
 };
 

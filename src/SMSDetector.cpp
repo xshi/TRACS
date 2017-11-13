@@ -43,59 +43,59 @@ std::mutex mtxD;
 SMSDetector::SMSDetector(double pitch, double width, double depth, int nns, char bulk_type, char implant_type, int n_cells_x, int n_cells_y, double tempK, double trapping,
 		double fluence, std::vector<double> neff_param, std::string neff_type, int diffusion, double dt) :
 
-		_pitch(pitch), //Distance between implants
-		_width(width), //Size of the implant
-		_depth(depth), //Vertical size of the pad (typically 300microns)
-		_tempK(tempK), // Temperature of the detector
-		_trapping_time(trapping), // Trapping constant simulates radiation-induced defects (traps)
-		_fluence(fluence), // Irradiation fluence in neutron equivalent (neq)
-		_nns(nns), // Number of neighbouring strips
-		_bulk_type(bulk_type), //Dopant type of the silicon (p/n)
-		_implant_type(implant_type), //Dopant type of the implant, normally opposite of the bulk (n/p)
-		_neff_type(neff_type), // Select aproach to parametrize Neff (irradiation only)
-		_neff_param(neff_param), // Parametrized description of the Space Charge distribution
-		_x_min(0.0), // Starting horizontal position for carrier generation (hereafter CG)
-		_x_max(_pitch * (2*_nns+1)), // Endingvertical positio for CG
-		_y_min(0.0), // Starting vertical position for CG (microns)
-		_y_max(_depth), // Ending vertical position for CG (microns)
-		_vdep(0),
-		_v_bias(0),
-		_v_backplane(0),
-		_v_strips(0),
-		_f_poisson(0),
-		_diffusion(diffusion),
-		_depletion_width(0),
-		_depleted(false),
-		_dt(dt),
-		// Mesh properties
-		_n_cells_x(n_cells_x),
-		_n_cells_y(n_cells_y),
+				_pitch(pitch), //Distance between implants
+				_width(width), //Size of the implant
+				_depth(depth), //Vertical size of the pad (typically 300microns)
+				_tempK(tempK), // Temperature of the detector
+				_trapping_time(trapping), // Trapping constant simulates radiation-induced defects (traps)
+				_fluence(fluence), // Irradiation fluence in neutron equivalent (neq)
+				_nns(nns), // Number of neighbouring strips
+				_bulk_type(bulk_type), //Dopant type of the silicon (p/n)
+				_implant_type(implant_type), //Dopant type of the implant, normally opposite of the bulk (n/p)
+				_neff_type(neff_type), // Select aproach to parametrize Neff (irradiation only)
+				_neff_param(neff_param), // Parametrized description of the Space Charge distribution
+				_x_min(0.0), // Starting horizontal position for carrier generation (hereafter CG)
+				_x_max(_pitch * (2*_nns+1)), // Endingvertical positio for CG
+				_y_min(0.0), // Starting vertical position for CG (microns)
+				_y_max(_depth), // Ending vertical position for CG (microns)
+				_vdep(0),
+				_v_bias(0),
+				_v_backplane(0),
+				_v_strips(0),
+				_f_poisson(0),
+				_diffusion(diffusion),
+				_depletion_width(0),
+				_depleted(false),
+				_dt(dt),
+				// Mesh properties
+				_n_cells_x(n_cells_x),
+				_n_cells_y(n_cells_y),
 #if DOLFIN_VERSION_MINOR>=6
-		_mesh(Point(_x_min,_y_min),Point(_x_max,_y_max), _n_cells_x, _n_cells_y),
+				_mesh(Point(_x_min,_y_min),Point(_x_max,_y_max), _n_cells_x, _n_cells_y),
 #else
-		_mesh(_x_min,_y_min,_x_max,_y_max, _n_cells_x, _n_cells_y),
+				_mesh(_x_min,_y_min,_x_max,_y_max, _n_cells_x, _n_cells_y),
 #endif
-		_periodic_boundary(_x_min, _x_max, _depth),
+				_periodic_boundary(_x_min, _x_max, _depth),
 
-		//_central_stripUnderDep(_pitch, _width, _nns, _depletion_width),
-		//_neighbour_stripsUnderDep(_pitch, _width, _nns, _depletion_width),
-		//_backplaneUnderDep(_x_min, _x_max, _depletion_width),
+				//_central_stripUnderDep(_pitch, _width, _nns, _depletion_width),
+				//_neighbour_stripsUnderDep(_pitch, _width, _nns, _depletion_width),
+				//_backplaneUnderDep(_x_min, _x_max, _depletion_width),
 
-		_central_strip(_pitch, _width, _nns),
-		_neighbour_strips(_pitch, _width, _nns),
-		_backplane(_x_min, _x_max, _depth),
+				_central_strip(_pitch, _width, _nns),
+				_neighbour_strips(_pitch, _width, _nns),
+				_backplane(_x_min, _x_max, _depth),
 
-		// Functions & variables to solve the PDE
-		_V_p(_mesh, _periodic_boundary),
-		_a_p(_V_p, _V_p),
-		_L_p(_V_p),
-		_V_g(_mesh),
-		_a_g(_V_g, _V_g),
-		_L_g(_V_g),
-		_w_u(_V_p),
-		_d_u(_V_p),
-		_w_f_grad(_V_g), // Weighting field
-		_d_f_grad(_V_g)  // Drifting field
+				// Functions & variables to solve the PDE
+				_V_p(_mesh, _periodic_boundary),
+				_a_p(_V_p, _V_p),
+				_L_p(_V_p),
+				_V_g(_mesh),
+				_a_g(_V_g, _V_g),
+				_L_g(_V_g),
+				_w_u(_V_p),
+				_d_u(_V_p),
+				_w_f_grad(_V_g), // Weighting field
+				_d_f_grad(_V_g)  // Drifting field
 {
 }
 
@@ -134,20 +134,25 @@ void SMSDetector::set_voltages(double v_bias, double v_depletion)
 			_f_poisson = ((_bulk_type== 'p') ? +1.0 : -1.0)*(-2.0*_v_bias)/(_depletion_width * _depletion_width);
 			std::cout << "fp NO depleted: " << _f_poisson << std::endl;
 			std::cout << "Depletion Width: " << _depletion_width << std::endl;
-			//if (_fluence == 0){//AND NO irrad, then change neff parameters. Otherwise taken from steering.
-			//_neff_type = "Triconstant";
-			_neff_param[0] = _f_poisson; //y0
-			_neff_param[1] = _f_poisson; // y1
-			_neff_param[2] = _f_poisson; // y2
-			_neff_param[3] = _f_poisson; // y3
-			_neff_param[4] = 0.0; // z0
-			_neff_param[5] = _depletion_width; // z1
-			_neff_param[6] = _depletion_width; // z2
-			_neff_param[7] = _depletion_width; // z3
-			//}
-		}
+//			//if (_fluence == 0){//AND NO irrad, then change neff parameters. Otherwise taken from steering.
+//			//_neff_type = "Triconstant";
+//			_neff_param[0] = _f_poisson; //y0
+//			_neff_param[1] = _f_poisson; // y1
+//			_neff_param[2] = _f_poisson; // y2
+//			_neff_param[3] = _f_poisson; // y3
+//			_neff_param[4] = 0.0; // z0
+//			_neff_param[5] = _depletion_width; // z1
+//			_neff_param[6] = _depletion_width; // z2
+//			_neff_param[7] = _depletion_width; // z3
+			}
+//		}
 	}
 	//if fluence > 0, parameters are taken in the constructor inicialization list, coming from the config file
+	if (_fluence > 0){
+
+		_depletion_width = _neff_param[7] - _neff_param[4];
+
+	}
 
 }
 
@@ -168,37 +173,20 @@ void SMSDetector::solve_w_u()
 	Constant neighbour_strip_V(0.0);
 	Constant backplane_V(0.0);
 
-	// Set BC variables based on depletion conditions
-	/*if(!_depleted){
-
-	//Redefinition of boundary conditions
-	CentralStripBoundaryWP central_stripUnderDep(_pitch, _width, _nns, _depletion_width);
-	NeighbourStripBoundaryWP neighbour_stripsUnderDep(_pitch, _width, _nns, _depletion_width);
 	BackPlaneBoundaryWP backplaneUnderDep(_x_min, _x_max, _depletion_width);
 
-	DirichletBC central_strip_BC(_V_p, central_strip_V, central_stripUnderDep);
-	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, neighbour_stripsUnderDep);
+	DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
+	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
+	//DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
 	DirichletBC backplane_BC(_V_p, backplane_V, backplaneUnderDep);
 
 	bcs.push_back(&central_strip_BC);
 	bcs.push_back(&neighbour_strip_BC);
 	bcs.push_back(&backplane_BC);
+
 	solve(_a_p == _L_p , _w_u, bcs);
-	}*/
 
-	//else{
 
-		//Old boundary conditions
-		DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
-		DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
-		DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
-		bcs.push_back(&central_strip_BC);
-		bcs.push_back(&neighbour_strip_BC);
-		bcs.push_back(&backplane_BC);
-	//	mtxD.lock();
-		solve(_a_p == _L_p , _w_u, bcs);
-	//	mtxD.unlock();
-	//}
 
 
 }
@@ -211,71 +199,52 @@ void SMSDetector::solve_d_u()
 	Constant fpois(_f_poisson);
 
 	std::vector<const DirichletBC*> bcs;
+	//if (_fluence == 0 && _depleted) _neff_type = 'Linear';
 	Source f;
 
 
-	if (_fluence == 0 && _depleted) //NO irrad but YES depleted. fpoisson, charge distribution, is a constant during the whole detector
+	if (_fluence == 0 /*&& _depleted*/) //NO irrad but YES depleted. fpoisson, charge distribution, is a constant during the whole detector
 	{
-	_L_p.f = fpois;
-	_trapping_time = std::numeric_limits<double>::max();
+		_L_p.f = fpois;
+		_trapping_time = std::numeric_limits<double>::max();
 	}
 
 	else
-	//If YES Irrad OR NO depleted, charge distribution is not a constant. Parameters from steering file of from above if non-depleted.
+		//If YES Irrad OR NO depleted, charge distribution is not a constant. Parameters from steering file of from above if non-depleted.
 	{
 
-
-	f.set_NeffApproach(_neff_type);
-	f.set_y0(_neff_param[0]);
-	f.set_y1(_neff_param[1]);
-	f.set_y2(_neff_param[2]);
-	f.set_y3(_neff_param[3]);
-	f.set_z0(_neff_param[4]);
-	f.set_z1(_neff_param[5]);
-	f.set_z2(_neff_param[6]);
-	f.set_z3(_neff_param[7]);
-	_L_p.f = f;
+		f.set_NeffApproach(_neff_type);
+		f.set_y0(_neff_param[0]);
+		f.set_y1(_neff_param[1]);
+		f.set_y2(_neff_param[2]);
+		f.set_y3(_neff_param[3]);
+		f.set_z0(_neff_param[4]);
+		f.set_z1(_neff_param[5]);
+		f.set_z2(_neff_param[6]);
+		f.set_z3(_neff_param[7]);
+		_L_p.f = f;
 	}
+
 
 	// Set BC values
 	Constant central_strip_V(_v_strips);
 	Constant neighbour_strip_V(_v_strips);
 	Constant backplane_V(_v_backplane);
 
-	// Set BC variables based on depletion conditions
-	/*if(!_depleted){ //NO depleted. Boundary conditions changed to the depletion_width.
 
-	//Redefinition of boundary conditions
-	CentralStripBoundaryWP central_stripUnderDep(_pitch, _width, _nns, _depletion_width);
-	NeighbourStripBoundaryWP neighbour_stripsUnderDep(_pitch, _width, _nns, _depletion_width);
 	BackPlaneBoundaryWP backplaneUnderDep(_x_min, _x_max, _depletion_width);
 
-	DirichletBC central_strip_BC(_V_p, central_strip_V, central_stripUnderDep);
-	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, neighbour_stripsUnderDep);
+	DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
+	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
+	//DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
 	DirichletBC backplane_BC(_V_p, backplane_V, backplaneUnderDep);
 
 	bcs.push_back(&central_strip_BC);
 	bcs.push_back(&neighbour_strip_BC);
 	bcs.push_back(&backplane_BC);
+
 	solve(_a_p == _L_p , _d_u, bcs);
-	//When solving, go to Source.h to (eval method) establish the source term for solving the Poisson equation using the neff_type and the neff_param recently
-	//set for the Source f.
-	}*/
 
-	//old Boundary conditions
-
-	//else{
-
-		DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
-		DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
-		DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
-		bcs.push_back(&central_strip_BC);
-		bcs.push_back(&neighbour_strip_BC);
-		bcs.push_back(&backplane_BC);
-	//	mtxD.lock();
-		solve(_a_p == _L_p , _d_u, bcs);
-	//	mtxD.unlock();
-	//}
 }
 
 /*
@@ -310,6 +279,16 @@ bool SMSDetector::is_out(const std::array< double,2> &x)
 {
 	bool out = true;
 	if ( (x[0] > _x_min) && (x[0] < _x_max) && (x[1] > _y_min) && (x[1] < _depletion_width))
+	{
+		out = false;
+	}
+	return out;
+}
+
+bool SMSDetector::is_out_dep(const std::array< double,2> &x)
+{
+	bool out = true;
+	if ( (x[0] > _x_min) && (x[0] < _x_max) && (x[1] > _y_min) && (x[1] < _depth) )
 	{
 		out = false;
 	}

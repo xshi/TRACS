@@ -22,8 +22,9 @@
 std::valarray<std::valarray <double> > vItotals;
 //std::valarray<std::valarray <double> >i_temp;
 
-vector<vector <TH1D*> >  i_ramo_array, i_conv_array;//, i_rc_array;
-vector<TH1D*> i_rc_array;
+//vector<vector <TH1D*> >  i_ramo_array, i_conv_array;//, i_rc_array;
+vector<TH1D*> i_rc_array, i_ramo_vector, i_conv_vector;
+std::string global_TF;
 
 //Define here the steering file you want to use. Store it in myApp folder.
 std::string fnm="MyConfigTRACS";

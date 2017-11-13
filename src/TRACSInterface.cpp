@@ -239,7 +239,7 @@ void TRACSInterface::simulate_ramo_current()
 	/*Important for Diffusion:
 	yPos is later transformed into X.
 	zPos is later transformed into Y.*/
-	carrierCollection->simulate_drift( dt, max_time, yPos, zPos, i_elec, i_hole, total_crosses);
+	carrierCollection->simulate_drift( dt, max_time, yPos, zPos, i_elec, i_hole, total_crosses, scanType);
 	i_total = i_elec + i_hole;
 }
 
@@ -543,9 +543,9 @@ void TRACSInterface::loop_on(int tid)
 	int index_total = 0;
 	int i,j;
 	i = 0; j = 0;
-	std::unique_lock<std::mutex> guard(mtx2);
-	detector->solve_w_u();
-	guard.unlock();
+	//std::unique_lock<std::mutex> guard(mtx2);
+	//detector->solve_w_u();
+	//guard.unlock();
 
 	if (scanType == "edge"){
 		//Voltage scan
@@ -553,6 +553,7 @@ void TRACSInterface::loop_on(int tid)
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
 			std::unique_lock<std::mutex> guard(mtx2);
+			detector->solve_w_u();
 			detector->solve_d_u();
 			detector->solve_w_f_grad();
 			guard.unlock();
@@ -562,10 +563,13 @@ void TRACSInterface::loop_on(int tid)
 			for (int index_zscan = 0; index_zscan < zVector.size(); index_zscan++){
 
 				//simulate_ramo_current();
-				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses);
+				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-				GetItRc();
-				vSemiItotals[index_total] = i_shaped;
+				if (global_TF == "NO_TF"){
+					GetItRc();
+					vSemiItotals[index_total] = i_shaped;
+				}
+				else vSemiItotals[index_total] = i_total;
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 			}
@@ -582,6 +586,7 @@ void TRACSInterface::loop_on(int tid)
 
 			detector->set_voltages(voltVector[index_volt], vDepletion);
 			std::unique_lock<std::mutex> guard(mtx2);
+			detector->solve_w_u();
 			detector->solve_d_u();
 			detector->solve_w_f_grad();
 			guard.unlock();
@@ -590,11 +595,13 @@ void TRACSInterface::loop_on(int tid)
 
 			for (int index_yscan = 0; index_yscan < yVector.size(); index_yscan++){
 
-				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, total_crosses);
+				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-
-				GetItRc();
-				vSemiItotals[index_total] = i_shaped;
+				if (global_TF == "NO_TF"){
+					GetItRc();
+					vSemiItotals[index_total] = i_shaped;
+				}
+				else vSemiItotals[index_total] = i_total;
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 
@@ -655,13 +662,15 @@ void TRACSInterface::resize_array()
 void TRACSInterface::write_to_file(int tid)
 {
 
-	int index_rc = 0;
+	int index_conv = 0;
 	if (scanType == "edge"){
 
 		for (int i = 0 ; i < voltVector.size() ;  i++){
 			for (int j = 0 ; j < zVector.size() ; j++){
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_rc], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
-				index_rc++;
+				if (global_TF != "NO_TF")
+					utilities::write_to_file_row(hetct_rc_filename, i_conv_vector[index_conv], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
+				else utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
+				index_conv++;
 			}
 
 		}
@@ -674,14 +683,43 @@ void TRACSInterface::write_to_file(int tid)
 
 		for (int i = 0 ; i < voltVector.size() ;  i++){
 			for (int j = 0 ; j < yVector.size() ; j++){
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_rc], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
-				index_rc++;
+				if (global_TF != "NO_TF")
+					utilities::write_to_file_row(hetct_rc_filename, i_conv_vector[index_conv], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
+				else utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
+				index_conv++;
 				//std::cout << i_rc_array[i][j] << std::endl;
 			}
 
 		}
 
 	}
+
+	/*if (scanType == "edge" && global_TF == "NO_TF"){
+
+		for (int i = 0 ; i < voltVector.size() ;  i++){
+			for (int j = 0 ; j < zVector.size() ; j++){
+				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
+				index_conv++;
+			}
+
+		}
+
+	}
+
+
+
+	if ((scanType == "top" || scanType == "bottom") && global_TF == "NO_TF"){
+
+		for (int i = 0 ; i < voltVector.size() ;  i++){
+			for (int j = 0 ; j < yVector.size() ; j++){
+				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
+				index_conv++;
+				//std::cout << i_rc_array[i][j] << std::endl;
+			}
+
+		}
+
+	}*/
 
 
 }

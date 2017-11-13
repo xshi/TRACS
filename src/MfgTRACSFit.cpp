@@ -54,6 +54,9 @@ std::vector<std::string> carrierThread_fileNames;
 std::string scanType;
 double dTime;
 double max_time;
+double capacitance;
+TString transferFun;
+
 
 void spread_into_threads();
 
@@ -135,6 +138,8 @@ int main( int argc, char *argv[]) {
 			std::quick_exit(1);
 		}
 		i_rc_array.resize(total_sizeZ);
+		i_ramo_vector.resize(total_sizeZ);
+		i_conv_vector.resize(total_sizeZ);
 		vItotals.resize(total_sizeZ);
 		for (int i = 0; i < total_sizeZ ; i++)
 			vItotals[i].resize(timeSteps);
@@ -148,6 +153,8 @@ int main( int argc, char *argv[]) {
 			std::quick_exit(1);
 		}
 		i_rc_array.resize(total_sizeY);
+		i_ramo_vector.resize(total_sizeY);
+		i_conv_vector.resize(total_sizeY);
 		vItotals.resize(total_sizeY);
 		for (int i = 0; i < total_sizeY ; i++)
 			vItotals[i].resize(timeSteps);
@@ -186,7 +193,7 @@ int main( int argc, char *argv[]) {
 	vDep = TRACSsim[0]->get_vDep();
 	fluence = TRACSsim[0]->get_fluence();
 
-	/*********Begin Fit. For irradiated or undepleted dectectors****************/
+	/*********Begin Fit. For irradiated****************/
 	/***********************************************************************/
 	//Fitting Neff and normalizator
 
@@ -282,11 +289,11 @@ int main( int argc, char *argv[]) {
 			parErr[i]=min.UserState().Error(i);
 		}
 	}
-	/*********Finish Irradiated/undepleted fit******************************************/
+	/*********Finish Irradiated******************************************/
 	/***********************************************************************/
 
 
-	/*********Begin depleted fit. Non-irradiated dectectors**************/
+	/*********Begin Non-irradiated detectors**************/
 	/***********************************************************************/
 	//Fitting normalizator, Vdep, depth, Capacitance if detector is depleted and non-irradiated
 
@@ -477,7 +484,7 @@ void spread_into_threads(){
 	uint index = 1;
 
 	//Reading file to get values that will determine scan vectors
-	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, dTime, max_time);
+	utilities::parse_config_file(fnm, scanType, vInit, deltaV, vMax, v_depletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, dTime, max_time, capacitance, global_TF);
 
 	//Reserve to 300 since is a common measurement for a detector Z dimension.
 	//Reserve does not implies anything, better for performance.

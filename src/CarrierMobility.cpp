@@ -40,15 +40,27 @@ JacoboniMobility::JacoboniMobility( char carrier_type, double T)
   _T = T;
   if (carrier_type == 'e') // Electrons
   {
-    _mu0 = 1440.e8 * std::pow(_T/300., -2.260);
-    _vsat = 1.054e11  * std::pow(_T/300., -0.602);
-    _beta = 0.992 * std::pow(_T/300., 0.572); // <100> orientation
+    //_mu0 = 1440.e8 * std::pow(_T/300., -2.260); //um**2/ Vs
+    //_vsat = 1.054e11  * std::pow(_T/300., -0.602); //um**2/ Vs
+    //_beta = 0.992 * std::pow(_T/300., 0.572); // <100> orientation
+
+	//Extended Canali model. Following Sentaurus manual. Pag 217-224.
+    _mu0  = 1417.e8 * std::pow(_T/300., -2.5); //um**2/ Vs
+    _vsat = 1.07e11  * std::pow(_T/300., -0.87); //um**2/ Vs
+    _beta = 1.109 * std::pow(_T/300., 0.66); // <100> orientation
   }
+
+  //Extended Canali model. Following Sentaurus manual. Pag 217-224.
   else if (carrier_type == 'h') // Holes
   {
-    _mu0 = 474.e8 * std::pow(_T/300., -2.619);
-    _vsat = 0.940e11  * std::pow(_T/300., -0.226);
-    _beta = 1.181 * std::pow(_T/300., 0.633 ); // <100> orientation
+    //_mu0 = 474.e8 * std::pow(_T/300., -2.619); //um**2/ Vs
+    //_vsat = 0.940e11  * std::pow(_T/300., -0.226); //um**2/ Vs
+    //_beta = 1.181 * std::pow(_T/300., 0.633 ); // <100> orientation
+
+	  //Extended Canali model. Following Sentaurus manual. Pag 217-224.
+    _mu0  = 470.e8 * std::pow(_T/300., -2.2); //um**2/ Vs
+    _vsat = 0.837e11  * std::pow(_T/300., -0.52); //um**2/ Vs
+    _beta = 1.213 * std::pow(_T/300., 0.17 ); // <100> orientation
   }
 }
 

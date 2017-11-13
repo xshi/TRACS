@@ -53,6 +53,8 @@ private:
 	double _dx; //to calculate diffusion step
 	double _gen_time; // instant of generation of the carrier
 	std::array< double,2> _x; // carrier position array
+	//std::array< double,2> _vectordx;
+	std::array< double,2> _temp;
 	std::array< double,2> _e_field; // electric field at the carrier position
 	std::array< double,2> _w_field; // weighting field at the carrier positions
 	double _e_field_mod;
@@ -101,7 +103,7 @@ public:
 
 	//void calculateDiffusionH(double dt);
 	std::valarray<double> simulate_drift( double dt, double max_time);
-	std::valarray<double> simulate_drift(double dt, double max_time, double x_init, double y_init );
+	std::valarray<double> simulate_drift(double dt, double max_time, double x_init, double y_init, const std::string &scanType);
 };
 
 #endif // CARRIER_H
