@@ -55,6 +55,13 @@ std::string scanType;
 double dTime;
 double max_time;
 double capacitance;
+double timeSteps;
+int total_sizeZ;
+int total_sizeY;
+TH1D *i_rc;
+TH1D *i_conv;
+TH1D *i_ramo;
+
 TString transferFun;
 
 
@@ -67,12 +74,15 @@ int main( int argc, char *argv[]) {
 
 	std::string carrierFile;
 	std::valarray<std::valarray<double>> i_total;
-	TH1D *i_rc;
 	int counted_numLines = 0;
 	int number_of_lines = 0;
-	int nns, count2;
+	int nns, count2 = 0, count = 0;
+
 	std::string line;
 	std::string temp;
+
+	TString transferFun;
+
 
 	double fitParamVdep;
 	double fitParamNorm;
@@ -128,9 +138,9 @@ int main( int argc, char *argv[]) {
 	in.close();
 
 	spread_into_threads();
-	double timeSteps = (int) std::floor(max_time / dTime);
-	int total_sizeZ = vector_voltValues.size() * vector_zValues.size();
-	int total_sizeY = vector_voltValues.size() * vector_yValues.size();
+	timeSteps = (int) std::floor(max_time / dTime);
+	total_sizeZ = vector_voltValues.size() * vector_zValues.size();
+	total_sizeY = vector_voltValues.size() * vector_yValues.size();
 
 	if (scanType == "edge"){
 		if (vector_yValues.size() > 1){
@@ -179,11 +189,111 @@ int main( int argc, char *argv[]) {
 	for (int i = 0 ; i < vItotals.size(); i++){
 		for (int j = 0; j < num_threads; j++) {
 
-			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
+			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];
 
 
 		}
 	}
+	/*****vItotals is taking TH1D values for fitting purposes. First ramo, then convolution, then TH1D goes to vItotals*****/
+
+	if (global_TF != "NO_TF") {
+		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
+
+			transferFun = global_TF;
+			TString htit, hname;
+			TString htit2, hname2;
+
+			htit.Form("ramo_%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			htit2.Form("ramo_conv%d%d", 0, count2);
+			hname2.Form("Ramo_current_%d_%d", 0, count2);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_ramo->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+
+			TH1D *i_conv = H1DConvolution(i_ramo , capacitance*1.e12, count, transferFun);
+			//i_conv_vector[i] = i_conv;
+
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			Int_t Nbins = TMath::Nint( max_time/dTime ) ;
+			TH1D *hitf = new TH1D("hitf","hitf", Nbins ,0.,max_time) ;
+			Int_t istart = i_conv->FindBin( -20e-9) , iend=i_conv->FindBin( 20.e-9) ;
+			Int_t cont =  hitf->FindBin( 0.102141e-09 );
+			for (Int_t k=istart ; k < iend ; k++ ) {
+				//std::cout<< i_conv->GetBinContent( k ) <<std::endl;
+				hitf->SetBinContent( cont , i_conv->GetBinContent( k+1 ) );
+				cont++;
+			}
+			i_conv_vector[i] = hitf;
+			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; i_conv->Write() ; hitf->Write() ; ftfo->Close();
+			//delete hitf;
+			//i_clone = nullptr ;
+			//****************************************************************************************************************************************************************
+
+			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
+			i_ramo = nullptr;
+			i_conv = nullptr;
+			count2++;
+			count++;
+
+
+		}
+		for (int i = 0 ; i < i_conv_vector.size() ; i++){
+			for (int j = 0; j < i_conv_vector[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_conv_vector[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+
+	}
+
+	/*for (int i = 0 ; i < vItotals.size() ; i++){
+		for (int j = 0 ; j < vItotals[i].size() ; j++)
+			//vItotals[i][j] = 0;
+			std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
+	}*/
+
+
+
+	if (global_TF == "NO_TF"){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
+			TString htit, hname;
+			htit.Form("ramo_rc%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_rc->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+			i_rc_array[i] = i_rc;
+			vItotals[i].resize(i_rc_array[i]->GetNbinsX());
+			i_rc = nullptr;
+			count2++;
+
+
+		}
+
+		for (int i = 0 ; i < i_rc_array.size() ; i++){
+			for (int j = 0; j < i_rc_array[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_rc_array[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+	}
+
+	/********Finish this part*********/
 
 
 	fit = new TRACSFit( FileMeas, FileConf , how ) ;
@@ -311,8 +421,12 @@ int main( int argc, char *argv[]) {
 		parIniSize = parIni.size() ;
 
 		parErr.resize(parIniSize);
-		for (size_t i=0; i < parIniSize; i++)
-			parErr[i] = 60.;
+		//for (size_t i=0; i < parIniSize; i++)
+		//	parErr[i] = 60.;
+		parErr[0]=100   ;
+		parErr[1]=40.    ;
+		parErr[2]=100.    ;
+		parErr[3]=5.e-12 ;
 
 		//Pass parameters to Minuit
 		MnUserParameters upar(parIni,parErr) ;
@@ -321,10 +435,10 @@ int main( int argc, char *argv[]) {
 			upar.SetName( i , pname );
 		}
 
-		//upar.Fix(0) ; //Normalizator
-		upar.Fix(1); //Depletion voltage
-		//upar.Fix(2); //Detector depth
-		//upar.Fix(3); //Capacitance
+		upar.Fix(0) ; //Normalizator
+		//upar.Fix(1); //Depletion voltage
+		upar.Fix(2); //Detector depth
+		upar.Fix(3); //Capacitance
 
 		std::cout << "=============================================" << std::endl;
 		std::cout << "Initial parameters: "<<upar<<std::endl;
@@ -351,8 +465,9 @@ int main( int argc, char *argv[]) {
 
 		//Get the fitting parameters
 		for (uint i=0; i < parIniSize;i++) {
-			parIni[i]=min.UserState().Value(i);
-			parErr[i]=min.UserState().Error(i);
+			//parIni[i]=min.UserState().Value(i);
+			parErr[i]=min.UserParameters().Error(i);
+			parIni[i]=min.UserParameters().Value(i);
 		}
 	}
 
@@ -380,8 +495,103 @@ int main( int argc, char *argv[]) {
 		}
 	}
 
+	//vItotals is taking TH1D values for fitting purposes. First ramo, then convolution, then TH1D goes to vItotals
+
+	if (global_TF != "NO_TF") {
+		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
+
+			transferFun = global_TF;
+			TString htit, hname;
+			TString htit2, hname2;
+
+			htit.Form("ramo_%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			htit2.Form("ramo_conv%d%d", 0, count2);
+			hname2.Form("Ramo_current_%d_%d", 0, count2);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_ramo->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+
+			TH1D *i_conv = H1DConvolution(i_ramo , TRACSsim[0]->get_capacitance()/*capacitance*/*1.e12, count, transferFun);
+			i_conv_vector[i] = i_conv;
+
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			Int_t Nbins = TMath::Nint( max_time/dTime ) ;
+			TH1D *hitf = new TH1D("hitf","hitf", Nbins ,0.,max_time) ;
+			Int_t istart = i_conv->FindBin( -20e-9) , iend=i_conv->FindBin( 20.e-9) ;
+			Int_t cont =  hitf->FindBin( 0.102141e-09 );
+			for (Int_t k=istart ; k < iend ; k++ ) {
+				//std::cout<< i_conv->GetBinContent( k ) <<std::endl;
+				hitf->SetBinContent( cont , i_conv->GetBinContent( k+1 ) );
+				cont++;
+			}
+			i_conv_vector[i] = hitf;
+			//delete hitf;
+			//i_clone = nullptr ;
+			//****************************************************************************************************************************************************************
+
+			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; hitf->Write() ; ftfo->Close();
+			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
+			i_ramo = nullptr;
+			i_conv = nullptr;
+			count2++;
+			count++;
+
+		}
+
+		for (int i = 0 ; i < i_conv_vector.size() ; i++){
+			for (int j = 0; j < i_conv_vector[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_conv_vector[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+	}
+
+
+
+	if (global_TF == "NO_TF"){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
+			TString htit, hname;
+			htit.Form("ramo_rc%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_rc->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+			i_rc_array[i] = i_rc;
+			vItotals[i].resize(i_rc_array[i]->GetNbinsX());
+			i_rc = nullptr;
+			count2++;
+
+
+		}
+
+		for (int i = 0 ; i < i_rc_array.size() ; i++){
+			for (int j = 0; j < i_rc_array[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_rc_array[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+	}
+
+	//TRACSsim[0]->write_to_file(0);
+	//Finish this part
+
 	//Dump tree to disk
-	TFile fout("output.root","RECREATE") ;
+	TFile fout("output2.root","RECREATE") ;
 	TTree *tout = new TTree("edge","Fitting results");
 
 	TMeas *emo = new TMeas( );
@@ -421,6 +631,7 @@ int main( int argc, char *argv[]) {
 Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 
 	static int icalls ;
+	int nns, count2 = 0, count = 0;
 	boost::posix_time::ptime start = boost::posix_time::second_clock::local_time();
 
 	for (int i = 0 ; i < vItotals.size() ; i++){
@@ -446,6 +657,101 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 		}
 	}
 
+	/*****vItotals is taking TH1D values for fitting purposes. First ramo, then convolution, then TH1D goes to vItotals*****/
+
+	if (global_TF != "NO_TF") {
+		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
+
+			transferFun = global_TF;
+			TString htit, hname;
+			TString htit2, hname2;
+
+			htit.Form("ramo_%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			htit2.Form("ramo_conv%d%d", 0, count2);
+			hname2.Form("Ramo_current_%d_%d", 0, count2);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_ramo->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+
+			TH1D *i_conv = H1DConvolution(i_ramo , TRACSsim[0]->get_capacitance()/*capacitance*/*1.e12, count, transferFun);
+			//i_conv_vector[i] = i_conv;
+
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
+			Int_t Nbins = TMath::Nint( max_time/dTime ) ;
+			TH1D *hitf = new TH1D("hitf","hitf", Nbins ,0.,max_time) ;
+			Int_t istart = i_conv->FindBin( -20e-9) , iend=i_conv->FindBin( 20.e-9) ;
+			Int_t cont =  hitf->FindBin( 0.102141e-09 );
+			for (Int_t k=istart ; k < iend ; k++ ) {
+				//std::cout<< i_conv->GetBinContent( k ) <<std::endl;
+				hitf->SetBinContent( cont , i_conv->GetBinContent( k+1 ) );
+				cont++;
+			}
+			i_conv_vector[i] = hitf;
+			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; hitf->Write() ; ftfo->Close();
+			//delete hitf;
+			//i_clone = nullptr ;
+			//****************************************************************************************************************************************************************
+
+			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
+			i_ramo = nullptr;
+			i_conv = nullptr;
+			count2++;
+			count++;
+
+
+		}
+
+		for (int i = 0 ; i < i_conv_vector.size() ; i++){
+			for (int j = 0; j < i_conv_vector[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_conv_vector[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+	}
+
+
+
+	if (global_TF == "NO_TF"){
+		for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
+			TString htit, hname;
+			htit.Form("ramo_rc%d%d", 0, count2);
+			hname.Form("Ramo_current_%d_%d", 0, count2);
+			i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			for (int k = 0 ; k < timeSteps; k++ ){
+
+				i_rc->SetBinContent(k+1, vItotals[i][k]);
+
+			}
+			i_rc_array[i] = i_rc;
+			vItotals[i].resize(i_rc_array[i]->GetNbinsX());
+			i_rc = nullptr;
+			count2++;
+
+
+		}
+
+		for (int i = 0 ; i < i_rc_array.size() ; i++){
+			for (int j = 0; j < i_rc_array[i]->GetNbinsX(); j++  ){
+				vItotals[i][j] = i_rc_array[i]->GetBinContent(j+1);
+
+			}
+		}
+		count = 0;
+		count2 = 0;
+	}
+
+	/********Finish convolution part*********/
+
 	Double_t chi2 = fit->LeastSquares( ) ;
 	boost::posix_time::ptime end = boost::posix_time::microsec_clock::local_time();
 	boost::posix_time::time_duration timeTaken = end - start;
@@ -458,6 +764,40 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	for (uint ipar=0 ; ipar<par.size() ; ipar++) std::cout << "p["<<ipar<<"]="<<par[ipar]<<"\t" ; std::cout << std::endl;
 	std::cout << "-------------------------------------------------------------------------------------> " << std::endl;
 	icalls++;
+
+
+	std::string ss = std::to_string(icalls);
+	const char * namefout = ss.c_str();
+	//fout.SetName(namefout);
+	//TFile fout("output1.root","RECREATE") ;
+	TFile fout(namefout,"RECREATE") ;
+
+	TTree *tout = new TTree("edge","Fitting results");
+
+	TMeas *emo = new TMeas( );
+	emo->Nt   = TRACSsim[0]->GetnSteps() ;
+	emo->volt = new Double_t [emo->Nt] ;
+	emo->time = new Double_t [emo->Nt] ;
+	emo->Qt   = new Double_t [emo->Nt] ;
+
+	// Create branches
+	tout->Branch("raw", &emo,32000,0);
+
+	//Read RAW file
+	TRACSsim[0]->DumpToTree( emo , tout ) ;
+
+	//TRACSsim[0]->GetTree( tsim );
+	fout.Write();
+	delete tout ;
+	fout.Close();
+	delete emo ;
+
+
+
+
+
+
+
 
 	for (uint i = 0; i < TRACSsim.size(); i++)	{
 		delete TRACSsim[i];

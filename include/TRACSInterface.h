@@ -191,7 +191,8 @@ public:
 	// Getters
 	//TH1D GetItRamo();
 	TH1D *GetItRamo();
-	TH1D *GetItRc();
+	//TH1D *GetItRc();
+	void GetItRc();
 	TH1D *GetItConv();
 
 

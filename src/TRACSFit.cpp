@@ -89,17 +89,17 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	TFile *fmeas = new TFile( FileMeas.Data() );
 	tmeas = (TTree*) fmeas->Get("edge");
 
-    em   = 0 ;
-    TBranch *raw  = tmeas->GetBranch("raw") ;
-    raw->SetAddress(&em) ;
+	em   = 0 ;
+	TBranch *raw  = tmeas->GetBranch("raw") ;
+	raw->SetAddress(&em) ;
 
-    raw->GetEntry(0) ;
+	raw->GetEntry(0) ;
 
-    wv = new TWaveform( em ) ;
-    TBranch *proc = tmeas->GetBranch("proc") ;
-    proc->SetAddress(&wv) ;
-    emh = (TMeasHeader *) tmeas->GetUserInfo()->At(0) ;
-    tmeas->GetEntry(0) ;  //Commented 19Sept2012
+	wv = new TWaveform( em ) ;
+	TBranch *proc = tmeas->GetBranch("proc") ;
+	proc->SetAddress(&wv) ;
+	emh = (TMeasHeader *) tmeas->GetUserInfo()->At(0) ;
+	tmeas->GetEntry(0) ;  //Commented 19Sept2012
 
 
 	//MEASUREMENT: Subset of entries fulfilling "how" condition
@@ -109,18 +109,18 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 
 	//MEASUREMENT: Time vector
 	Nevm = listm->GetN() ;
-    if ( Nevm == 0 ) {
-       std::cout<<"Error: No events in measurement file satisfy condition " << how.Data() << std::endl ;
-       std::cout<<"Exiting!"<< std::endl ;
-       exit(-1);
-    }
-    Int_t iev = listm->GetEntry(0) ;
+	if ( Nevm == 0 ) {
+		std::cout<<"Error: No events in measurement file satisfy condition " << how.Data() << std::endl ;
+		std::cout<<"Exiting!"<< std::endl ;
+		exit(-1);
+	}
+	Int_t iev = listm->GetEntry(0) ;
 	tmeas->GetEntry( iev );
 	ntm = wv->GetNbins() ;
 	std::vector<Double_t> timem(ntm);
 
 	//Dump time information into timem
-    for ( Int_t ii = 0 ; ii< ntm ; ii++ ) timem[ii] = em->time[ii] ;
+	for ( Int_t ii = 0 ; ii< ntm ; ii++ ) timem[ii] = em->time[ii] ;
 
 	//delete em;
 
@@ -132,7 +132,7 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	tsim = new TTree("edge","TRACS simulation");
 	TRACSsim[0]->GetTree( tsim );
 
-    ems = 0 ;
+	ems = 0 ;
 	TBranch *raws  = tsim->GetBranch("raw") ;
 	raws->SetAddress(&ems) ;
 	raws->GetEntry(0) ;
@@ -156,7 +156,7 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	Nevs  = lists->GetN() ;
 
 	//Dump time information into tims
-    for ( Int_t ii = 0 ; ii< nts ; ii++ ) tims[ii] = ems->time[ii] ;
+	for ( Int_t ii = 0 ; ii< nts ; ii++ ) tims[ii] = ems->time[ii] ;
 
 	/*-------------  F I N D   C O M M O N   T I M E   R A N G E  --------------------------*/
 
@@ -187,6 +187,7 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	imins = TMath::Nint( (tmin-tims[0])/Ats ) , imaxs =TMath::Nint( (tmax-tims[0])/Ats );
 	iminm = TMath::Nint( (tmin-timem[0])/Atm ) , imaxm =TMath::Nint( (tmax-timem[0])/Atm );
 
+    iminm=imins=200 ; imaxm=imaxs=440;
 
 }
 //---------------------------------------------------------------------------
@@ -216,7 +217,7 @@ Double_t TRACSFit::LeastSquares( ) {
 
 	tsim = new TTree("edge","TRACS simulation");
 	TRACSsim[0]->GetTree( tsim );
-    ems = 0 ;
+	ems = 0 ;
 	TBranch *raws  = tsim->GetBranch("raw") ;
 	raws->SetAddress(&ems) ;
 	raws->GetEntry(0) ;
@@ -229,10 +230,10 @@ Double_t TRACSFit::LeastSquares( ) {
 
 
 	vector<Double_t>  timem, voltm , tims, volts ;
-    tims.resize(nts);
-    volts.resize(nts);
-    timem.resize(ntm);
-    voltm.resize(ntm);
+	tims.resize(nts);
+	volts.resize(nts);
+	timem.resize(ntm);
+	voltm.resize(ntm);
 	Double_t chi2 = 0.;
 	//Int_t Nt_iterm = imaxm - iminm + 1 ;
 	for ( Int_t ii=0 ; ii < Nevm ; ii++ ) {
@@ -256,16 +257,16 @@ Double_t TRACSFit::LeastSquares( ) {
 		fitNorm = TRACSsim[0]->get_fitNorm();
 		for ( Int_t iv = 0 ; iv< ntm ; iv++ ) {
 			voltm[iv] = em->volt[iv] - wv->BlineGetMean();
-			voltm[iv] = -1 *voltm[iv]; //Change sign of Meas *******
- 			timem[iv] = em->time[iv] ;
+			//voltm[iv] = -1 *voltm[iv]; //Change sign of Meas *******
+			timem[iv] = em->time[iv] ;
 		}
 		double simulation; //, norm=TRACSsim[0]->get_fitNorm();
 		for ( Int_t iv = iminm ; iv< imaxm ; iv++ ) {
-			simulation = itp1.Eval(timem[iv]);
+			simulation = itp1.Eval(timem[iv]) ;
 
-		if (simulation != 0) //For not to fit the 0's part!.********
-			//std::cout << "Scan="<<ii<<" Iteration= "<<iv<<" m=" << voltm[iv] << " s=" << simulation << " X2=" << chi2 << std::endl;
-			chi2+=( voltm[iv]-fitNorm*simulation )*(voltm[iv]-fitNorm*simulation) ;
+			if (simulation != 0) //For not to fit the 0's part!.********
+				//std::cout << "Scan="<<ii<<" Iteration= "<<iv<<" m=" << voltm[iv] << " s=" << simulation << " X2=" << chi2 << std::endl;
+				chi2+=( voltm[iv]-fitNorm*simulation )*(voltm[iv]-fitNorm*simulation) ;
 		}
 
 

@@ -89,7 +89,7 @@ void utilities::write_to_file_row(std::string filename, TH1D *hconv, double temp
 		// Scan on times
 		for (unsigned int i = 1; i <= steps; i++ )
 		{
-			out << std::fixed << std::setprecision(9) << hconv->GetBinContent(i) << " "; 
+			out << std::fixed << std::setprecision(9) << hconv->GetBinContent(i) << " ";
 			//std::cout <<  steps << " " << i << " " << hconv->GetBinContent(i) << std::endl;
 		}
 

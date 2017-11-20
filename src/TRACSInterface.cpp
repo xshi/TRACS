@@ -180,7 +180,8 @@ TH1D * TRACSInterface::GetItRamo()
 /*
  * Convert i_total to TH1D after simulating simple RC circuit. ROOT based method.
  */
-TH1D * TRACSInterface::GetItRc()
+void TRACSInterface::GetItRc()
+//TH1D * TRACSInterface::GetItRc()
 {
 
 	double RC = 50.*C; // Ohms*Farad
@@ -565,11 +566,11 @@ void TRACSInterface::loop_on(int tid)
 				//simulate_ramo_current();
 				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-				if (global_TF == "NO_TF"){
+				//if (global_TF == "NO_TF"){
 					GetItRc();
 					vSemiItotals[index_total] = i_shaped;
-				}
-				else vSemiItotals[index_total] = i_total;
+				//}
+				//else vSemiItotals[index_total] = i_total;
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 			}
@@ -597,11 +598,16 @@ void TRACSInterface::loop_on(int tid)
 
 				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-				if (global_TF == "NO_TF"){
+				//if (global_TF == "NO_TF"){
 					GetItRc();
 					vSemiItotals[index_total] = i_shaped;
-				}
-				else vSemiItotals[index_total] = i_total;
+				//}
+				//else //TODO
+				//{
+					//GetItRc();
+					//vSemiItotals[index_total] = i_total;
+
+				//}
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 
@@ -866,7 +872,7 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		Int_t tms = iloop * 4000 ;
 		em->Vbias = detector->get_vbias();
 		em->y = carrierCollection->beamy;
-		em->z = carrierCollection->beamy;
+		em->z = carrierCollection->beamz;
 
 		em->Itot = 0. ;
 
