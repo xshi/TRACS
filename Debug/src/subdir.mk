@@ -6,6 +6,7 @@
 C_UPPER_SRCS += \
 ../src/AutoPilot_eTCT.C \
 ../src/H1DConvolution.C \
+../src/PlotCarrierFile.C \
 ../src/TMeasDict.C \
 ../src/TMeasHeaderDict.C \
 ../src/TWaveDict.C 
@@ -35,6 +36,7 @@ CPP_SRCS += \
 C_UPPER_DEPS += \
 ./src/AutoPilot_eTCT.d \
 ./src/H1DConvolution.d \
+./src/PlotCarrierFile.d \
 ./src/TMeasDict.d \
 ./src/TMeasHeaderDict.d \
 ./src/TWaveDict.d 
@@ -51,6 +53,7 @@ OBJS += \
 ./src/Global.o \
 ./src/H1DConvolution.o \
 ./src/MfgTRACSFit.o \
+./src/PlotCarrierFile.o \
 ./src/SMSDSubDomains.o \
 ./src/SMSDetector.o \
 ./src/TMeas.o \
@@ -93,14 +96,14 @@ CPP_DEPS += \
 src/%.o: ../src/%.C
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -D__GXX_EXPERIMENTAL_CXX0X__ -I/usr/include/boost/thread -I/usr/include/boost/tr1 -I/usr/include/boost -I/usr/include/qt4/QtCore -I/usr/include/boost/container -I/usr/local/root -I/usr/local/root/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -std=c++0x -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -D __cplusplus=201103L -I/usr/include/eigen3/ -I/usr/include/boost/thread/ -I/usr/include/ -I/usr/include/boost -I/home/jcalvopi/TRACS_Concurrency/include/ -I/usr/local/root/include/ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -D__GXX_EXPERIMENTAL_CXX0X__ -I/usr/include/boost/thread -I/usr/include/boost/tr1 -I/usr/include/boost -I/usr/include/qt4/QtCore -I/usr/include/boost/container -I/usr/local/root -I/usr/local/root/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -std=c++0x -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -D __cplusplus=201103L -I/usr/include/eigen3/ -I/usr/include/boost/thread/ -I/usr/include/ -I/usr/include/boost -I/home/jcalvopi/TRACS_Concurrency/include/ -I/usr/local/root/include/ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

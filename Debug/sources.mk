@@ -23,5 +23,14 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+aux \
+include \
+myApp \
+myApp/RedBottom \
+myApp/RedTop \
+myApp/analysis_FIT \
+myApp/analysis_FIT/SimulatedData_At200ps \
+myApp/new_results \
+obj \
 src \
 

@@ -9,6 +9,15 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/subdir.mk
+-include obj/subdir.mk
+-include myApp/new_results/subdir.mk
+-include myApp/analysis_FIT/SimulatedData_At200ps/subdir.mk
+-include myApp/analysis_FIT/subdir.mk
+-include myApp/RedTop/subdir.mk
+-include myApp/RedBottom/subdir.mk
+-include myApp/subdir.mk
+-include include/subdir.mk
+-include aux/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -38,19 +47,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: FitTracs
+all: TRACS_Concurrency
 
 # Tool invocations
-FitTracs: $(OBJS) $(USER_OBJS)
+TRACS_Concurrency: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "FitTracs" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++  -o "TRACS_Concurrency" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) FitTracs
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) TRACS_Concurrency
 	-@echo ' '
 
 .PHONY: all clean dependents
