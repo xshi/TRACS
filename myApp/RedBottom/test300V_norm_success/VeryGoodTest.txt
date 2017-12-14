@@ -1,0 +1,588 @@
+
+@julbunx:~/TRACS_Concurrency/myApp/RedBottom$ ../MfgTRACSFit 1 2017-07-24_16-14-41_dmil_PIN_8622_W5_E3_4_300V.txt.root MyConfig_RedBack
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+Error in <TBranchElement::Fill>: Failed filling branch:raw, nbytes=-1
+Error in <TTree::Fill>: Failed filling branch:edge.raw, nbytes=-1, entry=1
+ This error is symptomatic of a Tree created as a memory-resident Tree
+ Instead of doing:
+    TTree *T = new TTree(...)
+    TFile *f = new TFile(...)
+ you should do:
+    TFile *f = new TFile(...)
+    TTree *T = new TTree(...)
+=============================================
+Initial parameters: 
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||                  10 ||         100
+   1   ||        p1 ||  fixed  ||                  38 ||
+   2   ||        p2 ||  fixed  ||                 285 ||
+   3   ||        p3 ||  fixed  ||            4.17e-12 ||
+
+
+
+=============================================
+=============================================
+tolerance= 0.01
+chiFinal= 0.1
+=============================================
+=============================================
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5158
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=0 chi2=6.37099	p[0]=10	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4549
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=1 chi2=6.21604	p[0]=11	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4905
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=2 chi2=6.52661	p[0]=9	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5315
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=3 chi2=6.35424	p[0]=10.1	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4762
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=4 chi2=6.38664	p[0]=9.9	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5137
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=5 chi2=6.3545	p[0]=10.1	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4540
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=6 chi2=6.29298	p[0]=10.5	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4988
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=7 chi2=6.13982	p[0]=11.5	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5360
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=8 chi2=5.6901	p[0]=14.5	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4779
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=9 chi2=4.44653	p[0]=23.5	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5172
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=10 chi2=1.63775	p[0]=50.5	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4671
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=11 chi2=0.0146386	p[0]=91.8389	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5082
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=12 chi2=0.0138123	p[0]=91.8489	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4464
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=13 chi2=0.0125618	p[0]=91.8289	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4875
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=14 chi2=0.0134937	p[0]=91.8399	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5291
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=15 chi2=0.0152741	p[0]=91.8379	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4729
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=16 chi2=0.0141313	p[0]=91.8399	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5177
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=17 chi2=0.0123137	p[0]=91.8401	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4597
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=18 chi2=0.0131849	p[0]=91.8451	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5013
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=19 chi2=0.0135731	p[0]=91.8426	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4420
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=20 chi2=0.0134557	p[0]=91.8351	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4841
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=21 chi2=0.014348	p[0]=91.8404	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5238
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=22 chi2=0.0133094	p[0]=91.8403	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4676
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=23 chi2=0.0142459	p[0]=91.8351	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5052
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=24 chi2=0.0130423	p[0]=91.8376	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4438
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=25 chi2=0.0125199	p[0]=91.8402	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4823
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=26 chi2=0.0122894	p[0]=91.839	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5270
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=27 chi2=0.0128382	p[0]=91.8391	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4726
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=28 chi2=0.0127787	p[0]=91.8389	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5138
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=29 chi2=0.0138461	p[0]=91.8391	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 4545
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=30 chi2=0.0132919	p[0]=91.839	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 5045
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=31 chi2=0.0136931	p[0]=91.839	p[1]=38	p[2]=285	p[3]=4.17e-12	
+-------------------------------------------------------------------------------------> 
+Info in <Minuit2>: VariableMetricBuilder: no improvement in line search
+Fit success
+Total time: 156
+MINIMIZATION OUTCOME: 
+Minuit did successfully converge.
+# of function calls: 32
+minimum function Value: 0.01228944340657
+minimum edm: 1.500238959736e-05
+minimum internal state vector: LAVector parameters:
+      91.83904429996
+
+minimum internal covariance matrix: LASymMatrix parameters:
+  1.4988069e-06
+
+
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||      91.83904429996 ||0.001224257688247
+   1   ||        p1 ||  fixed  ||                  38 ||
+   2   ||        p2 ||  fixed  ||                 285 ||
+   3   ||        p3 ||  fixed  ||            4.17e-12 ||
+
+
+
+
+
+fp depleted: -0.000935673
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+Warning in <TROOT::Append>: Replacing existing TH1: ramo_00 (Potential memory leak).
+Warning in <TROOT::Append>: Replacing existing TH1: hitf (Potential memory leak).
+

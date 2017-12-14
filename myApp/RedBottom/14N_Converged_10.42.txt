@@ -1,0 +1,44 @@
+=============================================
+Initial parameters: 
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||                 180 ||          60
+   1   ||        p1 ||  free   ||                  38 ||          60
+   2   ||        p2 ||  fixed  ||                 285 ||
+   3   ||        p3 ||  fixed  ||            4.17e-12 ||
+
+
+
+=============================================
+=============================================
+tolerance= 10
+chiFinal= 1
+=============================================
+=============================================
+
+
+
+Info in <Minuit2>: VariableMetricBuilder: no improvement in line search
+Fit success
+Total time: 182
+MINIMIZATION OUTCOME: 
+Minuit did successfully converge.
+# of function calls: 35
+minimum function Value: 0
+minimum edm: 0.0001111103945949
+minimum internal state vector: LAVector parameters:
+      179.3722722274
+       37.4457407339
+
+minimum internal covariance matrix: LASymMatrix parameters:
+   0.0098851518   -0.002594508
+   -0.002594508      0.3180222
+
+
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||      179.3722722274 ||0.09942410051086
+   1   ||        p1 ||  free   ||       37.4457407339 ||0.5639345707529
+   2   ||        p2 ||  fixed  ||                 285 ||
+   3   ||        p3 ||  fixed  ||            4.17e-12 ||
+

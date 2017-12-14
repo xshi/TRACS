@@ -1,0 +1,17 @@
+2017-07-21_10-46-39_CIS16-EPI-12-50-DS-82-1000ohm.txt.root
+
+No diff
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20Vdep.hetct.root
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20VdepE.hetct.root
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20VdepH.hetct.root
+ 
+root -l 2017-07-21_10-46-39_CIS16-EPI-12-50-DS-82-1000ohm.txt.root NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20Vdep.hetct.root NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20VdepE.hetct.root NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetrationNOdiff20VdepH.hetct.root
+.x ~/LoadTrees.C
+TString Val ;
+Val="Vbias==12" ; vtree[1]->Draw("volt/Vmin:time",Val.Data(),"l") ; vtree[2]->Draw("volt/Vmin:time",Val.Data(),"lsame") ;  vtree[3]->Draw("volt/Vmin:time",Val.Data(),"lsame") ;
+
+
+diff
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetration_diff20Vdep.hetct.root
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetration_diff20VdepE.hetct.root
+NOirrad_dt200ps_5pF_tNOtrappingns_dz5um_dy5dV1V_0nns_bottom_0_rc_highpenetration_diff20VdepH.hetct.root

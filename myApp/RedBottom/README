@@ -1,0 +1,3 @@
+root -l
+.L CompareTRACS2Meas.C 
+CompareTRACS2Meas("output.root","2017-07-24_16-14-41_dmil_PIN_8622_W5_E3_4_300V.txt.root")

@@ -1,0 +1,3186 @@
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+=============================================
+Initial parameters: 
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||                 100 ||          60
+   1   ||        p1 ||  fixed  ||                  40 ||
+   2   ||        p2 ||  free   ||                 280 ||          60
+   3   ||        p3 ||  free   ||               8e-12 ||          60
+
+
+
+=============================================
+=============================================
+tolerance= 10
+chiFinal= 1
+=============================================
+=============================================
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59133
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=0 chi2=0.141252	p[0]=100	p[1]=40	p[2]=280	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59568
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=1 chi2=0.142068	p[0]=100.6	p[1]=40	p[2]=280	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58856
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=2 chi2=0.140464	p[0]=99.4	p[1]=40	p[2]=280	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58935
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=3 chi2=0.141366	p[0]=100.085	p[1]=40	p[2]=280	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59128
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=4 chi2=0.141139	p[0]=99.9151	p[1]=40	p[2]=280	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00101605
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101605
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 60109
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=5 chi2=0.145946	p[0]=100	p[1]=40	p[2]=280.6	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.0010248
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.0010248
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.0010248
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.0010248
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 55829
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=6 chi2=0.129742	p[0]=100	p[1]=40	p[2]=279.4	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101997
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101997
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00101997
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59662
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=7 chi2=0.145997	p[0]=100	p[1]=40	p[2]=280.06	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102085
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102085
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59185
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=8 chi2=0.14124	p[0]=100	p[1]=40	p[2]=279.94	p[3]=8e-12	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57745
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=9 chi2=0.384499	p[0]=100	p[1]=40	p[2]=280	p[3]=0.6	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58342
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=10 chi2=0.384499	p[0]=100	p[1]=40	p[2]=280	p[3]=-0.6	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58260
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=11 chi2=0.384499	p[0]=100	p[1]=40	p[2]=280	p[3]=0.06	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102041
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58213
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=12 chi2=0.384499	p[0]=100	p[1]=40	p[2]=280	p[3]=-0.06	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102063
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102063
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58068
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=13 chi2=0.218526	p[0]=82.2641	p[1]=40	p[2]=279.97	p[3]=9.92726e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57894
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=14 chi2=0.116766	p[0]=97.8381	p[1]=40	p[2]=279.996	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102049
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102049
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102049
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102049
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59160
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=15 chi2=0.140777	p[0]=93.2953	p[1]=40	p[2]=279.989	p[3]=4.25037e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59042
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=16 chi2=0.11824	p[0]=96.6334	p[1]=40	p[2]=279.994	p[3]=2.53255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57716
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=17 chi2=0.116799	p[0]=97.9221	p[1]=40	p[2]=279.996	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58844
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=18 chi2=0.116733	p[0]=97.7541	p[1]=40	p[2]=279.996	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102039
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59766
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=19 chi2=0.118439	p[0]=97.8381	p[1]=40	p[2]=280.002	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102048
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102048
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58569
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=20 chi2=0.11676	p[0]=97.8381	p[1]=40	p[2]=279.99	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58351
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=21 chi2=0.116766	p[0]=97.8381	p[1]=40	p[2]=279.997	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57924
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=22 chi2=0.116756	p[0]=97.8381	p[1]=40	p[2]=279.996	p[3]=1.91255e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58208
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=23 chi2=0.384499	p[0]=97.8381	p[1]=40	p[2]=279.996	p[3]=0.006	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58448
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=24 chi2=0.384499	p[0]=97.8381	p[1]=40	p[2]=279.996	p[3]=-0.006	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102042
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58480
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=25 chi2=0.381117	p[0]=96.8191	p[1]=40	p[2]=279.999	p[3]=1.25637e-08	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58451
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=26 chi2=0.33013	p[0]=97.7872	p[1]=40	p[2]=279.996	p[3]=6.46355e-10	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58394
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=27 chi2=0.150807	p[0]=97.8356	p[1]=40	p[2]=279.996	p[3]=5.04869e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58634
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=28 chi2=0.116592	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58398
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=29 chi2=0.116622	p[0]=97.9292	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58483
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=30 chi2=0.116563	p[0]=97.7468	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59033
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=31 chi2=0.116592	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57426
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=32 chi2=0.116583	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58001
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=33 chi2=0.384499	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=0.0006	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57499
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=34 chi2=0.384499	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=-0.0006	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58275
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=35 chi2=0.384498	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=6e-05	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57333
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=36 chi2=0.3845	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=-6e-05	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102045
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57919
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=37 chi2=0.384497	p[0]=96.9967	p[1]=40	p[2]=279.994	p[3]=2.10362e-05	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102044
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102044
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59130
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=38 chi2=0.384458	p[0]=97.7959	p[1]=40	p[2]=279.996	p[3]=1.05183e-06	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57559
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=39 chi2=0.383676	p[0]=97.8359	p[1]=40	p[2]=279.996	p[3]=5.26111e-08	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 59202
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=40 chi2=0.368987	p[0]=97.8379	p[1]=40	p[2]=279.996	p[3]=2.65022e-09	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57790
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=41 chi2=0.240593	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=1.5217e-10	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57994
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=42 chi2=0.119901	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.72674e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57764
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=43 chi2=0.116613	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.10222e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58449
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=44 chi2=0.116593	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.071e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58597
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=45 chi2=0.116593	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06944e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 58090
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=46 chi2=0.116592	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+-------------------------------------------------------------------------------------> 
+----------------------------> Time taken for chi2 calculation (milliseconds): 57779
+-------------------------------------------------------------------------------------> 
+----------------------------> icalls=47 chi2=0.116592	p[0]=97.838	p[1]=40	p[2]=279.996	p[3]=2.06936e-11	
+-------------------------------------------------------------------------------------> 
+Fit success
+Total time: 2803
+MINIMIZATION OUTCOME: 
+Minuit did successfully converge.
+# of function calls: 37
+minimum function Value: 0.1165924866576
+minimum edm: 0.0003480562562281
+minimum internal state vector: LAVector parameters:
+      97.83799396854
+      279.9963242799
+  2.069355427504e-11
+
+minimum internal covariance matrix: LASymMatrix parameters:
+      4038.7609      11.254901    -0.22832054
+      11.254901    0.034542341   0.0061579075
+    -0.22832054   0.0061579075    0.014772806
+
+
+# ext. ||   Name    ||   type  ||     Value     ||  Error +/- 
+
+   0   ||        p0 ||  free   ||      97.83799396854 ||63.55124650103
+   1   ||        p1 ||  fixed  ||                  40 ||
+   2   ||        p2 ||  free   ||      279.9963242799 ||0.1858557000013
+   3   ||        p3 ||  free   ||  2.069355427504e-11 ||0.1215434330944
+
+
+
+
+
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+fp depleted: -0.00102043
+  Solving linear variational problem.
+    *** Warning: Found no facets matching domain for boundary condition.
+  Building point search tree to accelerate distance queries.
+  Computed bounding box tree with 89999 nodes for 45000 points.
+Solving linear variational problem.
+Solving linear variational problem.
+Building point search tree to accelerate distance queries.
+Computed bounding box tree with 89999 nodes for 45000 points.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
+fp depleted: -0.00102043
+Solving linear variational problem.
+  *** Warning: Found no facets matching domain for boundary condition.
+Solving linear variational problem.
+Solving linear variational problem.
