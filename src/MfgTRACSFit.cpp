@@ -96,8 +96,6 @@ int main( int argc, char *argv[]) {
 	Int_t parIniSize;
 	vector<Double_t> parErr;
 
-	//TApplication theApp("DoTRACSFit", 0, 0);
-
 	//Number of threads
 	num_threads = atoi(argv[1]);
 
@@ -231,9 +229,6 @@ int main( int argc, char *argv[]) {
 				cont++;
 			}
 			i_conv_vector[i] = hitf;
-			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; i_conv->Write() ; hitf->Write() ; ftfo->Close();
-			//delete hitf;
-			//i_clone = nullptr ;
 			//****************************************************************************************************************************************************************
 
 			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
@@ -254,13 +249,6 @@ int main( int argc, char *argv[]) {
 		count2 = 0;
 
 	}
-
-	/*for (int i = 0 ; i < vItotals.size() ; i++){
-		for (int j = 0 ; j < vItotals[i].size() ; j++)
-			//vItotals[i][j] = 0;
-			std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-	}*/
-
 
 
 	if (global_TF == "NO_TF"){
@@ -527,16 +515,14 @@ int main( int argc, char *argv[]) {
 			Int_t istart = i_conv->FindBin( -20e-9) , iend=i_conv->FindBin( 20.e-9) ;
 			Int_t cont =  hitf->FindBin( 0.102141e-09 );
 			for (Int_t k=istart ; k < iend ; k++ ) {
-				//std::cout<< i_conv->GetBinContent( k ) <<std::endl;
 				hitf->SetBinContent( cont , i_conv->GetBinContent( k+1 ) );
 				cont++;
 			}
 			i_conv_vector[i] = hitf;
-			//delete hitf;
-			//i_clone = nullptr ;
+
 			//****************************************************************************************************************************************************************
 
-			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; hitf->Write() ; ftfo->Close();
+
 			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
 			i_ramo = nullptr;
 			i_conv = nullptr;
@@ -587,7 +573,7 @@ int main( int argc, char *argv[]) {
 		count2 = 0;
 	}
 
-	//TRACSsim[0]->write_to_file(0);
+
 	//Finish this part
 
 	//Dump tree to disk
@@ -606,14 +592,13 @@ int main( int argc, char *argv[]) {
 	//Read RAW file
 	TRACSsim[0]->DumpToTree( emo , tout ) ;
 
-	//TRACSsim[0]->GetTree( tsim );
 	fout.Write();
 	delete tout ;
 	fout.Close();
 	delete emo ;
 
 	//Clean
-	//TRACSsim[0]->write_to_file(0);
+
 	for (int i = 0 ; i < num_threads ; i++){
 		const char * c = carrierThread_fileNames[i].c_str();
 		remove(c);
@@ -650,7 +635,6 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 
 	for (int i = 0 ; i < vItotals.size(); i++){
 		for (int j = 0; j < num_threads; j++) {
-			//		//
 			vItotals[i] = vItotals[i] + TRACSsim[j]->vSemiItotals[i];// + temp_s;
 
 
@@ -689,14 +673,12 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 			Int_t istart = i_conv->FindBin( -20e-9) , iend=i_conv->FindBin( 20.e-9) ;
 			Int_t cont =  hitf->FindBin( 0.102141e-09 );
 			for (Int_t k=istart ; k < iend ; k++ ) {
-				//std::cout<< i_conv->GetBinContent( k ) <<std::endl;
+
 				hitf->SetBinContent( cont , i_conv->GetBinContent( k+1 ) );
 				cont++;
 			}
 			i_conv_vector[i] = hitf;
-			//TFile *ftfo=new TFile("ftfo.root","RECREATE") ; hitf->Write() ; ftfo->Close();
-			//delete hitf;
-			//i_clone = nullptr ;
+
 			//****************************************************************************************************************************************************************
 
 			vItotals[i].resize(i_conv_vector[i]->GetNbinsX());
@@ -768,8 +750,6 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 
 	std::string ss = std::to_string(icalls);
 	const char * namefout = ss.c_str();
-	//fout.SetName(namefout);
-	//TFile fout("output1.root","RECREATE") ;
 	TFile fout(namefout,"RECREATE") ;
 
 	TTree *tout = new TTree("edge","Fitting results");
@@ -786,16 +766,10 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	//Read RAW file
 	TRACSsim[0]->DumpToTree( emo , tout ) ;
 
-	//TRACSsim[0]->GetTree( tsim );
 	fout.Write();
 	delete tout ;
 	fout.Close();
 	delete emo ;
-
-
-
-
-
 
 
 

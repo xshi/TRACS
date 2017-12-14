@@ -76,13 +76,11 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	//Dolfin instruction por mesh boundary extrapolation
 	parameters["allow_extrapolation"] = true;
 
-	//	mtx2.lock(); //Thread-safe for dolfin data type
 	std::unique_lock<std::mutex> guard(mtx2);
 	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
 	guard.unlock();
 
 	carrierCollection = new CarrierCollection(detector);
-	//QString carrierFileName = QString::fromUtf8(carrFile.c_str());
 	carrierCollection->add_carriers_from_file(carrierFile, scanType, depth);
 
 	n_tSteps = (int) std::floor(max_time / dt);
@@ -102,7 +100,7 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 		vSemiItotals.resize(zVector.size() * voltVector.size());
 
 		for (int i = 0; i < (zVector.size() * voltVector.size()) ; i++){
-			//i_rc_array[i].resize(vector_yValues.size());
+
 			vSemiItotals[i].resize(n_tSteps);
 
 		}
@@ -111,7 +109,7 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 		vSemiItotals.resize(yVector.size() * voltVector.size());
 
 		for (int i = 0; i < (yVector.size() * voltVector.size()) ; i++){
-			//i_rc_array[i].resize(vector_yValues.size());
+
 			vSemiItotals[i].resize(n_tSteps);
 
 		}
@@ -122,10 +120,6 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 		for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
 			vSemiItotals[i][j] = 0;
 	}
-	//for (int i = 0 ; i < vSemiItotals.size() ; i++){
-	//						for (int j = 0 ; j < vSemiItotals[i].size() ; j++)
-	//							std::cout << "i " << i << "; j " << j << "    " <<  vSemiItotals[i][j] << std::endl;
-	//					}
 
 
 	vBias = vInit;
@@ -215,9 +209,8 @@ TH1D * TRACSInterface::GetItConv()
 		hname.Form("Ramo current_%d_%d", tcount, count3);
 		i_conv  = new TH1D(htit,hname,n_tSteps, 0.0, max_time);
 		i_ramo = GetItRamo();
-		//mtx2.lock();
 		i_conv = H1DConvolution( i_ramo , C*1.e12, tcount );
-		//mtx2.unlock();
+
 		count3++;
 	}
 	return i_conv;
@@ -544,9 +537,6 @@ void TRACSInterface::loop_on(int tid)
 	int index_total = 0;
 	int i,j;
 	i = 0; j = 0;
-	//std::unique_lock<std::mutex> guard(mtx2);
-	//detector->solve_w_u();
-	//guard.unlock();
 
 	if (scanType == "edge"){
 		//Voltage scan
@@ -566,11 +556,9 @@ void TRACSInterface::loop_on(int tid)
 				//simulate_ramo_current();
 				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-				//if (global_TF == "NO_TF"){
-					GetItRc();
-					vSemiItotals[index_total] = i_shaped;
-				//}
-				//else vSemiItotals[index_total] = i_total;
+				GetItRc();
+				vSemiItotals[index_total] = i_shaped;
+
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 			}
@@ -598,16 +586,9 @@ void TRACSInterface::loop_on(int tid)
 
 				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, total_crosses, scanType);
 				i_total = i_elec + i_hole;
-				//if (global_TF == "NO_TF"){
-					GetItRc();
-					vSemiItotals[index_total] = i_shaped;
-				//}
-				//else //TODO
-				//{
-					//GetItRc();
-					//vSemiItotals[index_total] = i_total;
+				GetItRc();
+				vSemiItotals[index_total] = i_shaped;
 
-				//}
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
 
@@ -700,32 +681,7 @@ void TRACSInterface::write_to_file(int tid)
 
 	}
 
-	/*if (scanType == "edge" && global_TF == "NO_TF"){
 
-		for (int i = 0 ; i < voltVector.size() ;  i++){
-			for (int j = 0 ; j < zVector.size() ; j++){
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yInit, zVector[j], voltVector[i]);
-				index_conv++;
-			}
-
-		}
-
-	}
-
-
-
-	if ((scanType == "top" || scanType == "bottom") && global_TF == "NO_TF"){
-
-		for (int i = 0 ; i < voltVector.size() ;  i++){
-			for (int j = 0 ; j < yVector.size() ; j++){
-				utilities::write_to_file_row(hetct_rc_filename, i_rc_array[index_conv], detector->get_temperature(), yVector[j], zInit, voltVector[i]);
-				index_conv++;
-				//std::cout << i_rc_array[i][j] << std::endl;
-			}
-
-		}
-
-	}*/
 
 
 }
@@ -768,10 +724,7 @@ void TRACSInterface::fields_hist_to_file(int tid, int vPos)
  */
 void TRACSInterface::GetTree( TTree *tree ) {
 
-	//TFile *f=new TFile("test.root","RECREATE") ;
 
-	// Create a ROOT Tree
-	//tree->SetDirectory(0);
 
 	// Create a pointer to an raw data object
 	TMeas *em = new TMeas( );
@@ -785,9 +738,6 @@ void TRACSInterface::GetTree( TTree *tree ) {
 
 	//Read RAW file
 	DumpToTree( em , tree ) ;
-	//tree->Draw("volt-BlineMean:time","event==0","l"); gPad->Modified();gPad->Update();
-	//f->Write();
-	//f->Close();
 
 
 	delete em ;
@@ -817,9 +767,7 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 	//Total number of Scans
 
 	Int_t NumOfScans = 1 ;
-	/*if ( n_vSteps !=0 ) NumOfScans = NumOfScans * (1 + n_vSteps) ;
-	if ( n_zSteps !=0 ) NumOfScans = NumOfScans * (1+ n_zSteps) ;
-	if ( n_ySteps !=0 ) NumOfScans = NumOfScans * (1+ n_ySteps);*/
+
 	NumOfScans = NumOfScans * voltVector.size();
 	NumOfScans = NumOfScans * zVector.size();
 	NumOfScans = NumOfScans * yVector.size();
@@ -915,7 +863,6 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		em->event=iRead ;
 
 		//Now postprocess this entry (find out baseline, rtime and so on
-		//TWaveform *wvi = new TWaveform( em ) ;
 		TWaveform wvi = TWaveform( em ) ;
 
 		if (iRead==0) tree->Branch("proc" , &wvi , 32000 , 0 );
@@ -924,7 +871,6 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		tree->Fill() ;
 		iRead++   ;
 
-		//delete wvi ;
 
 		iactual++ ;
 
@@ -934,7 +880,7 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 	tree->GetUserInfo()->Add( emh ) ;
 	em->Ntevent=iRead ; //It does not go into the tree, only in the class!
 
-	//delete emh ;
+
 
 
 }

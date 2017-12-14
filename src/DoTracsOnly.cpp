@@ -42,7 +42,6 @@ int main( int argc, char *argv[]) {
 
 	std::string carrierFile;
 	std::vector<std::string> carrierThread_fileNames;
-	//std::valarray<std::valarray<double>> i_total;
 	TString transferFun;
 	TH1D *i_rc;
 	TH1D *i_conv;
@@ -149,10 +148,7 @@ int main( int argc, char *argv[]) {
 	for (int i = 0; i < num_threads; ++i) {
 		t[i].join();
 	}
-	//for (int i = 0 ; i < TRACSsim[0]->vSemiItotals.size() ; i++){
-	//							for (int j = 0 ; j < TRACSsim[0]->vSemiItotals[i].size() ; j++)
-	//								std::cout << "i " << i << "; j " << j << "    " <<  TRACSsim[0]->vSemiItotals[i][j] << std::endl;
-	//						}
+
 
 
 	for (int i = 0 ; i < vItotals.size(); i++){
@@ -166,9 +162,9 @@ int main( int argc, char *argv[]) {
 
 
 	//Current to rc array of TH1D -> root file
-	if (/*scanType == "edge" && */global_TF != "NO_TF") {
+	if (global_TF != "NO_TF") {
 		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
-			//for (int i = 0 ; i < i_rc_array.size(); i++ ){
+
 			transferFun = global_TF;
 			TString htit, hname;
 			TString htit2, hname2;
@@ -179,16 +175,15 @@ int main( int argc, char *argv[]) {
 
 			htit2.Form("ramo_conv%d%d", 0, count2);
 			hname2.Form("Ramo_current_%d_%d", 0, count2);
-			//i_rc = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
 			for (int k = 0 ; k < timeSteps; k++ ){
 
 				i_ramo->SetBinContent(k+1, vItotals[i][k]);
 
 			}
-			//i_ramo_vector[i] = i_ramo;
-			//i_rc_array[i] = i_rc;
+
 			TH1D *i_conv = H1DConvolution(i_ramo , capacitance*1.e12, count, transferFun);
-			//i_conv_vector[i] = i_conv;
+
 
 			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
 			//******************************** D I R T Y   FIX : Shift histogram back !!! DELETE ME !!! *********************************************************************
@@ -203,8 +198,7 @@ int main( int argc, char *argv[]) {
 				cont++;
 			}
 			i_conv_vector[i] = hitf;
-			//delete hitf;
-			//i_clone = nullptr ;
+
 			//****************************************************************************************************************************************************************
 
 
@@ -220,24 +214,14 @@ int main( int argc, char *argv[]) {
 		for (int i = 0 ; i < i_conv_vector.size() ; i++){
 			for (int j = 0; j < i_conv_vector[i]->GetNbinsX(); j++  ){
 				vItotals[i][j] = i_conv_vector[i]->GetBinContent(j+1);
-				//std::cout << "i " << i << "; j " << j << "    " << i_conv_vector[i]->GetBinContent(j+1) << std::endl;
-				//std::cout << "i " << i << "; j " << j << "    " << vItotals[i][j] << std::endl;
+
 			}
 		}
 
-		//for (int i = 0 ; i < vItotals.size() ; i++){
-		//	for (int j = 0 ; j < vItotals[i].size() ; j++)
-		//vItotals[i][j] = 0;
-		//std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-		//}
-
-
-
 	}
-	if (/*scanType == "edge" && */global_TF == "NO_TF"){
+	if (global_TF == "NO_TF"){
 		for (int i = 0 ; i < i_rc_array.size(); i++ ){
 
-			//for (int j = 0 ; j <= vector_zValues.size(); j++ ){
 			TString htit, hname;
 			htit.Form("ramo_rc%d%d", 0, count2);
 			hname.Form("Ramo_current_%d_%d", 0, count2);
@@ -251,39 +235,18 @@ int main( int argc, char *argv[]) {
 			vItotals[i].resize(i_rc_array[i]->GetNbinsX());
 			i_rc = nullptr;
 			count2++;
-			//}
 
 		}
 		for (int i = 0 ; i < i_rc_array.size() ; i++){
 			for (int j = 0; j < i_rc_array[i]->GetNbinsX(); j++  ){
 				vItotals[i][j] = i_rc_array[i]->GetBinContent(j+1);
-				//		std::cout << "i " << i << "; j " << j << "    " << i_rc_array[i]->GetBinContent(j) << std::endl;
 			}
 		}
-
-		//for (int i = 0 ; i < vItotals.size() ; i++){
-		//	for (int j = 0 ; j < vItotals[i].size() ; j++)
-		//vItotals[i][j] = 0;
-		//		std::cout << "i " << i << "; j " << j << "    " <<  vItotals[i][j] << std::endl;
-		//}
-
-
 
 	}
 
 	//write output to single file!
 	TRACSsim[0]->write_to_file(0);
-
-	//int crosses = 0;
-	//	for (int i = 0; i < num_threads; i++){
-	//		crosses+=TRACSsim[i]->GettotalCrosses();
-	//		std::cout << "Crossed per thread: " << TRACSsim[i]->GettotalCrosses() << std::endl;
-	//		std::cout << "Total crosses so far: " << crosses << std::endl;
-
-	//	}
-	//	std::cout << "Total particles crossed to Depleted Region: " << crosses << std::endl;
-	//End results due to diffusion
-
 	for (int i = 0 ; i < num_threads ; i++){
 		const char * c = carrierThread_fileNames[i].c_str();
 		remove(c);

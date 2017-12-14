@@ -20,9 +20,6 @@
 
 //Main variables of TRACS to store the induced current during the whole execution
 std::valarray<std::valarray <double> > vItotals;
-//std::valarray<std::valarray <double> >i_temp;
-
-//vector<vector <TH1D*> >  i_ramo_array, i_conv_array;//, i_rc_array;
 vector<TH1D*> i_rc_array, i_ramo_vector, i_conv_vector;
 std::string global_TF;
 

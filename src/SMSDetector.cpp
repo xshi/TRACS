@@ -76,11 +76,6 @@ SMSDetector::SMSDetector(double pitch, double width, double depth, int nns, char
 				_mesh(_x_min,_y_min,_x_max,_y_max, _n_cells_x, _n_cells_y),
 #endif
 				_periodic_boundary(_x_min, _x_max, _depth),
-
-				//_central_stripUnderDep(_pitch, _width, _nns, _depletion_width),
-				//_neighbour_stripsUnderDep(_pitch, _width, _nns, _depletion_width),
-				//_backplaneUnderDep(_x_min, _x_max, _depletion_width),
-
 				_central_strip(_pitch, _width, _nns),
 				_neighbour_strips(_pitch, _width, _nns),
 				_backplane(_x_min, _x_max, _depth),
@@ -134,18 +129,8 @@ void SMSDetector::set_voltages(double v_bias, double v_depletion)
 			_f_poisson = ((_bulk_type== 'p') ? +1.0 : -1.0)*(-2.0*_v_bias)/(_depletion_width * _depletion_width);
 			std::cout << "fp NO depleted: " << _f_poisson << std::endl;
 			std::cout << "Depletion Width: " << _depletion_width << std::endl;
-//			//if (_fluence == 0){//AND NO irrad, then change neff parameters. Otherwise taken from steering.
-//			//_neff_type = "Triconstant";
-//			_neff_param[0] = _f_poisson; //y0
-//			_neff_param[1] = _f_poisson; // y1
-//			_neff_param[2] = _f_poisson; // y2
-//			_neff_param[3] = _f_poisson; // y3
-//			_neff_param[4] = 0.0; // z0
-//			_neff_param[5] = _depletion_width; // z1
-//			_neff_param[6] = _depletion_width; // z2
-//			_neff_param[7] = _depletion_width; // z3
+
 			}
-//		}
 	}
 	//if fluence > 0, parameters are taken in the constructor inicialization list, coming from the config file
 	if (_fluence > 0){
@@ -177,7 +162,6 @@ void SMSDetector::solve_w_u()
 
 	DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
 	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
-	//DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
 	DirichletBC backplane_BC(_V_p, backplane_V, backplaneUnderDep);
 
 	bcs.push_back(&central_strip_BC);
@@ -199,11 +183,10 @@ void SMSDetector::solve_d_u()
 	Constant fpois(_f_poisson);
 
 	std::vector<const DirichletBC*> bcs;
-	//if (_fluence == 0 && _depleted) _neff_type = 'Linear';
 	Source f;
 
 
-	if (_fluence == 0 /*&& _depleted*/) //NO irrad but YES depleted. fpoisson, charge distribution, is a constant during the whole detector
+	if (_fluence == 0) //NO irrad but YES depleted. fpoisson, charge distribution, is a constant during the whole detector
 	{
 		_L_p.f = fpois;
 		_trapping_time = std::numeric_limits<double>::max();
@@ -236,7 +219,6 @@ void SMSDetector::solve_d_u()
 
 	DirichletBC central_strip_BC(_V_p, central_strip_V, _central_strip);
 	DirichletBC neighbour_strip_BC(_V_p, neighbour_strip_V, _neighbour_strips);
-	//DirichletBC backplane_BC(_V_p, backplane_V, _backplane);
 	DirichletBC backplane_BC(_V_p, backplane_V, backplaneUnderDep);
 
 	bcs.push_back(&central_strip_BC);
@@ -498,10 +480,6 @@ double SMSDetector::calculate_depletionWidth(){
 	return _depth * sqrt((_v_strips-_v_backplane)/_vdep);
 }
 
-//std::string SMSDetector::get_neff_type(){
-
-//	return _neff_type;
-//}
 
 ///////////////////////SETTERS//////////////////////////////////
 

@@ -194,13 +194,13 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 					if (_x[1] < _detector->get_y_min()) _x[1] = _detector->get_y_min();
 					if (_x[0] > _detector->get_x_max()) _x[0] = _detector->get_x_max();
 					if (_x[0] < _detector->get_x_min()) _x[0] = _detector->get_x_min();
-					//i_n[i] = 0;//valarray intensity is 0 by default
+
 				}
 			}
 
 			if (_detector->is_out_dep(_x)) // If CC outside detector
 			{
-				//i_n[i] = 0;
+
 				break; // Finish (CC gone out)
 			}
 

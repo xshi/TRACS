@@ -53,9 +53,7 @@ TH2D utilities::export_mod_to_histogram(Function &func, TString hist_name, TStri
 			e_f_x = ((*e_f_grad)[0])(xval , yval);
 			e_f_y = ((*e_f_grad)[1])(xval , yval);
 			e_field_mod = sqrt(e_f_x*e_f_x +  e_f_y *e_f_y);
-			//x_value = (x - 0.5)*step_x;
-			//y_value = (y - 0.5)*step_y;
-			//hist.Fill( x_max-x_value,y_max-y_value, e_field_mod);
+
 			hist.SetBinContent( n_bins_x-x+1,n_bins_y-y+1, e_field_mod);
 		}
 	}
@@ -90,10 +88,8 @@ void utilities::write_to_file_row(std::string filename, TH1D *hconv, double temp
 		for (unsigned int i = 1; i <= steps; i++ )
 		{
 			out << std::fixed << std::setprecision(9) << hconv->GetBinContent(i) << " ";
-			//std::cout <<  steps << " " << i << " " << hconv->GetBinContent(i) << std::endl;
 		}
 
-		//out << std::resetiosflags;
 		out << std::endl;
 		out.close();
 	}
@@ -216,11 +212,9 @@ void utilities::write_to_hetct_header(std::string filename, SMSDetector * detect
 	std::ofstream header;  
 
 	// Derived quantities
-	//int nX = 0;
 	int nZ = z_shifts.size();
 	int nY = y_shifts.size();
 	int nV = voltages.size();
-	//int nScans = (nX + nY + nZ)*nV;
 	int nScans = nZ * nY * nV;
 	double deltaZ = 0;
 	double deltaV = 0;	
@@ -549,10 +543,6 @@ void utilities::parse_config_file(std::string fileName, double &depth, double &w
 		converter.str("");
 		tempString = std::string("");
 
-		//tempString = std::string("CarrierFile");
-		//carrierFile = valuesMap[tempString];
-		//tempString = std::string("");
-
 		tempString = std::string("ScanType");
 		scanType = valuesMap[tempString];
 		tempString = std::string("");
@@ -649,14 +639,6 @@ void utilities::parse_config_file(std::string fileName, double &depth, double &w
 		converter.clear();
 		converter.str("");
 		tempString = std::string("");
-
-		/*tempString = std::string("generation_time");
-		converter << valuesMap[tempString];
-		converter >> gen_time;
-		converter.clear();
-		converter.str("");
-		tempString = std::string("");*/
-
 
 		configFile.close();
 	}
