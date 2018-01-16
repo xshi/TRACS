@@ -3,6 +3,10 @@ SHELL = /bin/bash
 # 'make'        build executable file
 # 'make clean'  removes all .o and executable files
 
+#mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+#current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+MYPWD=${PWD}
+
 NO_COLOR=\x1b[0m
 OK_COLOR=\x1b[32;01m
 ERROR_COLOR=\x1b[31;01m
@@ -45,10 +49,10 @@ GC = g++ -g -std=c++11 -w -fPIC
 CFLAGS = -w -g -std=c++11
 
 # define any directories containing header files other than /usr/include
-INCLUDES = -I/usr/include/eigen3/ -I ~/TRACS_Concurrency/include/  -I/usr/local/root/include/ -I/usr/include/qt4/QtCore/ -I/usr/include/qt4/ -I/usr/include/qt4/QtGui/
+INCLUDES = -I/usr/include/eigen3/ -I $(MYPWD)/include/  -I/usr/local/root/include/ -I/usr/include/qt4/QtCore/ -I/usr/include/qt4/ -I/usr/include/qt4/QtGui/
 
 # define library paths in addition to /usr/lib
-LFLAGS = -L/usr/local/root/lib -L ~/TRACS_Concurrency/lib -L/usr/lib/x86_64-linux-gnu/ -L/usr/lib 
+LFLAGS = -L/usr/local/root/lib -L $(MYPWD)/lib -L/usr/lib/x86_64-linux-gnu/ -L/usr/lib 
 
 # define any libraries to link into executable:
 LIBS = -ldolfin -lCore -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -pthread -lm -ldl -rdynamic -lTreePlayer -lTreeViewer -lHistPainter -lQtCore -lTable -lFFTW -lFITSIO -lGX11TTF -lPyROOT -lMinuit2 -lMathMore -lCling -lRooFit -lRooFitCore -lMatrix -lTMeasHeader -lTMeas -lTWaveform -lboost_system
@@ -193,19 +197,19 @@ $(ODIR)Utilities.o: $(SDIR)Utilities.cpp
 $(ODIR)TMeas.o: $(SDIR)TMeas.cpp
 	$(PRINT)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SDIR)TMeas.cpp -o $@
-	rootcling -f $(SDIR)TMeasDict.C -c -p -I~/TRACS_Concurrency/include/ ~/TRACS_Concurrency/include/TMeas.h ~/TRACS_Concurrency/include/LinkDef.h
+	rootcling -f $(SDIR)TMeasDict.C -c -p -I$(MYPWD)/include/ $(MYPWD)/include/TMeas.h $(MYPWD)/include/LinkDef.h
 	$(BUILD_CMD)
 
 $(ODIR)TWaveform.o: $(SDIR)TWaveform.cpp
 	$(PRINT)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SDIR)TWaveform.cpp -o $@
-	rootcling -f $(SDIR)TWaveDict.C -c -p -I~/TRACS_Concurrency/include/ ~/TRACS_Concurrency/include/TWaveform.h
+	rootcling -f $(SDIR)TWaveDict.C -c -p -I$(MYPWD)/include/ $(MYPWD)/include/TWaveform.h
 	$(BUILD_CMD)
 	
 $(ODIR)TMeasHeader.o: $(SDIR)TMeasHeader.cpp
 	$(PRINT)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $(SDIR)TMeasHeader.cpp -o $@
-	rootcling -f $(SDIR)TMeasHeaderDict.C -c -p -I~/TRACS_Concurrency/include/ ~/TRACS_Concurrency/include/TMeasHeader.h
+	rootcling -f $(SDIR)TMeasHeaderDict.C -c -p -I$(MYPWD)/include/ $(MYPWD)/include/TMeasHeader.h
 	$(BUILD_CMD)
 
 $(ODIR)TMeasDict.o: $(SDIR)TMeasDict.C
