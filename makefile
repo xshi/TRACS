@@ -41,7 +41,7 @@ CC = g++
 
 MV = mv
 
-CRFLAGS = `root-config --cflags`
+CRFLAGS = `/usr/local/root/bin/root-config --cflags`
 
 GC = g++ -g -std=c++11 -w -fPIC
 
