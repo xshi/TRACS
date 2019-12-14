@@ -39,6 +39,8 @@
 //#include "qcustomplot.h"
 #include <QFile>
 
+#include <array>
+
 using namespace dolfin;
 
 namespace utilities
@@ -47,6 +49,8 @@ namespace utilities
 
 	TH2D export_mod_to_histogram(Function &func, TString hist_name, TString hist_title, int n_bins_x , double x_min, double x_max, int n_bins_y, double y_min, double y_max);
 
+    TH1D export_1D_histogram(Function &func, TString hist_name, TString hist_title, int n_bins_x , double x_min, double x_max, int n_bins_y , double y_min, double y_max);
+        
 	void write_to_file_row(std::string filename, TH1D *hconv, double temp, double yShift, double height, double voltage);
 
 	void write_to_hetct_header(std::string filename, SMSDetector detector, double C, double dt, std::vector<double> y_shifts, std::vector<double> z_shifts, double landa,
@@ -57,10 +61,15 @@ namespace utilities
 
 	std::string vector_to_string(std::vector<double> input_list);
 
-	void parse_config_file(std::string fileName, double &depth, double &width, double &pitch, int &nns, double &temp, double &trapping, double &fluence,
-			int &nThreads, int &n_cells_x, int &n_cells_y, char &bulk_type, char &implant_type, int &waveLength, std::string &scanType, double &C, double &dt, double &max_time,
-			double &v_init, double &deltaV, double &v_max, double &v_depletion, double &zInit, double &zMax, double &deltaZ, double &yInit, double &yMax, double &deltaY,
-			std::vector<double> &neff_param, std::string &neffType, double &tolerance, double &chiFinal, int &diffusion, double &fitNorm/*, double &gen_time*/);
+    
+    void parse_config_file(std::string fileName, double &depth, double &width, double &pitch, int &nns, double &temp, double &trapping, double &fluence,
+                           int &nThreads, int &n_cells_x, int &n_cells_y, char &bulk_type, char &implant_type, std::string& skip_flag,
+                           std::string& set_avalanche_flag,  std::array<double, 2>& doping_peakheight, std::array<double, 2>& doping_peakpos,
+                           std::array<double, 2>& doping_gauss_sigma, double& max_multiplication_factor,
+                           int &waveLength, std::string &scanType, double &C, double &dt, double &max_time,
+                           double &v_init, double &deltaV, double &v_max, double &v_depletion, double &zInit, double &zMax, double &deltaZ, double &yInit, double &yMax, double &deltaY,
+                           std::vector<double> &neff_param, std::string &neffType, double &tolerance, double &chiFinal, int &diffusion, double &fitNorm, std::string& simulation_polarity_flag);
+    
 	void parse_config_file(std::string fileName, std::string &scanType, double &v_init, double &deltaV, double &v_max, double &v_depletion,
 							double &zInit, double &zMax, double &deltaZ, double &yInit, double &yMax, double &deltaY, double &dt, double &max_time, double &capacitance, std::string &transferFun);
 	void parse_config_file(std::string fileName, std::string &carrierFile);

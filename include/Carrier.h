@@ -29,6 +29,9 @@
 #include <Constants.h>
 #include <Global.h>
 
+#include <vector>
+#include <memory>
+
 using namespace boost::numeric::odeint;
 //using namespace dolfin;
 
@@ -81,6 +84,12 @@ public:
 	~Carrier();
 
 	char get_carrier_type();
+
+    inline double get_gen_time() const
+    {
+        return _gen_time;
+    }
+    
 	//		double get_gen_time();
 	//    std::array< double,2> get_e_field;
 	//    std::array< double,2> get_w_field;
@@ -101,9 +110,13 @@ public:
 
 	void calculateDiffusionStep(double dt);
 
+    //double calculateAlpha(double efield); 
+    std::valarray<double> calculateAlpha(double efield);    
+
 	//void calculateDiffusionH(double dt);
 	std::valarray<double> simulate_drift( double dt, double max_time);
-	std::valarray<double> simulate_drift(double dt, double max_time, double x_init, double y_init, const std::string &scanType);
+	std::valarray<double> simulate_drift(double dt, double max_time, double x_init, double y_init, const std::string &scanType,
+        std::vector<std::unique_ptr<Carrier>>& gen_carrier_list );    
 };
 
 #endif // CARRIER_H

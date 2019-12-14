@@ -280,17 +280,17 @@ int main( int argc, char *argv[]) {
 		count = 0;
 		count2 = 0;
 	}
-
+    
 	/********Finish this part*********/
 
 
 	fit = new TRACSFit( FileMeas, FileConf , how ) ;
-
+    
 	neffType = TRACSsim[0]->get_neff_type();
 	vBias = TRACSsim[0]->get_vBias();
 	vDep = TRACSsim[0]->get_vDep();
 	fluence = TRACSsim[0]->get_fluence();
-
+    
 	/*********Begin Fit. For irradiated****************/
 	/***********************************************************************/
 	//Fitting Neff and normalizator
@@ -411,7 +411,8 @@ int main( int argc, char *argv[]) {
 		parErr.resize(parIniSize);
 		//for (size_t i=0; i < parIniSize; i++)
 		//	parErr[i] = 60.;
-		parErr[0]=100   ;
+		parErr[0]=5000   ;
+        //parErr[0]=100   ;
 		parErr[1]=40.    ;
 		parErr[2]=100.    ;
 		parErr[3]=5.e-12 ;
@@ -423,10 +424,10 @@ int main( int argc, char *argv[]) {
 			upar.SetName( i , pname );
 		}
 
-		upar.Fix(0) ; //Normalizator
-		//upar.Fix(1); //Depletion voltage
+		//upar.Fix(0) ; //Normalizator
+		upar.Fix(1); //Depletion voltage
 		upar.Fix(2); //Detector depth
-		upar.Fix(3); //Capacitance
+		upar.Fix(3); //Capacitance        
 
 		std::cout << "=============================================" << std::endl;
 		std::cout << "Initial parameters: "<<upar<<std::endl;
@@ -587,7 +588,8 @@ int main( int argc, char *argv[]) {
 	emo->Qt   = new Double_t [emo->Nt] ;
 
 	// Create branches
-	tout->Branch("raw", &emo,32000,0);
+	//tout->Branch("raw", &emo,32000,0);      // original
+	tout->Branch("raw", &emo,500000,0);    
 
 	//Read RAW file
 	TRACSsim[0]->DumpToTree( emo , tout ) ;
@@ -748,7 +750,8 @@ Double_t TRACSFit::operator() ( const std::vector<Double_t>& par  ) const {
 	icalls++;
 
 
-	std::string ss = std::to_string(icalls);
+	//std::string ss = std::to_string(icalls);
+	std::string ss = "./out/" + std::to_string(icalls) + ".root" ;    
 	const char * namefout = ss.c_str();
 	TFile fout(namefout,"RECREATE") ;
 

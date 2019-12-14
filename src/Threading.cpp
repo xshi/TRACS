@@ -45,6 +45,7 @@ void call_from_thread_FitPar(int tid, std::string& carrier_name_FileThr, const s
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0) TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->set_FitParam(par);
+	TRACSsim[tid]->set_fit_status();   // set the status as fitting procedure         
 	TRACSsim[tid]->loop_on(tid);
 
 }
@@ -56,6 +57,7 @@ void call_from_thread_FitNorm(int tid,std::string& carrier_name_FileThr, const s
 	TRACSsim[tid]->set_tcount(tid);
 	if(tid==0) TRACSsim[tid]->write_header(tid);
 	TRACSsim[tid]->set_Fit_Norm(par);
+	TRACSsim[tid]->set_fit_status();   // set the status as fitting procedure     
 	TRACSsim[tid]->loop_on(tid);
 
 }

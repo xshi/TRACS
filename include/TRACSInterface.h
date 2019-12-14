@@ -42,6 +42,7 @@
 #include <Global.h>
 
 
+#include <array>
 
 using std::vector;
 
@@ -86,6 +87,21 @@ private:
 	double fitNorm;
 	//double gen_time;
 
+    // For avalanche region
+    std::string _set_avalanche_flag;
+    std::array<double, 2>      _doping_peakheight;
+    std::array<double, 2>      _doping_peakpos;    
+    std::array<double, 2>      _doping_gauss_sigma;
+    double      _max_multiplication_factor;
+    
+    std::array<std::array<double, 3>, 2> _doping_param;    // For two Gaussian sets
+
+    std::string _skip_event_loop;
+
+    std::string _simulation_polarity_inverse_flag;
+
+    int _after_fitting_process;   // indicating whether the status is before or after fitting procedure. 
+        
 	int total_crosses;
 	bool underDep;
 
@@ -115,6 +131,10 @@ private:
 	std::valarray<double> i_total;
 	std::valarray<double> i_elec;
 	std::valarray<double> i_hole;
+    
+	std::valarray<double> i_gen_elec;        
+	std::valarray<double> i_gen_hole;
+    
 	std::valarray<double> i_shaped;
 	std::valarray<double> i_temp;
 
@@ -195,6 +215,7 @@ public:
 	void GetItRc();
 	TH1D *GetItConv();
 
+    void GetItRc(std::valarray<double>& i_out, const std::valarray<double>& i_in);
 
 	//Tree functions
 	//friend TTree * GetTree(); //Returns the pointer to the TRACS simulated tree
@@ -245,13 +266,14 @@ public:
 	void resize_array();
 	void write_to_file(int tid = 0);
 	void fields_hist_to_file(int, int);
+    void currents_hist_to_file(int tid, int vpos, int nscan);
 	void set_neffType(std::string newParametrization);
 	void set_carrierFile(std::string newCarrFile);
 	void set_vItotals(double);
 	void resetAll();
 
-
-
+    inline void set_fit_status(){ _after_fitting_process = 1; };
+        
 	//ROOT related
 	void DumpToTree( TMeas *em , TTree *tree ) ;
 	void GetTree( TTree * tree ) ;

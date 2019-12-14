@@ -108,6 +108,8 @@ int       parse_TRACS( const char *filename, TMeas *em , TTree *tree , Double_t 
 int       parse_IDLTS( const char *filename, TMeas *em , TTree *tree , Double_t Cend  ) ;
 int    ReadNerOfBins( const char *filename ) ;
 
+int    parse_tctminus( const char *filename, TMeas *em , TTree *tree , Double_t Cend  ) ;
+
 //rootcint mytest_dictionary.cxx -c mytest.h LinkDef.h
 
 /* ---------------------------------------------------------------- */
@@ -169,7 +171,8 @@ int tree( int argc ,  ... ) {
   em->Qt   = new Double_t [em->Nt] ;
 
   // Create branches
-  tree->Branch("raw", &em,32000,1);
+  //tree->Branch("raw", &em,32000,1);    // original TRACS
+  tree->Branch("raw", &em,500000,1);     // try : 2019-10-28
 
   //Read RAW file
   parse_file( pfnm , em , tree , Cend ) ;
@@ -221,18 +224,37 @@ int parse_file( const char *filename, TMeas *em , TTree *tree , Double_t Cend ) 
 	em->Setup = 5;
 	parse_TRACS( filename , em , tree , Cend ) ; 
 	return(1) ;
-     } else if ( line.find("SSD measurement") == 0 ) { 
-        for (Int_t i=0;i<3;i++)getline(in,line) ; 
-	if ( line.find("scanType: TCT+") == 0 ) {
-	  in.close() ;
-	  em->Setup = 2;
-	  parse_tctplus( filename , em , tree , Cend ) ; 
-	} else if ( line.find("scanType: DLTS") == 0 ) {
-	  in.close() ;
-	  em->Setup = 6;
-	  parse_IDLTS( filename , em , tree , Cend ) ; 
-        }
-	return(1) ;
+     } else if ( line.find("SSD measurement") == 0 ) {
+
+          getline(in, line);  // Read Version number
+          stringstream myStream(line);
+          std::string what;
+          double version;
+          myStream >> what >> version ;
+          
+          // If data version is 1.4 (2019-10-30)
+          if( version == 1.4 ) {              
+              in.close();
+              em->Setup = 2;
+              parse_tctminus( filename, em, tree, Cend );
+              return(1);
+          }
+                
+          //for (Int_t i=0;i<3;i++)getline(in,line) ;   // original
+          for (Int_t i=0;i<2;i++)getline(in,line) ;
+          
+          if ( line.find("scanType: TCT+") == 0 ) {
+              
+              in.close() ;
+              em->Setup = 2;
+              parse_tctplus( filename , em , tree , Cend ) ; 
+          } else if ( line.find("scanType: DLTS") == 0 ) {
+              
+              in.close() ;
+              em->Setup = 6;
+              parse_IDLTS( filename , em , tree , Cend ) ; 
+          }
+          return(1) ;
       }
     }
     if ( line.find("----------------") == 0 ) {
@@ -752,6 +774,354 @@ int parse_ifca( const char *filename, TMeas *em , TTree *tree , Double_t Cend ) 
  * @param Cend
  * @return
  */
+int parse_tctminus( const char *filename, TMeas *em , TTree *tree , Double_t Cend ) {
+
+    std::cout << "parse_tctminus funcion" << std::endl;
+    
+    //Open file
+    ifstream in( filename );    
+
+    // common variables
+    string line, what ;
+    stringstream myStream;
+    
+    //StartTime -- skip the first 29 lines. 
+    Int_t istart=1 , iend = 30 ;
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);
+    TString sdate = TString( line ) ;
+    UShort_t  dd, mm, yy , hh , mn, ss;
+    yy=atoi( sdate(11,4).Data() );
+    mm=atoi( sdate(16,2).Data() );
+    dd=atoi( sdate(19,2).Data() );
+    hh=atoi( sdate(22,2).Data() );
+    mn=atoi( sdate(25,2).Data() );
+    ss=atoi( sdate(28,2).Data() );
+    TDatime date ;
+    date.Set(yy, mm, dd, hh, mn, ss) ;
+    em->utc = date ;
+
+    //comment
+    istart=iend+1; // L31  ,  user-name
+    iend=istart+1; // L32  ,  comment line 
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);
+    TString comment = TString( line ) ;
+    
+    //Wavelength
+    istart=iend+1;  // L33, Wavelength of the laser
+    iend=istart;     
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line); 
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    Double_t wvlength ; myStream >> what >>  wvlength ;
+    
+    //Top/Bottom/edge
+    //Try to decide on the type of scan this is 0=tct std, 1=eTCT (default), 2=TCT+
+    Int_t Illum ;
+    istart=iend+1;   //  L34, laser direction
+    iend=istart;   
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line); 
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    string direction ; myStream >> what >>  direction ;
+    if ( direction.find("top")    ==0 ) Illum=1;
+    if ( direction.find("edge")   ==0 ) Illum=0;
+    if ( direction.find("bottom") ==0 ) Illum=-1;
+    
+    //Amp gain
+    Double_t Gain ;
+    getline(in, line);   //  L35, Amp gain
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream >> what >> Gain ;
+
+
+    //Fluence and annealing
+    Double_t Phi =0., iann =0. ;
+
+    // "fluence" and "annealing" terms are moved to the top (before L30)
+    // therefore commented out. 
+    
+    //Fluence
+    // getline(in, line);   
+    // myStream.str(""); myStream.clear() ; myStream << line ;
+    // myStream >> what >> Phi ;
+    
+    //Annealing 
+    // getline(in, line);
+    // myStream.str(""); myStream.clear() ; myStream << line ;
+    // myStream >> what >> iann ;
+
+
+    getline(in, line);  // L36, read and discard biasteeresistance
+      
+    //Frequency
+    getline(in, line);     //  L37, Frequency
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    Int_t Freq ; myStream >> what >> Freq ;
+    
+    //Number of averages
+    getline(in, line);     //  L38
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    Int_t Nav ; myStream >> what >> Nav ;
+    
+    //Total number of Scans
+    getline(in, line);     //  L39
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    Int_t NumOfScans ; myStream >> what >> NumOfScans ;
+    
+    
+    // NVoltages   -- skip the 8 lines. 
+    Int_t Ival , t0s , tms ;
+    for (Int_t iloop = 1 ; iloop<= 9 ; iloop ++ ) getline(in, line); 
+    myStream.str(""); myStream.clear() ; myStream << line ;   
+    myStream >> what ; myStream >> Ival ;                              //  L48, Number of voltages
+    em->NV = Ival ; 
+    
+    
+    //Create a TMeasHeader object to store info that does not depend on event
+    TMeasHeader *emh=new TMeasHeader( em->NV ) ;
+    emh->Lambda = wvlength ;
+    emh->NV = em->NV;
+    emh->comment=comment ;
+    emh->Setup = 2 ;
+    emh->Fluence = Phi ;
+    emh->Nav  = Nav ;
+    emh->Gain = Gain ;
+    emh->iann = iann ;
+    emh->Illum = Illum ;
+   
+    //Cend
+    emh->Cend = Cend ;
+    
+    //Vbias vector
+    getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream >> what ; for ( int i=0 ; i< em->NV ; i++) myStream >> emh->vVbias[i] ; //  L49, each voltages
+    
+    //Nominal power
+    Int_t nPower ; Double_t Power ;
+    nPower = 1;  // number of pulse power...  "nPulsePowerIntentisy" in the previous version. for the moment,  set 1. 
+
+    getline(in, line);   //  L50, Laser Power
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream >> what ; myStream >> Power ;
+    emh->Power = Power ;
+
+
+    //Ax
+    istart = 1; 
+    iend   = istart+4; 
+    Double_t Dval ;
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);   // skip 4 lines to reach "deltaX" 
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream >> what >> Dval ;                                                            //  L55, deltaX
+    em->Ax  = Dval *1000. ; 
+    emh->Ax = em->Ax;
+   
+    //Nx
+    istart = iend+1; 
+    iend   = istart; 
+    getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;  //  L56, nX
+    myStream >> what >> em->Nx ; 
+    emh->Nx = em->Nx;
+
+    //Ay
+    istart = iend+1; 
+    iend   = istart+3; 
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);   // skip 3 lines to reach "deltaY" 
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream>> what  >> Dval ;                                                            //  L60, deltaY
+    em->Ay  = Dval *1000. ; 
+    emh->Ay = em->Ay;
+    
+    //Ny
+    istart = iend+1; 
+    iend   = istart; 
+    getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;   //  L61, nY
+    myStream >> what >> em->Ny ; 
+    emh->Ny = em->Ny;
+
+    //Az
+    istart = iend+1; 
+    iend   = istart+3; 
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);   // skip 3 lines to reach "deltaZ" 
+    myStream.str(""); myStream.clear() ; myStream << line ;
+    myStream>> what  >> Dval ;                                                            //  L65, deltaZ
+    em->Az  = Dval *1000. ; 
+    emh->Az = em->Az;
+    
+    //Nz
+    istart = iend+1; 
+    iend   = istart; 
+    getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;  //  L66, nZ
+    myStream >> what >> em->Nz ; 
+    emh->Nz = em->Nz;
+    
+    if ( emh->Illum == 0 ) cout << "TCT-: this is an eTCT measurement" << endl ;
+    if ( emh->Illum != 0 ) cout << "TCT-: this is a normal TCT measurement" << endl ;
+    
+    istart = iend+1; 
+    iend   = istart+3; 
+    for (Int_t iloop = istart ; iloop<= iend ; iloop ++ ) getline(in, line);  // skip 4 lines
+
+
+    // Now indicator is at the starting point of chunk of data
+   
+    int  iRead=0 , iactual = 1 ;
+    int  Polarity = 0 ;
+    Double_t ImA, x0, y0, z0;
+    for (Int_t iloop = 0 ; iloop < NumOfScans ; iloop++ ) {
+      
+      getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
+      if ( in.eof() ) break;
+
+      // Read the "event header" line 
+      myStream >> tms >> Dval >> Dval >>Dval >>Dval >>em->Temp >> Dval >> em->Vbias >> ImA >> em->x >> em->y >> em->z >> Ival >> Dval >> Dval ;
+      
+      em->Itot = ImA * 1.e-3;
+
+      //Calculate the bin slice along each coordinate
+      if (iloop==0) { x0=em->x ;y0=em->y ;z0=em->z ; }
+      em->ix = (em->Ax!=0.)? 1 + TMath::Nint((em->x - x0)/(em->Ax/1000.)):1 ;
+      em->iy = (em->Ay!=0.)? 1 + TMath::Nint((em->y - y0)/(em->Ay/1000.)):1 ;
+      em->iz = (em->Az!=0.)? 1 + TMath::Nint((em->z - z0)/(em->Az/1000.)):1 ;
+      
+      //Calculate the time increment wrt t0s
+      if (iloop==0) t0s=tms ;
+      Double_t Nseconds = 0.001*(tms - t0s) ;
+      UShort_t ddi , hhi , mni, ssi , ndd, nhh, nmn , nss  ; 
+      ndd = TMath::Floor(Nseconds/86400) ;
+      ddi = dd + ndd ;
+      nhh = TMath::Floor((Nseconds - ndd*86400)/3600.) ;
+      hhi = hh+nhh;
+      nmn = TMath::Floor((Nseconds - ndd*86400-nhh*3600)/60) ;
+      mni = mn+nmn;
+      nss = TMath::Floor(Nseconds - ndd*86400-nhh*3600-nmn*60) ; 
+      ssi = ss + nss;
+      if (ssi>60) { mni++ ; ssi=ssi-60; }
+      if (mni>60) { hhi++ ; mni=mni-60; }
+      if (hhi>24) { ddi++ ; hhi=hhi-24; }
+      date.Set(yy, mm, ddi, hhi, mni, ssi) ;
+      em->utc = date ;
+
+      // Read the "event body" line
+      // 1. timespan for one bin and the number of bin
+      getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
+      myStream >> em->At >> em->Nt ;
+      em->At = em->At*1.e9 ; emh->At = em->At ;
+      
+#if READONLYPDWVF==1
+      getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
+#endif
+
+      // 2. voltages 
+      for ( int i=0 ; i< em->Nt ; i++) {
+          myStream >> em->volt[i] ;
+          em->time[i]=i*em->At ; 
+      }
+
+      //----------------- Photodiode -------------------------------
+      //getline(in, line);    
+      
+      Double_t LPower = 0. , LNph = 0. ;
+      Double_t Vpd , Qpd = 0. , Bline = 0. , Vpdmax = -999999.9 , Eph;
+
+      //All photodiode's voltages
+      #if READONLYPDWVF==0  //If we only study the PD, we already read this line
+        getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
+      #endif
+
+      //Baseline of photodiode
+      Int_t Nbl = TMath::Nint(5.0/em->At) ;
+      for ( int i=0 ; i< Nbl ; i++) {
+        #if READONLYPDWVF==0  //If we only study the PD, we have already read this line
+	  myStream >> Vpd ;
+	  Bline+= Vpd ;  
+	#else
+	  Bline+= em->volt[i] ;  
+	#endif
+      }
+      Bline  = Bline/Nbl ;
+
+      //Baseline corrected
+      for ( int i=Nbl ; i< em->Nt ; i++) {
+
+        #if READONLYPDWVF==0  //If we only study the PD, we have already read this line
+	  myStream >> Vpd ;
+	  Vpd = Vpd - Bline ;
+	#else
+	  Vpd = em->volt[i] - Bline ;
+	#endif
+        if ( Vpd > Vpdmax ) Vpdmax = Vpd ;
+	if ( Vpd > 0. ) Qpd+=Vpd ; //This is really only an approximation to the total charge !!!
+
+      }
+
+      //Power and number of photons
+      LPower = (emh->Lambda==1064.0)? Vpdmax/(ROSC*AWIR) : Vpdmax/(ROSC*AWRED) ;
+      if ( TMath::Nint(emh->Lambda)==660  ) LPower = 0.450*(10.0*LPower) ; //Laser->[10% Photodiode, 45% eTCT] ]
+      if ( TMath::Nint(emh->Lambda)==1064 ) LPower = 0.225*(10.0*LPower) ; //Laser->[10% Photodiode, 90%[22.5% TCTup, 22.5% TCTdown, 45% eTCT] ]
+      Eph = 1240.0/emh->Lambda*JeV ; //in Jules
+      //LNph   = Qpd*em->At*1.e-9/(ROSC*RESPONS*Eph) ;
+      LNph   = Qpd*em->At*1.e-9/(ROSC*QELEC) ;  // Qtot= Neh * q_e
+
+      /* 
+	If we provide an average power (3rd argument in the command line), this
+	means we want to correct all measurements to this power.
+      */
+      //if ( Pavg !=0.) 
+	//for ( int i=0 ; i< em->Nt-1 ; i++) em->volt[i]= (LPower!=0.)? Pavg/LPower*em->volt[i+1] : 0. ;
+      
+      
+      //----------------- End of photodiode ------------------------
+
+      //Estimate polarity
+      if ( TMath::Abs(TMath::MaxElement(em->Nt,em->volt)) > TMath::Abs(TMath::MinElement(em->Nt,em->volt)) ) Polarity++ ;
+      else Polarity-- ;
+
+      em->event=iRead ;
+      
+      //Now postprocess this entry (find out baseline, rtime and so on
+      TWaveform *wv = new TWaveform( em ) ;
+	
+      if (iRead==0) tree->Branch("proc" , &wv , 32000 , 1 );
+       
+      if ( LPower!=0. ) {
+        wv->LPower = LPower ;
+        //wv->LPower = Pavg ;
+	wv->LNph   = LNph ;
+      }
+      
+      tree->Fill() ;
+      iRead++   ;
+      //if (iRead%1000 == 0) tree->AutoSave();
+
+      if (iRead%100==0) cout << "Read " << iRead << flush <<"\r" ;
+      delete wv ; 
+
+      iactual++ ;
+      
+    }
+    
+    emh->Polarity = (Polarity>1) ? 1 : -1 ;
+    tree->GetUserInfo()->Add( emh ) ;
+    cout << endl ;
+    cout << "Total read:" << iRead << endl ;
+    em->Ntevent=iRead ; //It does not go into the tree, only in the class!
+    
+    in.close() ;
+        
+    //delete emh ;
+
+    return(1) ;
+
+}
+
+/*----------------------------------------------------------*/
+/**
+ *
+ * @param filename
+ * @param em
+ * @param tree
+ * @param Cend
+ * @return
+ */
 int parse_tctplus( const char *filename, TMeas *em , TTree *tree , Double_t Cend ) {
     
     //Note that there is a difference in the coordinates. He calls X to my Y.
@@ -985,8 +1355,8 @@ int parse_tctplus( const char *filename, TMeas *em , TTree *tree , Double_t Cend
         getline(in, line); myStream.str(""); myStream.clear() ; myStream << line ;
       #endif
       for ( int i=0 ; i< em->Nt ; i++) {
-	myStream >> em->volt[i] ;
-	em->time[i]=i*em->At ; 
+          myStream >> em->volt[i] ;
+          em->time[i]=i*em->At ; 
       }
 
       //----------------- Photodiode -------------------------------
@@ -2146,48 +2516,50 @@ int ReadNerOfBins( const char *filename ) {
     getline(in,line) ;  
     stringstream myStream(line);
     Int_t Nskip ;
-    if        ( line.find("================") == 0 ) {
-       getline(in,line) ;  
-       if        ( line.find("SSD simulation") == 0 ) { 
-         Nskip=60;
-       } else {
+    if( line.find("================") == 0 ) {
+        getline(in,line) ;  
+        if( line.find("SSD simulation") == 0 ) { 
+            Nskip=60;
+        } else {
 
-	 getline(in,line) ;  
-	 Double_t version ; 
-	 myStream.str(""); myStream.clear() ; myStream << line ;
-	 myStream >> what >> version ;
-	 if (version == 1.0 ) Nskip=55 ;
-	 if (version == 1.1 || version == 1.2 ) Nskip=56 ;
-	 if (version == 1.3 ) Nskip=58;
+            getline(in,line) ;  
+            Double_t version ; 
+            myStream.str(""); myStream.clear() ; myStream << line ;
+            myStream >> what >> version ;
+            if (version == 1.0 ) Nskip=55 ;
+            if (version == 1.1 || version == 1.2 ) Nskip=56 ;
+            if (version == 1.3 ) Nskip=58;
+            if (version == 1.4 ) Nskip=71;    // Added for newer data format.  2019-10-30
 	 
-	 //Only IDLTS
-	 getline(in,line) ;getline(in,line) ;
-	 myStream.str(""); myStream.clear() ; myStream << line ; 
-	 myStream >> what >> Type ;
-	 if ( Type.find("DLTS")==0 ) {
-	   //Get filename where number of points is stored
-	   Nskip=55;
-	   for (int i=5 ; i<=Nskip ; i++) getline(in,line) ;myStream.str(""); 
-	   myStream.clear() ; myStream << line ;  
-	   myStream>>Dfnm;
-           ifstream din( Dfnm );
-	   if (!din || din.bad()) {
-	     cout << "Error opening " << Dfnm << endl ;
-	     exit(1);
-	   }
-	   for (int i=0 ; i<5 ; i++) getline(din,line) ; 
-	   myStream.str(""); myStream.clear() ; myStream << line ;
-	   char c ;
-	   myStream >> what >> c>>Ner>>c>>Ner;
-	   in.ignore() ;
-	   in.close() ;
-	   din.ignore() ;
-	   din.close() ;
-           return(Ner) ;
-	 }
-	 
-         for (int i=4 ; i<Nskip ; i++) getline(in,line) ; 
-       }
+            //Only IDLTS
+            getline(in,line) ;getline(in,line) ;
+            myStream.str(""); myStream.clear() ; myStream << line ; 
+            myStream >> what >> Type ;
+            if ( Type.find("DLTS")==0 ) {
+                //Get filename where number of points is stored
+                Nskip=55;
+                for (int i=5 ; i<=Nskip ; i++) getline(in,line) ;myStream.str(""); 
+                myStream.clear() ; myStream << line ;  
+                myStream>>Dfnm;
+                ifstream din( Dfnm );
+                if (!din || din.bad()) {
+                    cout << "Error opening " << Dfnm << endl ;
+                    exit(1);
+                }
+                
+                for (int i=0 ; i<5 ; i++) getline(din,line) ; 
+                myStream.str(""); myStream.clear() ; myStream << line ;
+                char c ;
+                myStream >> what >> c>>Ner>>c>>Ner;
+                in.ignore() ;
+                in.close() ;
+                din.ignore() ;
+                din.close() ;
+                return(Ner) ;
+            }
+            
+            for (int i=4 ; i<Nskip ; i++) getline(in,line) ; 
+        }
        
     } else if ( line.find("----------------")      == 0 ) {        //TPA
        Nskip=17;  //TPA
@@ -2216,7 +2588,8 @@ int ReadNerOfBins( const char *filename ) {
     
        
     myStream.str(""); myStream.clear() ; myStream << line ;
-    if ( Nskip==55 || Nskip==56 || Nskip==58 ) {
+//    if ( Nskip==55 || Nskip==56 || Nskip==58 ) {  // original
+    if ( Nskip==55 || Nskip==56 || Nskip==58 || Nskip==71) {   // Added for newer data format.  2019-10-30
       Double_t val ;
       myStream  >> val >> Ner ;
     } else if (Nskip==15 ){

@@ -40,8 +40,9 @@
 
 std::mutex mtxD;
 
-SMSDetector::SMSDetector(double pitch, double width, double depth, int nns, char bulk_type, char implant_type, int n_cells_x, int n_cells_y, double tempK, double trapping,
-		double fluence, std::vector<double> neff_param, std::string neff_type, int diffusion, double dt) :
+SMSDetector::SMSDetector(double pitch, double width, double depth, int nns, char bulk_type, char implant_type, std::string avalanche_flag, std::array<std::array<double, 3>, 2> doping_param,
+                         int n_cells_x, int n_cells_y, double tempK, double trapping,
+                         double fluence, std::vector<double> neff_param, std::string neff_type, int diffusion, double dt) :
 
 				_pitch(pitch), //Distance between implants
 				_width(width), //Size of the implant
@@ -67,6 +68,8 @@ SMSDetector::SMSDetector(double pitch, double width, double depth, int nns, char
 				_depletion_width(0),
 				_depleted(false),
 				_dt(dt),
+                _avalanche_flag(avalanche_flag),
+                _doping_param(doping_param),
 				// Mesh properties
 				_n_cells_x(n_cells_x),
 				_n_cells_y(n_cells_y),
@@ -188,7 +191,39 @@ void SMSDetector::solve_d_u()
 
 	if (_fluence == 0) //NO irrad but YES depleted. fpoisson, charge distribution, is a constant during the whole detector
 	{
-		_L_p.f = fpois;
+        if ( _avalanche_flag == "yes" )
+        {
+            std::cout << "Avalanche layer is inserted " << std::endl;
+
+            f.set_NeffApproach("AvalancheMode");
+            f.set_avalanche_doping_param( _doping_param );
+            f.set_bulk_doping_param( _f_poisson );
+
+            // Save Neff distribution into a ROOT file. Now, it is only 1D histo.
+            f.save_Neff_dist(_y_min, _y_max);
+            
+            _L_p.f = f;
+        }
+        else 
+        {
+            std::cout << "Avalanche layer is not set " << std::endl;
+            
+            // Setting for "save_Neff_dist"  function . last parameter (Gaussian sigma) should be >0 
+            std::array<std::array<double, 3>, 2> doping_param_null{
+                {  {0.0, 0.0, 0.001},
+                    {0.0, 0.0, 0.001} }
+            };
+            
+            f.set_avalanche_doping_param( doping_param_null );
+            f.set_bulk_doping_param( _f_poisson );            
+
+            // Save Neff distribution into a ROOT file. Now, it is only 1D histo.
+            f.save_Neff_dist(_y_min, _y_max);            
+            
+            _L_p.f = fpois;   // original in TRACS V1.0
+        }
+        //std::cout << "NeffApproch = " << f.get_NeffApproach() << std::endl;
+       
 		_trapping_time = std::numeric_limits<double>::max();
 	}
 
