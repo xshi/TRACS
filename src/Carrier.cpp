@@ -22,6 +22,8 @@
 
 #include "../include/Carrier.h"
 
+#include <cmath>
+
 std::mutex mtn;
 
 /*
@@ -101,6 +103,37 @@ void Carrier::calculateDiffusionStep(double dt){
 
 }
 
+//double Carrier::calculateAlpha(double efield)
+std::valarray<double> Carrier::calculateAlpha(double efield)    
+{
+    std::valarray<double> a0 = { 4.3383           ,  2.376 };
+    std::valarray<double> a1 = { -2.42e-12      ,  0.01033 };
+    std::valarray<double> a2 = { 4.1233           ,  1.0 };
+
+    std::valarray<double> b0 = { 0.235             ,  0.17714};
+    std::valarray<double> b1 = { 0.0                 ,  -0.002178 };
+
+    std::valarray<double> c0 = { 1.6831e+4     , 0.0 };
+    std::valarray<double> c1 = { 4.3796            , 0.00947 };
+    std::valarray<double> c2 = { 1.0                  , 2.4924 };
+    std::valarray<double> c3 = { 0.13005          , 0.0 };
+
+    std::valarray<double> d0 = { 1.233735e+6 ,  1.4043e+6 };
+    std::valarray<double> d1 = { 1.2039e+3     ,  2.9744e+3 };
+    std::valarray<double> d2 = { 0.56703          ,  1.4829 };
+    
+    //double T = 300.0; // 273K + 25K ~ 300K
+    double T = _myTemp;
+    
+    std::valarray<double> aT = a0 + a1*std::pow(T, a2);
+    std::valarray<double> bT = b0*std::exp(b1*T);
+    std::valarray<double> cT = c0 + c1*std::pow(T, c2) + c3*T*T;
+    std::valarray<double> dT = d0 + d1*T + d2*T*T;
+    
+    std::valarray<double> alpha = efield/( aT + bT*std::exp( dT/( efield + cT) ) );
+ 
+    return alpha;
+}
 
 /*
  ******************** CARRIER DRIFT SIMULATION METHOD**************************
@@ -117,9 +150,18 @@ void Carrier::calculateDiffusionStep(double dt){
  * @param y_init
  * @return
  */
-std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double x_init/*y_pos*/, double y_init /*z_pos*/, const std::string &scanType )
+std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double x_init/*y_pos*/, double y_init /*z_pos*/, const std::string &scanType,
+                                              std::vector<std::unique_ptr<Carrier>>& gen_carrier_list)    
 //First Approach
 {
+    bool debug_flag = false;
+    
+    // For confirmation
+    if(debug_flag)std::cout << "_gen_time = " << _gen_time << std::endl;
+    
+    // Newly Added for impact ionization effect
+    std::vector<std::unique_ptr<Carrier>> _carrier_list_secondary;
+    
 	_x[0] = x_init;
 	_x[1] = y_init;
 	//std::ofstream fileDiffDrift;
@@ -136,11 +178,11 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 	Array<double> wrap_x(2, _x.data());
 	Array<double> wrap_e_field(2, _e_field.data());
 	Array<double> wrap_w_field(2, _w_field.data());
-
-
+        
 	//Carrier is in NO depleted area
 	if ( (_x[1] > _detector->get_depletionWidth()) && (_x[1] <= _detector->get_y_max()) && (_x[0] >= _detector->get_x_min()) && (_x[0] <= _detector->get_x_max())
 			&& (_detector->diffusionON()) && (_x[1] >= _detector->get_y_min())){
+        
 		regularCarrier = false;
 		//Four times the trapping time represent almost 100% of the signal.
 		while( (tDiff < (4 * _trapping_time)) &&  (tDiff<(max_time))  ){
@@ -168,11 +210,20 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 
 		int it0 = ( _detector->diffusionON() ) ? TMath::Nint( (_gen_time + tDiff)/dt ) : TMath::Nint( _gen_time/dt ) ;
 
+         // indicator of generating carriers.  i.e. ngen==2 shows that one e/h pair can be generated.    
+        double ngen = 1.0; 
+        
 		for ( int i = it0 ; i < max_steps; i++)
 		{
-
-
+            
+            if(debug_flag)std::cout << "_x[0] = " << _x[0] << " ,  _x[1] = " << _x[1] << ",  time = " << i*dt << std::endl;
+            
 			if (_x[1] <= _detector->get_depletionWidth()){
+
+                // 1. Carrier position before drift
+                auto pre_x0 = _x[0];
+                auto pre_x1 = _x[1];
+                
 				//	safeRead.lock();
 				_detector->get_d_f_grad()->eval(wrap_e_field, wrap_x);
 				_detector->get_w_f_grad()->eval(wrap_w_field, wrap_x);
@@ -181,10 +232,48 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 				stepper.do_step(_drift, _x, tDep, dt); //Carrier movement due to drift
 				i_n[i] = _q *_sign* _mu.obtain_mobility(_e_field_mod) * (_e_field[0]*_w_field[0] + _e_field[1]*_w_field[1]);
 
+                // 2. Carrier position diff between before and after its drift
+                auto diff_x0 = _x[0] - pre_x0;
+                auto diff_x1 = _x[1] - pre_x1;
+
+                std::valarray<double> alpha_tmp = calculateAlpha( _e_field[1] * 1e+4 );    // efield , [V/um] --> [V/cm]
+                double local_alpha;
+                if(  _carrier_type == 'e' )
+                    local_alpha = alpha_tmp[0];
+                else
+                    local_alpha = alpha_tmp[1];
+                
+                ngen *= std::exp( local_alpha * std::fabs(diff_x1) * 1e-4 );     // distance,  [um] --> [cm]
+
+                if(debug_flag) std::cout << "time = " << i*dt << ",  ngen = " << ngen << "  _e_field[1] = " << _e_field[1] << ", local_alpha = " << local_alpha << std::endl;
+                
+                while( ngen > 2.0 )
+                {
+                    if(debug_flag)std::cout << "ngen = " << ngen << "_x[0] = " << _x[0] << " ,  _x[1] = " << _x[1]  << " :  time = " << i*dt << std::endl;
+
+                    if( _carrier_type == 'e' )    // comment. Bellow,  the member variable "_sign" can be used to make the code simple. 
+                    {
+                        std::unique_ptr<Carrier> ptr_e( new Carrier('e', _q, _x[0], _x[1], _detector, i*dt) );  
+                        gen_carrier_list.push_back( std::move(ptr_e) );
+
+                        std::unique_ptr<Carrier> ptr_h( new Carrier('h', std::fabs(_q), _x[0], _x[1], _detector, i*dt) );  // Hole & electron pair should be created                    
+                        gen_carrier_list.push_back( std::move(ptr_h) );
+                    }
+                    if( _carrier_type == 'h' )
+                    {
+                        std::unique_ptr<Carrier> ptr_e( new Carrier('e', -std::fabs(_q), _x[0], _x[1], _detector, i*dt) );  
+                        gen_carrier_list.push_back( std::move(ptr_e) );
+
+                        std::unique_ptr<Carrier> ptr_h( new Carrier('h', _q, _x[0], _x[1], _detector, i*dt) );  // Hole & electron pair should be created                    
+                        gen_carrier_list.push_back( std::move(ptr_h) );
+                    }                    
+
+                    ngen -= 1.0;    // indicator decrement one. 
+                }
 			}
 			if  (_detector->diffusionON()){
-				calculateDiffusionStep(dt); //Carrier movement due to diffusion
-
+                
+				calculateDiffusionStep(dt); //Carrier movement due to diffusion                
 
 				if (_x[1] > _detector->get_depletionWidth() && !(_carrier_type == 'h' && scanType == "top")){
 					_crossed = false;							//Holes are not followed anymore in top scan when reach no depleted area
@@ -200,14 +289,14 @@ std::valarray<double> Carrier::simulate_drift(double dt, double max_time, double
 
 			if (_detector->is_out_dep(_x)) // If CC outside detector
 			{
-
+                if(debug_flag)std::cout << "Carrier is out of detector !" << std::endl;
 				break; // Finish (CC gone out)
 			}
 
 			tDep+=dt;//Could be inside first IF. TODO
 		}
-
-		return i_n;
+        
+		return i_n;    
 	}
 	return i_n=0.;
 

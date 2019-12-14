@@ -103,9 +103,14 @@ TH1D *H1DConvolution( TH1D *htf , TH1D *htct , Double_t Cend , int tid) {
     tfname.Form("conv_%d_%d", tid, count);
    TH1D *hConv = new TH1D(tftit,tfname,2*htct->GetNbinsX(),-htct->GetNbinsX()*bw,htct->GetNbinsX()*bw);
    
-   
+   std::cout << "test1" << std::endl;
    //The convoluted response to the TCT signal is going to be another histogram sized similar to htct
-   Int_t Ntf = htf->GetNbinsX() , Ntct = htct->GetNbinsX();
+   //Int_t Ntf = htf->GetNbinsX() , Ntct = htct->GetNbinsX();
+   //Int_t Ntf = htf->GetNbinsX();
+   TH1D *nhtf = (TH1D *) htf->Clone();
+   int Ntf;
+   std::cout << "test2" << std::endl;
+   Int_t Ntct = htct->GetNbinsX();
    
    //Create the reverse histogram of the transfer function
    TH1D *hinv = (TH1D *) htf->Clone(); hinv->Reset();

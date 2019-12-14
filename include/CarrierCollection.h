@@ -28,6 +28,9 @@
 #include <TMath.h>
 #include <TRandom3.h>
 
+#include <deque>
+#include <memory>
+
 /*
  ***********************************CARRIER COLLECTION***********************************
  *
@@ -39,13 +42,11 @@
 class CarrierCollection
 {
 private:
-
-	std::vector<Carrier> _carrier_list_sngl;
+    std::deque<std::vector<std::unique_ptr<Carrier>>> _queue_carrier_list;
+    
 	SMSDetector * _detector;
 
 	TRandom3 gRandom;
-
-
 
 public:
 	CarrierCollection(SMSDetector * detector);
@@ -54,12 +55,19 @@ public:
 	double beamy = 0. , beamz = 0.; //Mean position of the injected carriers in detector plane (y,z)
 
 	void add_carriers_from_file(const std::string& filename,const std::string& scanType, double depth);
-	void simulate_drift( double dt, double max_time, double shift_x, double shift_y,  std::valarray<double> &curr_elec,
+    
+	void simulate_drift( double dt, double max_time, double shift_x, double shift_y,  std::valarray<double> &curr_elec,     
 			std::valarray<double> &curr_hole, int &totalCrosses, const std::string &scantype);
+    
+    void simulate_drift( double dt, double max_time, double shift_x, double shift_y,
+                         std::valarray<double> &curr_elec, std::valarray<double> &curr_hole,
+                         std::valarray<double> &curr_gen_elec, std::valarray<double> &curr_gen_hole, double max_mul_factor, 
+                         int &totalCrosses, const std::string &scantype, std::string skip_event_loop);
 
 	TH2D get_e_dist_histogram(int n_bins_x, int n_bins_y, TString hist_name = "e_dist", TString hist_title ="e_dist");
 	TH2D get_e_dist_histogram(int n_bins_x, int n_bins_y, double shift_x, double shift_y, TString hist_name = "e_dist", TString hist_title ="e_dist");
 
+    void record_carrier_gen_time(double max_time, int n_time_slice);
 };
 
 

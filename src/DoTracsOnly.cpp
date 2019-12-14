@@ -25,6 +25,8 @@
 #include "../include/Threading.h"
 #include <Utilities.h>
 
+#include <TH1D.h>
+
 //extern TH1D *H1DConvolution( TH1D *htct, Double_t Cend=0. , int tid=0) ;
 
 std::vector<TRACSInterface*> TRACSsim;
@@ -45,7 +47,7 @@ int main( int argc, char *argv[]) {
 	TString transferFun;
 	TH1D *i_rc;
 	TH1D *i_conv;
-	TH1D *i_ramo;
+	//	TH1D *i_ramo;
 
 
 	int counted_numLines = 0;
@@ -81,7 +83,7 @@ int main( int argc, char *argv[]) {
 
 	utilities::parse_config_file(fnm, carrierFile);
 	std::ifstream in(carrierFile);
-
+	
 	while (in){
 
 		for (int i = 0 ; i < num_threads ; i++){
@@ -165,13 +167,16 @@ int main( int argc, char *argv[]) {
 	if (global_TF != "NO_TF") {
 		for (int i = 0 ; i < i_ramo_vector.size(); i++ ){
 
+		  std::cout << "Yes" << std::endl;
 			transferFun = global_TF;
 			TString htit, hname;
 			TString htit2, hname2;
 
 			htit.Form("ramo_%d%d", 0, count2);
 			hname.Form("Ramo_current_%d_%d", 0, count2);
-			i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+			//i_ramo = new TH1D(htit,hname, timeSteps, 0.0, max_time);
+
+			TH1D *i_ramo = new TH1D(htit.Data(), hname.Data(),  timeSteps, 0.0, max_time);
 
 			htit2.Form("ramo_conv%d%d", 0, count2);
 			hname2.Form("Ramo_current_%d_%d", 0, count2);
@@ -181,7 +186,7 @@ int main( int argc, char *argv[]) {
 				i_ramo->SetBinContent(k+1, vItotals[i][k]);
 
 			}
-
+			
 			TH1D *i_conv = H1DConvolution(i_ramo , capacitance*1.e12, count, transferFun);
 
 

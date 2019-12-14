@@ -36,16 +36,26 @@ std::mutex mtx2;
  * @param filename
  */
 TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile, const std::vector<double>& zVector, const std::vector<double>& yVector,
-		const std::vector<double>& voltVector):zVector(zVector), yVector(yVector), voltVector(voltVector), carrierFile(carrFile)
+                               const std::vector<double>& voltVector):zVector(zVector), yVector(yVector), voltVector(voltVector), carrierFile(carrFile), _after_fitting_process(0)
 {
 	neff_param = std::vector<double>(8,0);
 	total_crosses = 0;
 
+    utilities::parse_config_file(filename, depth, width,  pitch, nns, temp, trapping, fluence, nThreads, n_cells_x, n_cells_y, bulk_type, implant_type, _skip_event_loop,
+                                 _set_avalanche_flag, _doping_peakheight, _doping_peakpos, _doping_gauss_sigma, _max_multiplication_factor,   // new parameters for avalanche regions
+                                 waveLength, scanType, C, dt, max_time, vInit, deltaV, vMax, vDepletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, neff_param, neffType,
+                                 tolerance, chiFinal, diffusion, fitNorm, _simulation_polarity_inverse_flag);
+    
+    // Pack into a structure .  In future, it can be a Structure or Class.
+    _doping_param[0][0] = _doping_peakheight[0];
+    _doping_param[0][1] = _doping_peakpos[0];
+    _doping_param[0][2] = _doping_gauss_sigma[0];
 
-	utilities::parse_config_file(filename, depth, width,  pitch, nns, temp, trapping, fluence, nThreads, n_cells_x, n_cells_y, bulk_type,
-			implant_type, waveLength, scanType, C, dt, max_time, vInit, deltaV, vMax, vDepletion, zInit, zMax, deltaZ, yInit, yMax, deltaY, neff_param, neffType,
-			tolerance, chiFinal, diffusion, fitNorm/*, gen_time*/);
+    _doping_param[1][0] = _doping_peakheight[1];
+    _doping_param[1][1] = _doping_peakpos[1];
+    _doping_param[1][2] = _doping_gauss_sigma[1];
 
+    
 	if (fluence == 0) // if no fluence -> no trapping
 	{
 		//Trapping configuration
@@ -77,9 +87,10 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	parameters["allow_extrapolation"] = true;
 
 	std::unique_lock<std::mutex> guard(mtx2);
-	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
+	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, _set_avalanche_flag, _doping_param,
+                               n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);    
 	guard.unlock();
-
+	
 	carrierCollection = new CarrierCollection(detector);
 	carrierCollection->add_carriers_from_file(carrierFile, scanType, depth);
 
@@ -87,6 +98,10 @@ TRACSInterface::TRACSInterface(std::string filename, const std::string& carrFile
 	//currents vectors used to store temporal and final values.
 	i_elec.resize((size_t) n_tSteps);
 	i_hole.resize ((size_t) n_tSteps);
+
+	i_gen_elec.resize((size_t) n_tSteps);
+	i_gen_hole.resize ((size_t) n_tSteps);
+    
 	i_total.resize((size_t) n_tSteps);
 	i_shaped.resize((size_t) n_tSteps);
 	i_temp.resize((size_t) n_tSteps);
@@ -193,6 +208,29 @@ void TRACSInterface::GetItRc()
 }
 
 /*
+ * Convert i_total to TH1D after simulating simple RC circuit. ROOT based method.
+ * Not only for specific current, i_total, but for general usage.
+ */
+void TRACSInterface::GetItRc(std::valarray<double>& i_out,  const std::valarray<double>& i_in)
+{
+
+	double RC = 50.*C; // Ohms*Farad
+	double alfa = dt/(RC+dt);
+
+    if( i_out.size() != n_tSteps || i_in.size() != n_tSteps )
+    {
+        for(int i=0; i<50; i++){ std::cout << "" << std::endl; }
+    }
+    
+	for (int j = 1; j <n_tSteps; j++)
+	{
+		i_out[j]=i_out[j-1]+alfa*(i_in[j]-i_out[j-1]);
+	}
+	//count2++;
+}
+
+
+/*
  * Convert i_total to TH1D after convolution with the amplifier TransferFunction. ROOT based method.
  */
 TH1D * TRACSInterface::GetItConv()
@@ -229,11 +267,16 @@ void TRACSInterface::simulate_ramo_current()
 	i_hole = 0;
 	i_elec = 0;
 	i_total = 0;
+	i_gen_elec = 0;
+	i_gen_hole = 0;    
 
 	/*Important for Diffusion:
 	yPos is later transformed into X.
 	zPos is later transformed into Y.*/
-	carrierCollection->simulate_drift( dt, max_time, yPos, zPos, i_elec, i_hole, total_crosses, scanType);
+    
+    carrierCollection->simulate_drift( dt, max_time, yPos, zPos, i_elec, i_hole, i_gen_elec, i_gen_hole, _max_multiplication_factor, total_crosses, scanType,
+        _skip_event_loop);
+    
 	i_total = i_elec + i_hole;
 }
 
@@ -453,7 +496,8 @@ void TRACSInterface::set_FitParam(std::vector<double> newFitParam)
 	depth = newFitParam[9];
 	delete detector;
 	std::unique_lock<std::mutex> guard(mtx2);
-	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
+    detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, _set_avalanche_flag, _doping_param,
+                               n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);    
 	guard.unlock();
 	//detector->setFitParameters(newFitParam);
 
@@ -468,10 +512,10 @@ void TRACSInterface::set_Fit_Norm(std::vector<double> vector_fitTri)
 	C = vector_fitTri[3];
 	delete detector;
 	std::unique_lock<std::mutex> guard(mtx2);
-	detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);
+    detector = new SMSDetector(pitch, width, depth, nns, bulk_type, implant_type, _set_avalanche_flag, _doping_param,
+                               n_cells_x, n_cells_y, temp, trapping, fluence, neff_param, neffType, diffusion, dt);    
 	guard.unlock();
 }
-
 
 
 /*
@@ -554,13 +598,41 @@ void TRACSInterface::loop_on(int tid)
 			for (int index_zscan = 0; index_zscan < zVector.size(); index_zscan++){
 
 				//simulate_ramo_current();
-				carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, total_crosses, scanType);
-				i_total = i_elec + i_hole;
+                carrierCollection->simulate_drift( dt, max_time, yInit, zVector[index_zscan], i_elec, i_hole, i_gen_elec, i_gen_hole, _max_multiplication_factor, total_crosses, scanType,
+                                                   _skip_event_loop); 
+                
+				//i_total = i_elec + i_hole;
+                i_total = i_elec + i_hole + i_gen_elec + i_gen_hole;
+
+                if( _after_fitting_process )
+                {
+                    // Reflect the scaling factor from the fitting. 
+                    i_total *= fitNorm;
+                    i_elec *= fitNorm;
+                    i_hole *= fitNorm;
+                    i_gen_elec *= fitNorm;
+                    i_gen_hole *= fitNorm;
+                    
+                    // Temporally, reflect the polarity setting for the simulation.
+                    if( _simulation_polarity_inverse_flag == "yes" )
+                    {
+                        i_total *= -1.0;
+                        i_elec *= -1.0;
+                        i_hole *= -1.0;
+                        i_gen_elec *= -1.0;
+                        i_gen_hole *= -1.0;                    
+                    }
+                }
+                
 				GetItRc();
 				vSemiItotals[index_total] = i_shaped;
 
+                // Save current distribution 
+                currents_hist_to_file(tid, index_volt, index_zscan);
+                
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
+                i_gen_elec = 0; i_gen_hole = 0;
 			}
 
 			if (tid == 0) fields_hist_to_file(tid, index_volt);
@@ -584,17 +656,44 @@ void TRACSInterface::loop_on(int tid)
 
 			for (int index_yscan = 0; index_yscan < yVector.size(); index_yscan++){
 
-				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, total_crosses, scanType);
-				i_total = i_elec + i_hole;
+				carrierCollection->simulate_drift( dt, max_time, yVector[index_yscan], zInit, i_elec, i_hole, i_gen_elec, i_gen_hole, _max_multiplication_factor, total_crosses, scanType,
+                    _skip_event_loop);
+                
+				//i_total = i_elec + i_hole;
+                i_total = i_elec + i_hole + i_gen_elec + i_gen_hole;
+
+                if( _after_fitting_process )
+                {
+                    // Reflect the scaling factor from the fitting. Default value of "fitNorm" is 1.
+                    i_total *= fitNorm;
+                    i_elec *= fitNorm;
+                    i_hole *= fitNorm;
+                    i_gen_elec *= fitNorm;
+                    i_gen_hole *= fitNorm;
+                    
+                    // Temporally, reflect the polarity setting for the simulation.
+                    if( _simulation_polarity_inverse_flag == "yes" )
+                    {
+                        i_total *= -1.0;
+                        i_elec *= -1.0;
+                        i_hole *= -1.0;
+                        i_gen_elec *= -1.0;
+                        i_gen_hole *= -1.0;                    
+                    }
+                }
+                
 				GetItRc();
 				vSemiItotals[index_total] = i_shaped;
 
+                // Save current distribution 
+                currents_hist_to_file(tid, index_volt, index_yscan);
+                                
 				index_total++;
 				i_total = 0 ; i_elec = 0; i_hole = 0; i_shaped = 0; i_temp = 0;
-
+                i_gen_elec = 0; i_gen_hole = 0;
 			}
 
-			if (tid == 0) fields_hist_to_file(tid, index_volt);
+			if (tid == 0)fields_hist_to_file(tid, index_volt);
 		}
 
 	}
@@ -686,6 +785,63 @@ void TRACSInterface::write_to_file(int tid)
 
 }
 
+void TRACSInterface::currents_hist_to_file(int tid, int vPos, int nscan)
+{
+    TString file_name;
+    if( ! _after_fitting_process )
+    {
+        file_name.Form("current%dV_scan%d.root", (int)( voltVector[vPos] ) , nscan);
+    }
+    else
+    {
+        file_name.Form("current%dV_scan%d_wFit.root", (int)( voltVector[vPos] ) , nscan);
+    }
+    TFile *fout = new TFile(file_name, "RECREATE");
+    
+    TH1D *h_i_total = new TH1D("i_total", "total current", n_tSteps, 0.0, max_time);
+    TH1D *h_i_init_elec = new TH1D("i_init_elec", "current induced by initial electron", n_tSteps, 0.0, max_time);
+    TH1D *h_i_init_hole = new TH1D("i_init_hole", "current induced by initial hole", n_tSteps, 0.0, max_time);
+    TH1D *h_i_gen_elec = new TH1D("i_gen_elec", "current induced by secondary electron", n_tSteps, 0.0, max_time);
+    TH1D *h_i_gen_hole = new TH1D("i_gen_hole", "current induced by secondary hole", n_tSteps, 0.0, max_time);     
+    
+    std::valarray<double> i_total_shaped;
+    std::valarray<double> i_init_elec_shaped;
+    std::valarray<double> i_init_hole_shaped;
+    std::valarray<double> i_gen_elec_shaped;
+    std::valarray<double> i_gen_hole_shaped;                    
+    
+    i_total_shaped.resize( static_cast<size_t>(n_tSteps) );
+    i_init_elec_shaped.resize( static_cast<size_t>(n_tSteps) );
+    i_init_hole_shaped.resize( static_cast<size_t>(n_tSteps) );
+    i_gen_elec_shaped.resize( static_cast<size_t>(n_tSteps) );
+    i_gen_hole_shaped.resize( static_cast<size_t>(n_tSteps) );                    
+
+    // Using defalt RC shaping. May need to consider in future, which signal transformation is suitable.
+    GetItRc( i_total_shaped, i_total );
+    GetItRc( i_init_elec_shaped, i_elec );
+    GetItRc( i_init_hole_shaped, i_hole );
+    GetItRc( i_gen_elec_shaped, i_gen_elec );
+    GetItRc( i_gen_hole_shaped, i_gen_hole );                                                            
+    
+    for( int bin_index=0; bin_index < n_tSteps ;  bin_index++)
+    {
+        h_i_total->SetBinContent( bin_index+1, i_total_shaped[bin_index] );
+        h_i_init_elec->SetBinContent( bin_index+1, i_init_elec_shaped[bin_index] );
+        h_i_init_hole->SetBinContent( bin_index+1, i_init_hole_shaped[bin_index] );
+        h_i_gen_elec->SetBinContent( bin_index+1, i_gen_elec_shaped[bin_index] );
+        h_i_gen_hole->SetBinContent( bin_index+1, i_gen_hole_shaped[bin_index] );                                                 
+    }
+    
+    h_i_total->Write();
+    h_i_init_elec->Write();
+    h_i_init_hole->Write();
+    h_i_gen_elec->Write();
+    h_i_gen_hole->Write();
+    
+    fout->Close();                     
+}
+
+
 void TRACSInterface::fields_hist_to_file(int tid, int vPos)
 {
 
@@ -706,9 +862,14 @@ void TRACSInterface::fields_hist_to_file(int tid, int vPos)
 	TH2D h_w_f_grad = utilities::export_mod_to_histogram( *detector->get_w_f_grad(), "h_w_f_grad", wfm /*"Weighting field"*/, detector->get_n_cells_x(), detector->get_x_min(), detector->get_x_max(), detector->get_n_cells_y(), detector->get_y_min(), detector->get_y_max());
 	TH2D h_d_f_grad = utilities::export_mod_to_histogram( *detector->get_d_f_grad(), "h_d_f_grad", efm /*"Electric field"*/, detector->get_n_cells_x(), detector->get_x_min(), detector->get_x_max(), detector->get_n_cells_y(), detector->get_y_min(), detector->get_y_max());
 
+    TH1D h_d_f_grad_y = utilities::export_1D_histogram( *detector->get_d_f_grad(), "h_d_f_grad_Y", efm /*"Electric field"*/, detector->get_n_cells_x(), detector->get_x_min(), detector->get_x_max(), detector->get_n_cells_y(), detector->get_y_min(), detector->get_y_max() );
+    
 	h_w_u.Write();
 	h_w_f_grad.Write();
 	h_d_f_grad.Write();
+
+    h_d_f_grad_y.Write();
+    
 	fout->Close();
 }
 
@@ -734,7 +895,8 @@ void TRACSInterface::GetTree( TTree *tree ) {
 	em->Qt = new Double_t [n_tSteps] ;
 
 	// Create branches
-	tree->Branch("raw", &em,32000,0);
+	//tree->Branch("raw", &em,32000,0);  // original
+    tree->Branch("raw", &em,5000000,0);   // modified
 
 	//Read RAW file
 	DumpToTree( em , tree ) ;
@@ -851,9 +1013,8 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		em->At = dt*1.e9 ; emh->At = em->At ;
 		std::valarray<double> I_tot = vItotals[iloop];//vectorObjetosSimuladosAlmacenadosCorrelativamente.Get_Itot[iloop] ;
 		for ( int i=0 ; i< em->Nt ; i++) {
-			em->volt[i] = I_tot[i] ;
+			 em->volt[i] = I_tot[i] ; 
 			em->time[i] = i*em->At ;
-
 		}
 
 		//Estimate polarity
@@ -865,9 +1026,8 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		//Now postprocess this entry (find out baseline, rtime and so on
 		TWaveform wvi = TWaveform( em ) ;
 
-		if (iRead==0) tree->Branch("proc" , &wvi , 32000 , 0 );
-
-
+	    if (iRead==0) tree->Branch("proc" , &wvi , 32000 , 0 );   
+        
 		tree->Fill() ;
 		iRead++   ;
 
@@ -875,7 +1035,7 @@ void TRACSInterface::DumpToTree( TMeas *em , TTree *tree ) {
 		iactual++ ;
 
 	}
-
+            
 	emh->Polarity = (Polarity>1) ? 1 : -1 ;
 	tree->GetUserInfo()->Add( emh ) ;
 	em->Ntevent=iRead ; //It does not go into the tree, only in the class!

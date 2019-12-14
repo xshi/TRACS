@@ -18,6 +18,9 @@
 #include <cmath> 
 #include <limits>  // std::numeric_limits
 
+#include <array>
+#include <string>
+
 #include <dolfin.h>
 
 #include "Poisson.h"
@@ -43,6 +46,10 @@ private:
 	std::string _neff_type;
 	std::vector<double> _neff_param; // Neff parametrization
 
+    // For avalanche region
+    std::string _avalanche_flag;
+    std::array<std::array<double, 3>, 2> _doping_param;
+    
 	// some useful derived variables
 	double _x_min; // in microns
 	double _x_max; // in microns
@@ -101,7 +108,9 @@ private:
 
 public:
 	// default constructor and destructor
-	SMSDetector(double pitch, double width, double depth, int nns, char bulk_type, char implant_type, int n_cells_x = 100, int n_cells_y = 100, double tempK = 253., double trapping = 9e300,
+	SMSDetector(double pitch, double width, double depth, int nns, char bulk_type, char implant_type,
+                std::string avalanche_flag, std::array<std::array<double, 3>, 2> doping_param,
+                int n_cells_x = 100, int n_cells_y = 100, double tempK = 253., double trapping = 9e300,
 			double fluence = 0.0, std::vector<double> neff_param = {0}, std::string neff_type = "Trilinear", int diffusion = 0, double dt = 300);
 	~SMSDetector();
 	// set methods

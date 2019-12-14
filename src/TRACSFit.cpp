@@ -85,28 +85,28 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	//Good except tmeas->GetEntry( iev );
 	//Normalization constant
 	//fitNorm = TRACSsim[0]->get_fitNorm();
-
+    
 	TFile *fmeas = new TFile( FileMeas.Data() );
 	tmeas = (TTree*) fmeas->Get("edge");
-
+    
 	em   = 0 ;
 	TBranch *raw  = tmeas->GetBranch("raw") ;
 	raw->SetAddress(&em) ;
 
 	raw->GetEntry(0) ;
-
+    
 	wv = new TWaveform( em ) ;
 	TBranch *proc = tmeas->GetBranch("proc") ;
 	proc->SetAddress(&wv) ;
 	emh = (TMeasHeader *) tmeas->GetUserInfo()->At(0) ;
 	tmeas->GetEntry(0) ;  //Commented 19Sept2012
 
-
 	//MEASUREMENT: Subset of entries fulfilling "how" condition
 	tmeas->Draw( ">>myListMeas" , (char*) how.Data() , "entrylistarray" ) ;
+//	tmeas->Draw( ">>myListMeas" , "event==120" , "entrylistarray" ) ;    
 	listm=(TEntryListArray*)gDirectory->Get("myListMeas") ;
-	tmeas->SetEntryList( listm ) ; //Use tree->SetEventList(0) to switch off
-
+	tmeas->SetEntryList( listm ) ; //Use tree->SetEventList(0) to switch off 
+    
 	//MEASUREMENT: Time vector
 	Nevm = listm->GetN() ;
 	if ( Nevm == 0 ) {
@@ -114,9 +114,10 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 		std::cout<<"Exiting!"<< std::endl ;
 		exit(-1);
 	}
-	Int_t iev = listm->GetEntry(0) ;
+	Int_t iev = listm->GetEntry(0) ; 
 	tmeas->GetEntry( iev );
 	ntm = wv->GetNbins() ;
+    std::cout << "ntm = " << ntm << std::endl;
 	std::vector<Double_t> timem(ntm);
 
 	//Dump time information into timem
@@ -124,18 +125,16 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 
 	//delete em;
 
-
-
 	/*-------------  S I M U L A T I O N    TREE --------------------------*/
 	//Create objects TWaveform and TMeas for SIMULATION
 	//Convert simulation data into a TTree
 	tsim = new TTree("edge","TRACS simulation");
 	TRACSsim[0]->GetTree( tsim );
-
+    
 	ems = 0 ;
 	TBranch *raws  = tsim->GetBranch("raw") ;
 	raws->SetAddress(&ems) ;
-	raws->GetEntry(0) ;
+	raws->GetEntry(0) ;    
 	wvs = new TWaveform( ems ) ;
 	TBranch *procs  = tsim->GetBranch("proc") ;
 	procs->SetAddress(&wvs) ;
@@ -143,15 +142,17 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 
 	//SIMULATION: Subset of entries fulfilling "how" condition
 	//tsim->Draw("volt-BlineMean:time","event==0","l"); gPad->Modified();gPad->Update();
-	tsim->Draw( ">>myListSim" ,  (char*) how.Data() , "entrylistarray" ) ;
+	//tsim->Draw( ">>myListSim" ,  (char*) how.Data() , "entrylistarray" ) ;   // original line
+	tsim->Draw( ">>myListSim" ,  "event==0" , "entrylistarray" ) ;   //    temporally set the condition term. Since the simulation has one scan now. 2019/11    
 	//tsim->Draw( ">>myListSim" ,  (char*) how.Data()  ) ;
 	lists=(TEntryListArray*) gDirectory->Get("myListSim") ;
-	tsim->SetEntryList( lists ) ; //Use tree->SetEventList(0) to switch off
-
+	tsim->SetEntryList( lists ) ; //Use tree->SetEventList(0) to switch off 
+    
 	//SIMULATION: Get time vector
 	iev = lists->GetEntry(0) ;
 	tsim->GetEntry( iev );
 	nts = wvs->GetNbins() ;
+    std::cout << "nts = " << nts << std::endl;
 	vector<Double_t> tims(nts);
 	Nevs  = lists->GetN() ;
 
@@ -159,7 +160,7 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	for ( Int_t ii = 0 ; ii< nts ; ii++ ) tims[ii] = ems->time[ii] ;
 
 	/*-------------  F I N D   C O M M O N   T I M E   R A N G E  --------------------------*/
-
+    std::cout << "Nevs = " << Nevs << ", Nevm = " << Nevm << std::endl;
 	if (Nevs != Nevm ) {
 		std::cout << "We need both the simulation and the measurement to be in the same (X,Y,Z;V) ranges" << std::endl ;
 	}
@@ -187,7 +188,7 @@ TRACSFit::TRACSFit( TString FileMeas , TString FileConf ,  TString howstr ) {
 	imins = TMath::Nint( (tmin-tims[0])/Ats ) , imaxs =TMath::Nint( (tmax-tims[0])/Ats );
 	iminm = TMath::Nint( (tmin-timem[0])/Atm ) , imaxm =TMath::Nint( (tmax-timem[0])/Atm );
 
-    iminm=imins=200 ; imaxm=imaxs=440;
+    // iminm=imins=200 ; imaxm=imaxs=440;  // original. Do we need this ?? turn off for the moment. 2019/11
 
 }
 //---------------------------------------------------------------------------
@@ -215,6 +216,8 @@ Double_t TRACSFit::LeastSquares( ) {
      (number of points in the waveform).
 	 */
 
+    static int loop_count=0;
+    
 	tsim = new TTree("edge","TRACS simulation");
 	TRACSsim[0]->GetTree( tsim );
 	ems = 0 ;
@@ -234,7 +237,9 @@ Double_t TRACSFit::LeastSquares( ) {
 	volts.resize(nts);
 	timem.resize(ntm);
 	voltm.resize(ntm);
-	Double_t chi2 = 0.;
+//	Double_t chi2 = 0.;
+	Double_t chi2 = 10000000.0;    
+    int shift_final=0;
 	//Int_t Nt_iterm = imaxm - iminm + 1 ;
 	for ( Int_t ii=0 ; ii < Nevm ; ii++ ) {
 
@@ -242,38 +247,161 @@ Double_t TRACSFit::LeastSquares( ) {
 		Int_t iev = lists->GetEntry(ii) ;
 		tsim->GetEntry( iev );
 
-		for ( Int_t iv = 0 ; iv< nts ; iv++ ) {
-			volts[iv] = ems->volt[iv] ;
-			tims[iv]  = ems->time[iv] ;
-		}
+        for( int shift=0; shift< nts/10; shift++) // shift the time bin up-to 10 %
+        {
+            std::vector<Double_t>  timem, voltm , tims, volts ;
 
-		//Prepare interpolator for simulation data in case it has not been simulated in the right time grid
-		ROOT::Math::Interpolator itp1( tims , volts , ROOT::Math::Interpolation::kLINEAR);
-		itp1.SetData(tims , volts);
+            tims.resize(nts+shift);
+            volts.resize(nts+shift);
+            timem.resize(ntm);
+            voltm.resize(ntm);       
+            
+            for ( Int_t iv = 0 ; iv< shift ; iv++ ) {                
+                volts[iv] = 0.0 ;
+                tims[iv]  = ems->time[iv] ;                
+            }
+            for ( Int_t iv = shift ; iv< nts ; iv++ ) {                
+                volts[iv] = ems->volt[iv-shift] ;
+                tims[iv]  = ems->time[iv] ;                
+            }
+            double timestep = tims[1] - tims[0];
+            for( Int_t iv = nts ; iv< nts+shift ; iv++ ) {
+                volts[iv] = ems->volt[iv-shift] ;
+                tims[iv]  = ems->time[nts-1] +  timestep * ( iv - nts + 1 );                
+            }
+            
+            /*  //  original
+              for ( Int_t iv = 0 ; iv< nts ; iv++ ) { 
+              volts[iv] = ems->volt[iv] ;
+              tims[iv]  = ems->time[iv] ;  
+              }
+            */        
+            
+            //Prepare interpolator for simulation data in case it has not been simulated in the right time grid
+            ROOT::Math::Interpolator itp1( tims , volts , ROOT::Math::Interpolation::kLINEAR);
+            itp1.SetData(tims , volts);
 
-		//Retrieve measured waveform fulfilling condition "how"
-		iev = listm->GetEntry(ii) ;
-		tmeas->GetEntry( iev );
-		fitNorm = TRACSsim[0]->get_fitNorm();
-		for ( Int_t iv = 0 ; iv< ntm ; iv++ ) {
-			voltm[iv] = em->volt[iv] - wv->BlineGetMean();
-			//voltm[iv] = -1 *voltm[iv]; //Change sign of Meas *******
-			timem[iv] = em->time[iv] ;
-		}
-		double simulation; //, norm=TRACSsim[0]->get_fitNorm();
-		for ( Int_t iv = iminm ; iv< imaxm ; iv++ ) {
-			simulation = itp1.Eval(timem[iv]) ;
+            //Retrieve measured waveform fulfilling condition "how"
+            iev = listm->GetEntry(ii) ;       //  ORIGINAL !!!!
+            tmeas->GetEntry( iev );
+            fitNorm = TRACSsim[0]->get_fitNorm();
+            for ( Int_t iv = 0 ; iv< ntm ; iv++ ) {
+                voltm[iv] = em->volt[iv] - wv->BlineGetMean();
+                //voltm[iv] = -1 *voltm[iv]; //Change sign of Meas *******
+                timem[iv] = em->time[iv] ;
+            }
+            double simulation; //, norm=TRACSsim[0]->get_fitNorm();
+            double chi2_pre=0.0;
+            for ( Int_t iv = iminm ; iv< imaxm ; iv++ ) {
+                simulation = itp1.Eval(timem[iv]) ;
+                
+                if (simulation != 0) //For not to fit the 0's part!.********
+                  {
+                      //std::cout << "voltm[" << iv << "] = " << voltm[iv] << " , fitNorm = " << fitNorm << " , simulation = " << simulation << std::endl;  // test output 
+                      //chi2+=( voltm[iv]-fitNorm*simulation )*(voltm[iv]-fitNorm*simulation) ;            // original 
+                      chi2_pre+=( voltm[iv]-simulation )*(voltm[iv]-simulation) ;                                   // Since simulation result is already multiplied with this fitNorm (in TRACSInterface),  modified this line.
+                  }
+            }
 
-			if (simulation != 0) //For not to fit the 0's part!.********
-				//std::cout << "Scan="<<ii<<" Iteration= "<<iv<<" m=" << voltm[iv] << " s=" << simulation << " X2=" << chi2 << std::endl;
-				chi2+=( voltm[iv]-fitNorm*simulation )*(voltm[iv]-fitNorm*simulation) ;
-		}
+            if( chi2_pre < chi2 )
+            {
+                chi2 = chi2_pre;
+                shift_final = shift;
+            }
+            
+        }  // end of for( int shift=0; ... )
 
-
-	}
+	} // end of for ( Int_t ii=0 ; ii < Nevm ...)
 
 	chi2 = chi2/(TRACSsim[0]->GetchiFinal()*TRACSsim[0]->GetchiFinal());
 
+
+    //###############################################################//
+    // Printout the comparison of data/simulation
+	for ( Int_t ii=0 ; ii < Nevm ; ii++ ) {   //  Assuming that Nevm==1 
+
+		//Retrieve simulated waveform fulfilling condition "how"
+		Int_t iev = lists->GetEntry(ii) ;
+		tsim->GetEntry( iev );
+
+        std::vector<Double_t>  timem, voltm , tims, volts ;
+        tims.resize(nts+shift_final);
+        volts.resize(nts+shift_final);
+        timem.resize(ntm);
+        voltm.resize(ntm);       
+
+        double timestep_sim = ems->time[1] - ems->time[0];
+                
+        for ( Int_t iv = 0 ; iv< shift_final ; iv++ ) {                
+            volts[iv] = 0.0 ;
+            tims[iv]  = ems->time[iv] ;                
+        }
+        for ( Int_t iv = shift_final ; iv< nts ; iv++ ) {                
+            volts[iv] = ems->volt[iv-shift_final] ;
+            tims[iv]  = ems->time[iv] ;                
+        }
+        for( Int_t iv = nts ; iv< nts+shift_final ; iv++ ) {
+            volts[iv] = ems->volt[iv-shift_final] ;
+            tims[iv]  = ems->time[nts-1] +  timestep_sim * ( iv - nts + 1 );                
+        }
+        
+
+        //Prepare interpolator for simulation data in case it has not been simulated in the right time grid
+        ROOT::Math::Interpolator itp1( tims , volts , ROOT::Math::Interpolation::kLINEAR);
+        itp1.SetData(tims , volts);
+        
+        //Retrieve measured waveform fulfilling condition "how"
+        iev = listm->GetEntry(ii) ;       //  ORIGINAL !!!!
+        tmeas->GetEntry( iev );
+
+        // Store distributions to ROOT file  
+        TString file_name;
+        file_name.Form("./out/fit_current_%d.root", loop_count);
+        TFile *fout = new TFile(file_name, "RECREATE");
+        
+        TH1D *h_i_total_meas = new TH1D("i_total_meas", "total current (measurement)", 3*(ntm-1), em->time[0], em->time[ntm-1]);
+        TH1D *h_i_total_sim_spline = new TH1D("i_total_sim_spline", "total current (simulation with interpolation)", 3*(ntm-1), em->time[0], em->time[ntm-1]);        
+        TH1D *h_i_total_sim = new TH1D("i_total_sim", "total current (simulation)", 3*(nts+shift_final-1), tims[0], tims[nts+shift_final-1]);
+        TH1D *h_i_total_sim_woshift = new TH1D("i_total_sim_woshift", "total current (simulation wo timing shift)", 3*(nts-1), ems->time[0], ems->time[nts-1]);        
+
+        // Fill simulation histogram 
+        for ( Int_t iv = 0 ; iv< nts+shift_final ; iv++ )
+        {
+            h_i_total_sim->Fill( tims[iv], volts[iv] );
+            if( iv < nts ){ h_i_total_sim_woshift->Fill( ems->time[iv], ems->volt[iv] ); }
+        }
+    
+        fitNorm = TRACSsim[0]->get_fitNorm();
+        for ( Int_t iv = 0 ; iv< ntm ; iv++ ) {
+            voltm[iv] = em->volt[iv] - wv->BlineGetMean();
+            timem[iv] = em->time[iv] ;
+        }
+        double simulation; //, norm=TRACSsim[0]->get_fitNorm();
+        for ( Int_t iv = iminm ; iv< imaxm ; iv++ ) {
+            simulation = itp1.Eval(timem[iv]) ;
+            
+            if (simulation != 0) //For not to fit the 0's part!.********
+            {
+                //std::cout << "voltm[" << iv << "] = " << voltm[iv] << " , fitNorm = " << fitNorm << " , simulation = " << simulation << std::endl;  // test by R.K.
+            }
+
+            // Fill measurement histogram ( + spline interpolated simulation hist )            
+            h_i_total_meas->Fill( timem[iv], voltm[iv] );
+            h_i_total_sim_spline->Fill( timem[iv], simulation );                              
+        }
+
+        // Write & Close the file 
+        h_i_total_meas->Write();
+        h_i_total_sim_spline->Write();
+        h_i_total_sim->Write();
+        h_i_total_sim_woshift->Write();        
+
+        fout->Close();            
+	} // end of for ( Int_t ii=0 ; ii < Nevm ...)
+
+    loop_count++;
+    //###############################################################//
+    
 	//thechi2??
 	delete wvit ;
 	return chi2 ;
